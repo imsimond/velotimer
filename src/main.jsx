@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import { createRoot } from "react-dom/client";
 import {
   ArrowLeft,
   ArrowRight,
   ClipboardList,
   ClipboardPen,
+  Copy,
   RotateCcw,
   Settings2,
   Square,
@@ -29,6 +31,8 @@ import {
 } from "@mantine/core";
 import "@mantine/core/styles.css";
 import {
+  getTimerTime,
+  getTimingDiagnostics,
   scheduleCountdown,
   setAudioVolume,
   stopScheduledAudio,
@@ -769,6 +773,98 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
   );
 }
 
+function TimingDiagnostics({ frameMetrics, fontReady, settings }) {
+  const [open, setOpen] = useState(false);
+  const [snapshot, setSnapshot] = useState(null);
+  const [copyStatus, setCopyStatus] = useState("");
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const sample = () =>
+      setSnapshot({
+        ...getTimingDiagnostics(),
+        ...frameMetrics.current,
+        visibility: document.visibilityState,
+      });
+    sample();
+    const interval = setInterval(sample, 500);
+    return () => clearInterval(interval);
+  }, [open, frameMetrics]);
+
+  const milliseconds = (value) =>
+    Number.isFinite(value) ? `${value.toFixed(1)} ms` : "Not sampled";
+  const rows = snapshot
+    ? [
+        ["Audio", snapshot.audioState],
+        ["Clock", snapshot.clockSource],
+        ["Startup wait", milliseconds(snapshot.startupDurationMs)],
+        ["Output latency", milliseconds(snapshot.outputLatencyMs)],
+        ["Timestamp age", milliseconds(snapshot.timestampAgeMs)],
+        ["Clock correction", milliseconds(snapshot.clockOffsetMs)],
+        ["Last digit lateness", milliseconds(snapshot.lastBoundaryLateMs)],
+        ["Worst digit lateness", milliseconds(snapshot.maxBoundaryLateMs)],
+        ["Longest frame gap", milliseconds(snapshot.maxFrameGapMs)],
+        ["Worst React commit", milliseconds(snapshot.maxCommitMs)],
+        ["Page", snapshot.visibility],
+        ["Digit font", fontReady ? "Ready" : "Loading"],
+      ]
+    : [];
+
+  const copyDiagnostics = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const report = {
+      version: "audio-clock-v1",
+      capturedAt: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      visibility: document.visibilityState,
+      fontReady,
+      settings,
+      ...getTimingDiagnostics(),
+      ...frameMetrics.current,
+    };
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(report, null, 2));
+      setCopyStatus("Copied");
+    } catch {
+      setCopyStatus("Copy unavailable; take a screenshot instead.");
+    }
+  };
+
+  return (
+    <details
+      className="timing-diagnostics"
+      onToggle={(event) => setOpen(event.currentTarget.open)}
+    >
+      <summary>
+        Timing diagnostics
+        <button
+          type="button"
+          aria-label="Copy timing diagnostics"
+          title="Copy timing diagnostics"
+          onClick={copyDiagnostics}
+        >
+          <Copy size={16} aria-hidden="true" />
+        </button>
+      </summary>
+      {open && (
+        <div className="timing-diagnostics-panel">
+          <dl>
+            {rows.map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
+          {snapshot?.startupError && <p>{snapshot.startupError}</p>}
+          {copyStatus && <p role="status">{copyStatus}</p>}
+        </div>
+      )}
+    </details>
+  );
+}
+
 function TimerApp() {
   const [timer, setTimer] = useState(() => createTimer(loadSettings()));
   const [now, setNow] = useState(() => performance.now());
@@ -786,6 +882,7 @@ function TimerApp() {
   const [notice, setNotice] = useState("");
   const [starting, setStarting] = useState(false);
   const startPending = useRef(false);
+  const frameMetrics = useRef({});
   const lapScrollRef = useRef(null);
   const isRunning = timer.phase === "countdown" || timer.phase === "stopwatch";
   useScreenWakeLock(isRunning);
@@ -832,15 +929,59 @@ function TimerApp() {
     }
 
     let frame = 0;
+    let active = true;
+    let previousDisplay = "";
+    let previousFrameAt = null;
+    let nextBoundary = null;
     const tick = () => {
-      const sampledAt = performance.now();
-      setNow(sampledAt);
-      setTimer((current) => advanceTimer(current, sampledAt));
-      frame = requestAnimationFrame(tick);
+      if (!active) return;
+      const frameAt = performance.now();
+      const sampledAt = getTimerTime(frameAt);
+      if (previousFrameAt !== null) {
+        frameMetrics.current.maxFrameGapMs = Math.max(
+          frameMetrics.current.maxFrameGapMs ?? 0,
+          frameAt - previousFrameAt,
+        );
+      }
+      previousFrameAt = frameAt;
+      const currentDisplay = getDisplay(timer, sampledAt);
+      const displayKey = `${currentDisplay.phase}:${currentDisplay.minutes}:${currentDisplay.seconds}:${currentDisplay.tenths}`;
+      if (displayKey !== previousDisplay) {
+        previousDisplay = displayKey;
+        const commitStartedAt = performance.now();
+        flushSync(() => {
+          setNow(sampledAt);
+          setTimer((current) => advanceTimer(current, sampledAt));
+        });
+        const commitMs = performance.now() - commitStartedAt;
+        frameMetrics.current.maxCommitMs = Math.max(
+          frameMetrics.current.maxCommitMs ?? 0,
+          commitMs,
+        );
+        if (nextBoundary !== null) {
+          const lateMs = Math.max(0, sampledAt - nextBoundary) + commitMs;
+          frameMetrics.current.lastBoundaryLateMs = lateMs;
+          frameMetrics.current.maxBoundaryLateMs = Math.max(
+            frameMetrics.current.maxBoundaryLateMs ?? 0,
+            lateMs,
+          );
+        }
+        nextBoundary =
+          currentDisplay.phase === "countdown"
+            ? timer.countdownDeadline -
+              (Number(currentDisplay.seconds) - 1) * 1000
+            : timer.countdownDeadline +
+              (Math.floor((sampledAt - timer.countdownDeadline) / 100) + 1) *
+                100;
+      }
+      if (active) frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [isRunning]);
+    return () => {
+      active = false;
+      cancelAnimationFrame(frame);
+    };
+  }, [isRunning, timer]);
 
   useEffect(() => {
     const container = lapScrollRef.current;
@@ -865,16 +1006,20 @@ function TimerApp() {
     startPending.current = true;
     setStarting(true);
     setNotice("");
-    let startsAt = performance.now();
+    frameMetrics.current = {};
     try {
-      startsAt = await scheduleCountdown(timer.settings);
+      const startsAt = await scheduleCountdown(timer.settings);
+      setNow(getTimerTime());
+      setTimer((current) => startCountdown(current, startsAt));
     } catch {
-      setNotice("Sound could not start. The timer will run silently.");
-      startsAt = performance.now();
+      stopScheduledAudio();
+      setNotice(
+        "Sound is not ready. Check audio output and press Start again.",
+      );
+    } finally {
+      startPending.current = false;
+      setStarting(false);
     }
-    setTimer((current) => startCountdown(current, startsAt));
-    startPending.current = false;
-    setStarting(false);
   };
 
   const reset = () => {
@@ -940,13 +1085,13 @@ function TimerApp() {
   };
 
   const lap = () => {
-    const sampledAt = performance.now();
+    const sampledAt = getTimerTime();
     setNow(sampledAt);
     setTimer((current) => recordLap(current, sampledAt));
   };
 
   const stop = () => {
-    const sampledAt = performance.now();
+    const sampledAt = getTimerTime();
     setNow(sampledAt);
     stopScheduledAudio();
     setTimer((current) => stopTimer(current, sampledAt));
@@ -977,7 +1122,7 @@ function TimerApp() {
             title="Settings"
             className="settings-trigger"
             color="white"
-            disabled={timer.phase !== "ready"}
+            disabled={timer.phase !== "ready" || starting}
             onClick={() => setSettingsOpen(true)}
             size={42}
             variant="subtle"
@@ -1007,11 +1152,17 @@ function TimerApp() {
       />
 
       <footer className={`action-dock phase-${timer.phase}`}>
+        <TimingDiagnostics
+          frameMetrics={frameMetrics}
+          fontReady={displayFontReady}
+          settings={timer.settings}
+        />
         {timer.phase === "ready" && (
           <Button
             type="button"
             className="action-button action-primary"
-            disabled={starting}
+            disabled={starting || !displayFontReady}
+            loading={starting}
             fullWidth
             onClick={start}
           >
@@ -1153,6 +1304,7 @@ function TimerApp() {
 }
 
 function registerServiceWorker() {
+  if (process.env.NODE_ENV !== "production") return;
   if (!("serviceWorker" in navigator)) return;
   const serviceWorkerUrl = new URL("sw.js", document.baseURI);
   const scope = new URL(".", document.baseURI).pathname;

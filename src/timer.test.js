@@ -38,6 +38,29 @@ test("countdown display never exceeds its configured start value", () => {
   });
 });
 
+test("each cue boundary changes the digit exactly at the scheduled time", () => {
+  for (const countdownSeconds of [1, 5, 12, 30, 99]) {
+    const startsAt = 750.25;
+    const timer = startCountdown(createTimer({ countdownSeconds }), startsAt);
+    for (const number of [30, 10, 5, 4, 3, 2, 1, 0]) {
+      if (number >= countdownSeconds) continue;
+      const boundary = startsAt + (countdownSeconds - number) * 1000;
+      assert.equal(
+        getDisplay(timer, boundary - 0.01).seconds,
+        String(number + 1).padStart(2, "0"),
+      );
+      assert.equal(
+        getDisplay(timer, boundary).seconds,
+        String(number).padStart(2, "0"),
+      );
+      assert.equal(
+        getDisplay(timer, boundary).phase,
+        number === 0 ? "stopwatch" : "countdown",
+      );
+    }
+  }
+});
+
 test("countdown reset returns to ready and retains settings", () => {
   const configured = updateSettings(createTimer(), {
     countdownSeconds: 37,

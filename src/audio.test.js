@@ -1,24 +1,48 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { scheduleCountdown, stopScheduledAudio } from "./audio.js";
+import {
+  getTimerTime,
+  getTimingDiagnostics,
+  scheduleCountdown,
+  stopScheduledAudio,
+} from "./audio.js";
 
-test("schedules the first beep at the output time for the displayed boundary", async () => {
+test("waits for output readiness, aligns cues, and keeps stopwatch timing monotonic", async () => {
   const originalWindow = globalThis.window;
   const oscillatorStartTimes = [];
   let outputPerformanceTime;
-  let outputContextTime = 9.5;
+  let timestampMode = "warming";
+  const createdAt = performance.now();
+  let timestampCalls = 0;
+  let clockShift = 0;
+  let audioState = "suspended";
+  let resumeBlocked = false;
 
   class FakeAudioContext {
     baseLatency = 0.1;
-    currentTime = 10;
+    get currentTime() {
+      return 10 + (performance.now() - createdAt) / 1000;
+    }
     destination = {};
     outputLatency = 0.4;
-    state = "running";
+    get state() {
+      return audioState;
+    }
+
+    constructor(options) {
+      assert.equal(options.latencyHint, "interactive");
+    }
+
+    async resume() {
+      if (resumeBlocked) return new Promise(() => {});
+      audioState = "running";
+    }
 
     createGain() {
       return {
         connect() {},
+        disconnect() {},
         gain: {
           linearRampToValueAtTime() {},
           setTargetAtTime() {},
@@ -31,6 +55,7 @@ test("schedules the first beep at the output time for the displayed boundary", a
     createBiquadFilter() {
       return {
         connect() {},
+        disconnect() {},
         frequency: { value: 0 },
         Q: { value: 0 },
       };
@@ -39,9 +64,10 @@ test("schedules the first beep at the output time for the displayed boundary", a
     createOscillator() {
       return {
         connect() {},
+        disconnect() {},
         frequency: { setValueAtTime() {} },
         start(when) {
-          oscillatorStartTimes.push(when);
+          if (when !== undefined) oscillatorStartTimes.push(when);
         },
         stop() {},
         type: "square",
@@ -49,9 +75,17 @@ test("schedules the first beep at the output time for the displayed boundary", a
     }
 
     getOutputTimestamp() {
-      outputPerformanceTime = performance.now();
+      timestampCalls += 1;
+      outputPerformanceTime =
+        performance.now() - (timestampMode === "stale" ? 200 : 40);
       return {
-        contextTime: outputContextTime,
+        contextTime:
+          timestampMode === "invalid" ||
+          (timestampMode === "warming" && timestampCalls < 4)
+            ? 0
+            : timestampMode === "frozen"
+              ? 9.5
+              : 9.5 + (outputPerformanceTime - createdAt) / 1000 + clockShift,
         performanceTime: outputPerformanceTime,
       };
     }
@@ -64,22 +98,79 @@ test("schedules the first beep at the output time for the displayed boundary", a
       volume: 60,
       withEcho: false,
     });
-    const expectedOutputTime =
-      9.5 + (timerStartTime - outputPerformanceTime) / 1000;
+    const expectedOutputTime = 9.5 + (timerStartTime - createdAt) / 1000;
 
     assert.ok(Math.abs(oscillatorStartTimes[0] - expectedOutputTime) < 0.001);
-    assert.ok(oscillatorStartTimes[0] >= 10.12);
+    assert.ok(timestampCalls >= 7);
+    assert.ok(timerStartTime > performance.now() + 500);
+    assert.ok(Math.abs(getTimerTime() - performance.now()) < 2);
+    assert.equal(getTimingDiagnostics().clockSource, "Output timestamp");
+    assert.ok(Math.abs(getTimingDiagnostics().outputLatencyMs - 500) < 2);
+    assert.ok(getTimingDiagnostics().startupDurationMs >= 100);
+    assert.equal(oscillatorStartTimes.length, 8);
+    const offsets = [0, 20, 25, 26, 27, 28, 29, 30];
+    for (let index = 1; index < oscillatorStartTimes.length; index += 1) {
+      assert.ok(
+        Math.abs(
+          oscillatorStartTimes[index] -
+            oscillatorStartTimes[0] -
+            offsets[index],
+        ) < 0.001,
+      );
+    }
+
+    clockShift = 0.05;
+    assert.ok(Math.abs(getTimerTime() - performance.now() - 50) < 2);
+    timestampMode = "invalid";
+    assert.ok(Math.abs(getTimerTime() - performance.now() - 50) < 2);
+    timestampMode = "ready";
+    const afterGo = timerStartTime + 30_001;
+    assert.ok(Math.abs(getTimerTime(afterGo) - afterGo - 50) < 2);
+    clockShift = -0.2;
+    assert.ok(Math.abs(getTimerTime(afterGo + 100) - afterGo - 150) < 2);
+    clockShift = 0;
 
     stopScheduledAudio();
     oscillatorStartTimes.length = 0;
-    outputContextTime = 0;
-    await scheduleCountdown({
-      countdownSeconds: 30,
+    for (const mode of ["invalid", "stale", "frozen"]) {
+      timestampMode = mode;
+      await assert.rejects(
+        scheduleCountdown({
+          countdownSeconds: 30,
+          volume: 60,
+          withEcho: false,
+        }),
+        /did not become ready/,
+      );
+    }
+
+    assert.equal(oscillatorStartTimes.length, 0);
+    assert.match(getTimingDiagnostics().startupError, /did not become ready/);
+    const sampledAt = performance.now();
+    assert.equal(getTimerTime(sampledAt), sampledAt);
+
+    audioState = "suspended";
+    resumeBlocked = true;
+    await assert.rejects(
+      scheduleCountdown({ countdownSeconds: 1, volume: 60, withEcho: false }),
+      /could not resume/,
+    );
+    assert.equal(oscillatorStartTimes.length, 0);
+    resumeBlocked = false;
+
+    timestampMode = "ready";
+    FakeAudioContext.prototype.getOutputTimestamp = undefined;
+    const fallbackStart = await scheduleCountdown({
+      countdownSeconds: 1,
       volume: 60,
       withEcho: false,
     });
-
-    assert.ok(Math.abs(oscillatorStartTimes[0] - 10.12) < 0.01);
+    assert.ok(
+      Math.abs(
+        oscillatorStartTimes[0] - (9.5 + (fallbackStart - createdAt) / 1000),
+      ) < 0.001,
+    );
+    assert.equal(getTimingDiagnostics().clockSource, "Latency estimates");
   } finally {
     stopScheduledAudio();
     if (originalWindow === undefined) {

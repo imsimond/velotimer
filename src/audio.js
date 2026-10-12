@@ -1,7 +1,10 @@
 const BASE_FREQUENCY = 488;
 const BASE_DURATION = 0.33;
 const SCHEDULE_LEAD_SECONDS = 0.12;
-const MAX_OUTPUT_TIMESTAMP_AGE_MS = 1000;
+const MAX_OUTPUT_TIMESTAMP_AGE_MS = 100;
+const AUDIO_READY_TIMEOUT_MS = 1000;
+const CLOCK_SAMPLE_INTERVAL_MS = 20;
+const CLOCK_STABILITY_MS = 5;
 const ECHO_REFLECTIONS = [
   { position: 0.25, level: 0.5 },
   { position: 0.5, level: 0.3 },
@@ -15,6 +18,9 @@ let audioContext;
 let masterGain;
 let echoFilter;
 let echoGain;
+let countdownClock;
+let startupDurationMs = null;
+let startupError = null;
 
 function getEvents(countdownSeconds) {
   return [
@@ -51,7 +57,7 @@ async function ensureAudio(settings) {
       throw new Error("Web Audio is unavailable in this browser.");
     }
 
-    audioContext = new AudioContextClass();
+    audioContext = new AudioContextClass({ latencyHint: "interactive" });
     masterGain = audioContext.createGain();
     masterGain.connect(audioContext.destination);
 
@@ -70,7 +76,22 @@ async function ensureAudio(settings) {
     audioContext.currentTime,
     0.015,
   );
-  if (audioContext.state !== "running") await audioContext.resume();
+  if (audioContext.state !== "running") {
+    let timeout;
+    try {
+      await Promise.race([
+        audioContext.resume(),
+        new Promise((_, reject) => {
+          timeout = setTimeout(
+            () => reject(new Error("Audio could not resume.")),
+            AUDIO_READY_TIMEOUT_MS,
+          );
+        }),
+      ]);
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
 }
 
 function makeTone(when, frequency, duration, withEcho) {
@@ -100,9 +121,9 @@ function makeTone(when, frequency, duration, withEcho) {
 }
 
 function getOutputClock() {
+  const now = performance.now();
   try {
     const timestamp = audioContext.getOutputTimestamp?.();
-    const now = performance.now();
     const timestampAge = now - timestamp?.performanceTime;
     if (
       timestamp &&
@@ -114,12 +135,17 @@ function getOutputClock() {
       timestampAge >= 0 &&
       timestampAge <= MAX_OUTPUT_TIMESTAMP_AGE_MS
     ) {
+      const contextTime = timestamp.contextTime + timestampAge / 1000;
       return {
-        contextTime: timestamp.contextTime,
-        performanceTime: timestamp.performanceTime,
-        latency: Math.max(0, audioContext.currentTime - timestamp.contextTime),
+        contextTime,
+        sampledContextTime: timestamp.contextTime,
+        performanceTime: now,
+        latency: Math.max(0, audioContext.currentTime - contextTime),
+        source: "Output timestamp",
+        timestampAgeMs: timestampAge,
       };
     }
+    if (typeof audioContext.getOutputTimestamp === "function") return null;
   } catch {
     // Fall back to the latency estimates when output timestamps are unavailable.
   }
@@ -132,16 +158,68 @@ function getOutputClock() {
     : 0;
   return {
     contextTime: audioContext.currentTime - baseLatency - outputLatency,
-    performanceTime: performance.now(),
+    sampledContextTime: audioContext.currentTime,
+    performanceTime: now,
     latency: baseLatency + outputLatency,
+    source: "Latency estimates",
+    timestampAgeMs: null,
   };
 }
 
-export async function scheduleCountdown(settings) {
-  await ensureAudio(settings);
-  stopScheduledAudio();
+async function waitForOutputClock() {
+  const deadline = performance.now() + AUDIO_READY_TIMEOUT_MS;
+  const oscillator = audioContext.createOscillator();
+  const silence = audioContext.createGain();
+  silence.gain.value = 0;
+  oscillator.connect(silence);
+  silence.connect(audioContext.destination);
+  oscillator.start();
+  let previousClock;
+  let stableSamples = 0;
+  try {
+    while (performance.now() < deadline) {
+      const clock = getOutputClock();
+      if (audioContext.state === "running" && clock && previousClock) {
+        const clockDrift =
+          (clock.contextTime - previousClock.contextTime) * 1000 -
+          (clock.performanceTime - previousClock.performanceTime);
+        stableSamples =
+          clock.sampledContextTime > previousClock.sampledContextTime &&
+          Math.abs(clockDrift) <= CLOCK_STABILITY_MS
+            ? stableSamples + 1
+            : 0;
+        if (stableSamples >= 3) return clock;
+      } else {
+        stableSamples = 0;
+      }
+      previousClock = clock;
+      await new Promise((resolve) =>
+        setTimeout(resolve, CLOCK_SAMPLE_INTERVAL_MS),
+      );
+    }
+    throw new Error("Audio output clock did not become ready.");
+  } finally {
+    oscillator.stop();
+    oscillator.disconnect();
+    silence.disconnect();
+  }
+}
 
-  const outputClock = getOutputClock();
+export async function scheduleCountdown(settings) {
+  const requestedAt = performance.now();
+  startupDurationMs = null;
+  startupError = null;
+  stopScheduledAudio();
+  let outputClock;
+  try {
+    await ensureAudio(settings);
+    outputClock = await waitForOutputClock();
+  } catch (error) {
+    startupDurationMs = performance.now() - requestedAt;
+    startupError = error.message;
+    throw error;
+  }
+  startupDurationMs = performance.now() - requestedAt;
   const events = getEvents(settings.countdownSeconds);
   const firstEventOffset = Math.min(
     ...events.map((event) => settings.countdownSeconds - event.number),
@@ -151,6 +229,7 @@ export async function scheduleCountdown(settings) {
     outputClock.latency - firstEventOffset + SCHEDULE_LEAD_SECONDS,
   );
   const timerStartTime = outputClock.performanceTime + leadSeconds * 1000;
+  const contextStartTime = outputClock.contextTime + leadSeconds;
   events.forEach((event) => {
     const offset = settings.countdownSeconds - event.number;
     makeTone(
@@ -162,7 +241,56 @@ export async function scheduleCountdown(settings) {
     );
   });
 
+  countdownClock = {
+    contextStartTime,
+    timerStartTime,
+    countdownSeconds: settings.countdownSeconds,
+    lastOffsetMs: 0,
+    stopwatchPerformanceTime: null,
+  };
   return timerStartTime;
+}
+
+export function getTimerTime(now = performance.now()) {
+  if (!countdownClock) return now;
+  const deadline =
+    countdownClock.timerStartTime + countdownClock.countdownSeconds * 1000;
+  if (countdownClock.stopwatchPerformanceTime !== null) {
+    return deadline + now - countdownClock.stopwatchPerformanceTime;
+  }
+  if (audioContext?.state !== "running")
+    return now + countdownClock.lastOffsetMs;
+  const clock = getOutputClock();
+  if (!clock) return now + countdownClock.lastOffsetMs;
+  const timerTime =
+    countdownClock.timerStartTime +
+    (clock.contextTime +
+      (now - clock.performanceTime) / 1000 -
+      countdownClock.contextStartTime) *
+      1000;
+  countdownClock.lastOffsetMs = timerTime - now;
+  if (timerTime >= deadline) {
+    countdownClock.stopwatchPerformanceTime = now - (timerTime - deadline);
+  }
+  return timerTime;
+}
+
+export function getTimingDiagnostics() {
+  const clock = audioContext ? getOutputClock() : null;
+  return {
+    audioState: audioContext?.state ?? "Not initialized",
+    clockSource: clock?.source ?? "Waiting for output clock",
+    outputLatencyMs: clock ? clock.latency * 1000 : null,
+    timestampAgeMs: clock?.timestampAgeMs ?? null,
+    startupDurationMs,
+    clockOffsetMs:
+      countdownClock && clock
+        ? countdownClock.timerStartTime +
+          (clock.contextTime - countdownClock.contextStartTime) * 1000 -
+          clock.performanceTime
+        : null,
+    startupError,
+  };
 }
 
 export function setAudioVolume(volume) {
@@ -175,6 +303,7 @@ export function setAudioVolume(volume) {
 }
 
 export function stopScheduledAudio() {
+  countdownClock = null;
   scheduledOscillators.forEach((oscillator) => {
     try {
       oscillator.stop();
