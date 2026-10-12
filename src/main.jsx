@@ -296,8 +296,7 @@ function RideComparisonTable({ rides, mode }) {
                 {leftRide.riderName}
               </span>
               <span className="history-compare-context">
-                {formatRideDateCompact(leftRide.completedAt)} ·{" "}
-                {formatDistance(leftRide.distanceMeters)} m
+                {formatRideDateCompact(leftRide.completedAt)}
               </span>
               <strong>{formatLapTime(leftRide.elapsedMs)}</strong>
             </Table.Th>
@@ -309,8 +308,7 @@ function RideComparisonTable({ rides, mode }) {
                 {rightRide.riderName}
               </span>
               <span className="history-compare-context">
-                {formatRideDateCompact(rightRide.completedAt)} ·{" "}
-                {formatDistance(rightRide.distanceMeters)} m
+                {formatRideDateCompact(rightRide.completedAt)}
               </span>
               <strong>{formatLapTime(rightRide.elapsedMs)}</strong>
             </Table.Th>
