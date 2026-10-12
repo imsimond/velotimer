@@ -732,7 +732,7 @@ var _timerJs = require("./timer.js");
 var _ridesJs = require("./rides.js");
 var _mainScss = require("./styles/main.scss");
 var _s = $RefreshSig$(), _s1 = $RefreshSig$(), _s2 = $RefreshSig$();
-const SETTINGS_KEY = "velodrome-timer-settings";
+const SETTINGS_KEY = "velotimer-settings";
 function loadSettings() {
     try {
         return JSON.parse(sessionStorage.getItem(SETTINGS_KEY) || "{}");
@@ -2261,7 +2261,7 @@ function TimerApp() {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "brand-lockup",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                            children: "Velodrome Timer"
+                            children: "VeloTimer"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
                             lineNumber: 959,
@@ -56951,7 +56951,7 @@ parcelHelpers.export(exports, "getSavedRiderNames", ()=>getSavedRiderNames);
 parcelHelpers.export(exports, "filterRides", ()=>filterRides);
 parcelHelpers.export(exports, "saveRide", ()=>saveRide);
 parcelHelpers.export(exports, "deleteRide", ()=>deleteRide);
-const RIDES_KEY = "velodrome-timer-rides";
+const RIDES_KEY = "velotimer-rides";
 const STORAGE_VERSION = 1;
 function resolveStorage(storage) {
     if (storage !== undefined) return storage;
@@ -59321,6 +59321,6 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["jo1xG","eM1fv"], "eM1fv", "parcelRequirec747", {}, null, null, "http://localhost:1235")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["jo1xG","eM1fv"], "eM1fv", "parcelRequiree23d", {}, null, null, "http://localhost:1235")
 
 //# sourceMappingURL=velotimer.64b87d6c.js.map

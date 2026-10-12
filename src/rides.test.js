@@ -9,7 +9,7 @@ import {
   saveRide,
 } from "./rides.js";
 
-const STORAGE_KEY = "velodrome-timer-rides";
+const STORAGE_KEY = "velotimer-rides";
 
 function createStorage(initialValue = null) {
   let value = initialValue;

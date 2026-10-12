@@ -1,4 +1,4 @@
-const RIDES_KEY = "velodrome-timer-rides";
+const RIDES_KEY = "velotimer-rides";
 const STORAGE_VERSION = 1;
 
 function resolveStorage(storage) {

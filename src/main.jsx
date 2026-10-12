@@ -54,7 +54,7 @@ import {
 } from "./rides.js";
 import "./styles/main.scss";
 
-const SETTINGS_KEY = "velodrome-timer-settings";
+const SETTINGS_KEY = "velotimer-settings";
 
 function loadSettings() {
   try {
@@ -956,7 +956,7 @@ function TimerApp() {
     <main className="app-shell">
       <header className="app-header">
         <div className="brand-lockup">
-          <h1>Velodrome Timer</h1>
+          <h1>VeloTimer</h1>
         </div>
         <div className="header-actions">
           <ActionIcon
