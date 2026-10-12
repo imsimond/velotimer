@@ -1,6 +1,7 @@
 const BASE_FREQUENCY = 488;
 const BASE_DURATION = 0.33;
 const SCHEDULE_LEAD_SECONDS = 0.12;
+const MAX_OUTPUT_TIMESTAMP_AGE_MS = 1000;
 const ECHO_REFLECTIONS = [
   { position: 0.25, level: 0.5 },
   { position: 0.5, level: 0.3 },
@@ -98,16 +99,63 @@ function makeTone(when, frequency, duration, withEcho) {
   scheduledOscillators.push(oscillator);
 }
 
+function getOutputClock() {
+  try {
+    const timestamp = audioContext.getOutputTimestamp?.();
+    const now = performance.now();
+    const timestampAge = now - timestamp?.performanceTime;
+    if (
+      timestamp &&
+      timestamp.contextTime > 0 &&
+      Number.isFinite(timestamp.contextTime) &&
+      Number.isFinite(timestamp.performanceTime) &&
+      timestamp.performanceTime > 0 &&
+      timestamp.contextTime <= audioContext.currentTime &&
+      timestampAge >= 0 &&
+      timestampAge <= MAX_OUTPUT_TIMESTAMP_AGE_MS
+    ) {
+      return {
+        contextTime: timestamp.contextTime,
+        performanceTime: timestamp.performanceTime,
+        latency: Math.max(0, audioContext.currentTime - timestamp.contextTime),
+      };
+    }
+  } catch {
+    // Fall back to the latency estimates when output timestamps are unavailable.
+  }
+
+  const baseLatency = Number.isFinite(audioContext.baseLatency)
+    ? audioContext.baseLatency
+    : 0;
+  const outputLatency = Number.isFinite(audioContext.outputLatency)
+    ? audioContext.outputLatency
+    : 0;
+  return {
+    contextTime: audioContext.currentTime - baseLatency - outputLatency,
+    performanceTime: performance.now(),
+    latency: baseLatency + outputLatency,
+  };
+}
+
 export async function scheduleCountdown(settings) {
   await ensureAudio(settings);
   stopScheduledAudio();
 
-  const audioStartTime = audioContext.currentTime + SCHEDULE_LEAD_SECONDS;
-  const timerStartTime = performance.now() + SCHEDULE_LEAD_SECONDS * 1000;
-  getEvents(settings.countdownSeconds).forEach((event) => {
+  const outputClock = getOutputClock();
+  const events = getEvents(settings.countdownSeconds);
+  const firstEventOffset = Math.min(
+    ...events.map((event) => settings.countdownSeconds - event.number),
+  );
+  const leadSeconds = Math.max(
+    SCHEDULE_LEAD_SECONDS,
+    outputClock.latency - firstEventOffset + SCHEDULE_LEAD_SECONDS,
+  );
+  const timerStartTime = outputClock.performanceTime + leadSeconds * 1000;
+  events.forEach((event) => {
     const offset = settings.countdownSeconds - event.number;
     makeTone(
-      audioStartTime + offset,
+      outputClock.contextTime +
+        (timerStartTime + offset * 1000 - outputClock.performanceTime) / 1000,
       event.frequency,
       event.duration,
       settings.withEcho,
