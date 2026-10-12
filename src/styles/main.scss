@@ -834,6 +834,11 @@ input:focus-visible,
   padding: 10px 8px;
 }
 
+.history-compare-table thead th:first-child,
+.history-compare-table thead th:nth-child(3) {
+  font-size: 0.75rem;
+}
+
 .history-compare-table thead th:nth-child(3) {
   text-align: right;
 }
@@ -842,9 +847,30 @@ input:focus-visible,
   border-bottom: 1px solid #55524d;
 }
 
+.history-compare-table tbody tr {
+  position: relative;
+}
+
 .history-compare-table tbody th,
 .history-compare-table tbody td {
   padding-block: 12px;
+}
+
+.history-compare-table tbody td {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.history-compare-row-bar {
+  position: absolute;
+  z-index: 0;
+  top: 1px;
+  left: 56px;
+  width: calc(100% - 56px);
+  height: calc(100% - 2px);
+  overflow: visible;
+  pointer-events: none;
 }
 
 .history-compare-rider,

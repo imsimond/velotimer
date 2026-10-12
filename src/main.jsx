@@ -252,6 +252,30 @@ function RideComparisonTable({ rides, mode }) {
     if (right === "END") return -1;
     return left - right;
   });
+  const comparisonRows = lapNumbers.map((lapNumber) => {
+    const leftLap = leftRide.laps.find((item) => item.lapNumber === lapNumber);
+    const rightLap = rightRide.laps.find(
+      (item) => item.lapNumber === lapNumber,
+    );
+    const leftValue = leftLap
+      ? mode === "overall"
+        ? leftLap.elapsedMs
+        : leftLap.splitMs
+      : null;
+    const rightValue = rightLap
+      ? mode === "overall"
+        ? rightLap.elapsedMs
+        : rightLap.splitMs
+      : null;
+    const difference =
+      leftValue === null || rightValue === null ? null : leftValue - rightValue;
+
+    return { lapNumber, leftValue, rightValue, difference };
+  });
+  const maxAbsoluteGap = Math.max(
+    0,
+    ...comparisonRows.map(({ difference }) => Math.abs(difference ?? 0)),
+  );
 
   return (
     <div className="history-compare-scroll">
@@ -293,77 +317,97 @@ function RideComparisonTable({ rides, mode }) {
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {lapNumbers.map((lapNumber) => {
-            const leftLap = leftRide.laps.find(
-              (item) => item.lapNumber === lapNumber,
-            );
-            const rightLap = rightRide.laps.find(
-              (item) => item.lapNumber === lapNumber,
-            );
-            const leftValue = leftLap
-              ? mode === "overall"
-                ? leftLap.elapsedMs
-                : leftLap.splitMs
-              : null;
-            const rightValue = rightLap
-              ? mode === "overall"
-                ? rightLap.elapsedMs
-                : rightLap.splitMs
-              : null;
-            const difference =
-              leftValue === null || rightValue === null
-                ? null
-                : leftValue - rightValue;
-            const leftIsFaster = difference < 0;
-            const rightIsFaster = difference > 0;
-            const fasterRider = leftIsFaster ? leftRide : rightRide;
+          {comparisonRows.map(
+            ({ lapNumber, leftValue, rightValue, difference }) => {
+              const leftIsFaster = difference < 0;
+              const rightIsFaster = difference > 0;
+              const fasterRider = leftIsFaster ? leftRide : rightRide;
+              const barWidth = maxAbsoluteGap
+                ? (Math.abs(difference ?? 0) / maxAbsoluteGap) * 50
+                : 0;
+              const patternId = `history-compare-bars-${mode}-${lapNumber}`;
 
-            return (
-              <Table.Tr key={lapNumber}>
-                <Table.Th scope="row">{lapNumber}</Table.Th>
-                <Table.Td className="history-compare-split">
-                  {leftValue === null ? "—" : formatLapTime(leftValue)}
-                </Table.Td>
-                <Table.Td
-                  aria-label={
-                    difference === null
-                      ? "No comparison available"
-                      : difference === 0
-                        ? "Tied at zero seconds"
-                        : `${fasterRider.riderName} ${mode === "overall" ? "leads by" : "is faster on this split by"} ${(Math.abs(difference) / 1000).toFixed(3)} seconds`
-                  }
-                  className="history-compare-gap"
-                >
-                  {difference === null ? (
-                    "—"
-                  ) : difference === 0 ? (
-                    <span className="history-compare-even">0.000</span>
-                  ) : (
-                    <div className="history-compare-lead">
-                      <span
-                        className={`history-compare-arrow ${leftIsFaster ? "is-faster" : "is-slower"}`}
-                        aria-hidden="true"
-                      >
-                        <ArrowLeft />
-                      </span>
-                      <strong>
-                        {(Math.abs(difference) / 1000).toFixed(3)}
-                      </strong>
-                      <span
-                        className={`history-compare-arrow ${rightIsFaster ? "is-faster" : "is-slower"}`}
-                        aria-hidden="true"
-                      >
-                        <ArrowRight />
-                      </span>
-                    </div>
-                  )}
-                </Table.Td>
-                <Table.Td className="history-compare-split">
-                  {rightValue === null ? "—" : formatLapTime(rightValue)}
-                </Table.Td>
-              </Table.Tr>
-            );
-          })}
+              return (
+                <Table.Tr key={lapNumber}>
+                  <Table.Th scope="row">
+                    <svg
+                      aria-hidden="true"
+                      className="history-compare-row-bar"
+                      focusable="false"
+                    >
+                      <defs>
+                        <pattern
+                          id={patternId}
+                          height="8"
+                          patternTransform="rotate(45)"
+                          patternUnits="userSpaceOnUse"
+                          width="8"
+                        >
+                          <rect width="8" height="8" fill="#363530" />
+                          <path
+                            d="M0 0V8"
+                            fill="none"
+                            stroke="#49443b"
+                            strokeWidth="2"
+                          />
+                        </pattern>
+                      </defs>
+                      {barWidth > 0 && (
+                        <rect
+                          fill={`url(#${patternId})`}
+                          height="100%"
+                          width={`${barWidth}%`}
+                          x={`${difference < 0 ? 50 - barWidth : 50}%`}
+                          y="0"
+                        />
+                      )}
+                    </svg>
+                    {lapNumber}
+                  </Table.Th>
+                  <Table.Td className="history-compare-split">
+                    {leftValue === null ? "—" : formatLapTime(leftValue)}
+                  </Table.Td>
+                  <Table.Td
+                    aria-label={
+                      difference === null
+                        ? "No comparison available"
+                        : difference === 0
+                          ? "Tied at zero seconds"
+                          : `${fasterRider.riderName} ${mode === "overall" ? "leads by" : "is faster on this split by"} ${(Math.abs(difference) / 1000).toFixed(3)} seconds`
+                    }
+                    className="history-compare-gap"
+                  >
+                    {difference === null ? (
+                      "—"
+                    ) : difference === 0 ? (
+                      <span className="history-compare-even">0.000</span>
+                    ) : (
+                      <div className="history-compare-lead">
+                        <span
+                          className={`history-compare-arrow ${leftIsFaster ? "is-faster" : "is-slower"}`}
+                          aria-hidden="true"
+                        >
+                          <ArrowLeft />
+                        </span>
+                        <strong>
+                          {(Math.abs(difference) / 1000).toFixed(3)}
+                        </strong>
+                        <span
+                          className={`history-compare-arrow ${rightIsFaster ? "is-faster" : "is-slower"}`}
+                          aria-hidden="true"
+                        >
+                          <ArrowRight />
+                        </span>
+                      </div>
+                    )}
+                  </Table.Td>
+                  <Table.Td className="history-compare-split">
+                    {rightValue === null ? "—" : formatLapTime(rightValue)}
+                  </Table.Td>
+                </Table.Tr>
+              );
+            },
+          )}
         </Table.Tbody>
       </Table>
     </div>
