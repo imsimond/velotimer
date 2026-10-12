@@ -1,14 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { RotateCcw, Settings2, Square, X } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ClipboardList,
+  ClipboardPen,
+  RotateCcw,
+  Settings2,
+  Square,
+  Trash2,
+  X,
+} from "lucide-react";
 import {
   ActionIcon,
+  Autocomplete,
   Button,
+  Checkbox,
   Drawer,
   MantineProvider,
+  Modal,
   NumberInput,
+  Select,
   Slider,
   Switch,
+  Tabs,
   Table,
   createTheme,
 } from "@mantine/core";
@@ -30,6 +45,13 @@ import {
   stopTimer,
   updateSettings,
 } from "./timer.js";
+import {
+  deleteRide,
+  filterRides,
+  getSavedRiderNames,
+  getSavedRides,
+  saveRide,
+} from "./rides.js";
 import "./styles/main.scss";
 
 const SETTINGS_KEY = "velodrome-timer-settings";
@@ -142,9 +164,9 @@ function ClockDigits({ display, fontReady }) {
   );
 }
 
-function LapTable({ laps, scrollRef, visible }) {
+function LapTable({ laps, scrollRef, visible, className = "" }) {
   return (
-    <div className="lap-reserved">
+    <div className={`lap-reserved ${className}`}>
       {visible && (
         <section className="lap-section" aria-label="Lap times">
           <div className="lap-scroll" ref={scrollRef}>
@@ -199,6 +221,432 @@ function LapTable({ laps, scrollRef, visible }) {
         </section>
       )}
     </div>
+  );
+}
+
+function formatRideDate(completedAt) {
+  return new Intl.DateTimeFormat(undefined, {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(new Date(completedAt));
+}
+
+function formatRideDateCompact(completedAt) {
+  return new Intl.DateTimeFormat(undefined, {
+    month: "numeric",
+    day: "numeric",
+    year: "2-digit",
+  }).format(new Date(completedAt));
+}
+
+function formatDistance(distanceMeters) {
+  return new Intl.NumberFormat().format(distanceMeters);
+}
+
+function RideComparisonTable({ rides, mode }) {
+  const [leftRide, rightRide] = rides;
+  const lapNumbers = [
+    ...new Set(rides.flatMap((ride) => ride.laps.map((lap) => lap.lapNumber))),
+  ].sort((left, right) => {
+    if (left === "END") return 1;
+    if (right === "END") return -1;
+    return left - right;
+  });
+
+  return (
+    <div className="history-compare-scroll">
+      <Table
+        className="history-compare-table"
+        layout="fixed"
+        stickyHeader
+        verticalSpacing={0}
+        withColumnBorders={false}
+        withRowBorders={false}
+        withTableBorder={false}
+      >
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th scope="col">Lap</Table.Th>
+            <Table.Th scope="col">
+              <span className="history-compare-rider">
+                {leftRide.riderName}
+              </span>
+              <span className="history-compare-context">
+                {formatRideDateCompact(leftRide.completedAt)} ·{" "}
+                {formatDistance(leftRide.distanceMeters)} m
+              </span>
+              <strong>{formatLapTime(leftRide.elapsedMs)}</strong>
+            </Table.Th>
+            <Table.Th className="history-compare-gap-heading" scope="col">
+              Gap
+            </Table.Th>
+            <Table.Th scope="col">
+              <span className="history-compare-rider">
+                {rightRide.riderName}
+              </span>
+              <span className="history-compare-context">
+                {formatRideDateCompact(rightRide.completedAt)} ·{" "}
+                {formatDistance(rightRide.distanceMeters)} m
+              </span>
+              <strong>{formatLapTime(rightRide.elapsedMs)}</strong>
+            </Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>
+          {lapNumbers.map((lapNumber) => {
+            const leftLap = leftRide.laps.find(
+              (item) => item.lapNumber === lapNumber,
+            );
+            const rightLap = rightRide.laps.find(
+              (item) => item.lapNumber === lapNumber,
+            );
+            const leftValue = leftLap
+              ? mode === "overall"
+                ? leftLap.elapsedMs
+                : leftLap.splitMs
+              : null;
+            const rightValue = rightLap
+              ? mode === "overall"
+                ? rightLap.elapsedMs
+                : rightLap.splitMs
+              : null;
+            const difference =
+              leftValue === null || rightValue === null
+                ? null
+                : leftValue - rightValue;
+            const leftIsFaster = difference < 0;
+            const rightIsFaster = difference > 0;
+            const fasterRider = leftIsFaster ? leftRide : rightRide;
+
+            return (
+              <Table.Tr key={lapNumber}>
+                <Table.Th scope="row">{lapNumber}</Table.Th>
+                <Table.Td className="history-compare-split">
+                  {leftValue === null ? "—" : formatLapTime(leftValue)}
+                </Table.Td>
+                <Table.Td
+                  aria-label={
+                    difference === null
+                      ? "No comparison available"
+                      : difference === 0
+                        ? "Tied at zero seconds"
+                        : `${fasterRider.riderName} ${mode === "overall" ? "leads by" : "is faster on this split by"} ${(Math.abs(difference) / 1000).toFixed(3)} seconds`
+                  }
+                  className="history-compare-gap"
+                >
+                  {difference === null ? (
+                    "—"
+                  ) : difference === 0 ? (
+                    <span className="history-compare-even">0.000</span>
+                  ) : (
+                    <div className="history-compare-lead">
+                      <span
+                        className={`history-compare-arrow ${leftIsFaster ? "is-faster" : "is-slower"}`}
+                        aria-hidden="true"
+                      >
+                        <ArrowLeft />
+                      </span>
+                      <strong>
+                        {(Math.abs(difference) / 1000).toFixed(3)}
+                      </strong>
+                      <span
+                        className={`history-compare-arrow ${rightIsFaster ? "is-faster" : "is-slower"}`}
+                        aria-hidden="true"
+                      >
+                        <ArrowRight />
+                      </span>
+                    </div>
+                  )}
+                </Table.Td>
+                <Table.Td className="history-compare-split">
+                  {rightValue === null ? "—" : formatLapTime(rightValue)}
+                </Table.Td>
+              </Table.Tr>
+            );
+          })}
+        </Table.Tbody>
+      </Table>
+    </div>
+  );
+}
+
+function RideComparisonTabs({ rides }) {
+  return (
+    <Tabs
+      classNames={{
+        root: "history-compare-tabs",
+        list: "history-compare-tabs-list",
+        tab: "history-compare-tab",
+        panel: "history-compare-tab-panel",
+      }}
+      defaultValue="overall"
+    >
+      <Tabs.List grow>
+        <Tabs.Tab value="overall">Overall</Tabs.Tab>
+        <Tabs.Tab value="splits">Splits</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel keepMounted={false} value="overall">
+        <RideComparisonTable mode="overall" rides={rides} />
+      </Tabs.Panel>
+      <Tabs.Panel keepMounted={false} value="splits">
+        <RideComparisonTable mode="splits" rides={rides} />
+      </Tabs.Panel>
+    </Tabs>
+  );
+}
+
+function SavedRidesDrawer({
+  rides,
+  selectedRide,
+  onSelect,
+  onBack,
+  onDelete,
+  error,
+  open,
+  onClose,
+}) {
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  const [selectedRideIds, setSelectedRideIds] = useState([]);
+  const [comparisonOpen, setComparisonOpen] = useState(false);
+  const [riderFilter, setRiderFilter] = useState(null);
+  const [distanceFilter, setDistanceFilter] = useState(null);
+  const riderOptions = [
+    ...new Map(
+      rides.map((ride) => [
+        ride.riderName.trim().toLocaleLowerCase(),
+        ride.riderName.trim(),
+      ]),
+    ).values(),
+  ].sort((left, right) => left.localeCompare(right));
+  const distanceOptions = [...new Set(rides.map((ride) => ride.distanceMeters))]
+    .sort((left, right) => left - right)
+    .map((distance) => ({
+      value: String(distance),
+      label: formatDistance(distance),
+    }));
+  const visibleRides = filterRides(rides, {
+    riderName: riderFilter,
+    distanceMeters: distanceFilter === null ? null : Number(distanceFilter),
+  });
+  const comparisonRides = rides.filter((ride) =>
+    selectedRideIds.includes(ride.id),
+  );
+  const toggleRideSelection = (rideId) => {
+    setSelectedRideIds((current) =>
+      current.includes(rideId)
+        ? current.filter((id) => id !== rideId)
+        : [...current, rideId],
+    );
+  };
+
+  return (
+    <>
+      <Drawer
+        classNames={{
+          content: "history-drawer-content",
+          header: "history-drawer-header",
+          title: "history-drawer-title",
+          body: "history-drawer-body",
+        }}
+        closeButtonProps={{
+          "aria-label": "Close ride history",
+          icon: <X aria-hidden="true" />,
+        }}
+        onClose={() => {
+          setComparisonOpen(false);
+          setSelectedRideIds([]);
+          onClose();
+        }}
+        opened={open}
+        overlayProps={{ backgroundOpacity: 0.6, blur: 2 }}
+        position="right"
+        size="min(94vw, 480px)"
+        title={
+          selectedRide
+            ? selectedRide.riderName
+            : comparisonOpen
+              ? "Compare rides"
+              : "Ride History"
+        }
+      >
+        {error && (
+          <p className="ride-form-error" role="alert">
+            {error}
+          </p>
+        )}
+        {selectedRide ? (
+          <div className="history-detail">
+            <Button
+              className="history-back"
+              leftSection={<ArrowLeft aria-hidden="true" />}
+              onClick={onBack}
+              variant="subtle"
+            >
+              All rides
+            </Button>
+            <div className="history-detail-meta">
+              <span>{formatRideDate(selectedRide.completedAt)}</span>
+              <span>
+                {new Intl.NumberFormat().format(selectedRide.distanceMeters)} m
+              </span>
+              <strong>{formatLapTime(selectedRide.elapsedMs)}</strong>
+            </div>
+            <LapTable
+              className="history-lap-reserved"
+              laps={selectedRide.laps}
+              visible
+            />
+            <Button
+              className="history-delete"
+              leftSection={<Trash2 aria-hidden="true" />}
+              onClick={() => setDeleteOpen(true)}
+              variant="default"
+            >
+              Delete ride
+            </Button>
+          </div>
+        ) : comparisonOpen ? (
+          <div className="history-detail history-comparison-detail">
+            <Button
+              className="history-back"
+              leftSection={<ArrowLeft aria-hidden="true" />}
+              onClick={() => setComparisonOpen(false)}
+              variant="subtle"
+            >
+              All rides
+            </Button>
+            <RideComparisonTabs rides={comparisonRides} />
+          </div>
+        ) : rides.length ? (
+          <div className="history-browser">
+            <div className="history-filters">
+              <Select
+                classNames={{
+                  input: "history-filter-input",
+                  label: "history-filter-label",
+                }}
+                clearable
+                data={riderOptions}
+                label="Rider"
+                placeholder="All riders"
+                value={riderFilter}
+                onChange={setRiderFilter}
+              />
+              <Select
+                classNames={{
+                  input: "history-filter-input",
+                  label: "history-filter-label",
+                }}
+                clearable
+                data={distanceOptions}
+                label="Distance"
+                placeholder="All distances"
+                value={distanceFilter}
+                onChange={setDistanceFilter}
+              />
+            </div>
+            {visibleRides.length ? (
+              <div className="history-list-scroll">
+                <div className="history-list-header" aria-hidden="true">
+                  <span />
+                  <span>Rider</span>
+                  <span>Date</span>
+                  <span>Dist</span>
+                  <span>Total</span>
+                </div>
+                <ul className="history-list" aria-label="Saved rides">
+                  {visibleRides.map((ride) => (
+                    <li className="history-ride-row" key={ride.id}>
+                      <Checkbox
+                        aria-label={`Select ${ride.riderName}, ${formatRideDate(ride.completedAt)} for comparison`}
+                        checked={selectedRideIds.includes(ride.id)}
+                        className="history-ride-checkbox"
+                        disabled={
+                          !selectedRideIds.includes(ride.id) &&
+                          selectedRideIds.length >= 2
+                        }
+                        onChange={() => toggleRideSelection(ride.id)}
+                      />
+                      <button
+                        aria-label={`Open ${ride.riderName}, ${formatRideDate(ride.completedAt)}, ${formatDistance(ride.distanceMeters)} metres, ${formatLapTime(ride.elapsedMs)}`}
+                        className="history-ride"
+                        type="button"
+                        onClick={() => onSelect(ride)}
+                      >
+                        <span className="history-ride-name">
+                          {ride.riderName}
+                        </span>
+                        <time
+                          dateTime={ride.completedAt}
+                          title={formatRideDate(ride.completedAt)}
+                        >
+                          {formatRideDateCompact(ride.completedAt)}
+                        </time>
+                        <span className="history-ride-distance">
+                          {formatDistance(ride.distanceMeters)}
+                        </span>
+                        <strong className="history-ride-time">
+                          {formatLapTime(ride.elapsedMs)}
+                        </strong>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <p className="history-empty">No rides match these filters.</p>
+            )}
+            {selectedRideIds.length > 0 && (
+              <div className="history-compare-footer">
+                <Button
+                  className="history-compare-action"
+                  disabled={comparisonRides.length < 2}
+                  fullWidth
+                  onClick={() => setComparisonOpen(true)}
+                >
+                  Compare
+                </Button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="history-empty">No saved rides yet.</p>
+        )}
+      </Drawer>
+
+      <Modal
+        centered
+        classNames={{
+          content: "history-confirm-content",
+          header: "history-confirm-header",
+          title: "history-confirm-title",
+          body: "history-confirm-body",
+        }}
+        onClose={() => setDeleteOpen(false)}
+        opened={deleteOpen}
+        overlayProps={{ backgroundOpacity: 0.7, blur: 2 }}
+        title="Delete this ride?"
+      >
+        <p className="history-confirm-copy">
+          {selectedRide?.riderName} ·{" "}
+          {formatLapTime(selectedRide?.elapsedMs ?? 0)}
+        </p>
+        <div className="history-confirm-actions">
+          <Button onClick={() => setDeleteOpen(false)} variant="default">
+            Cancel
+          </Button>
+          <Button
+            color="red"
+            leftSection={<Trash2 aria-hidden="true" />}
+            onClick={() => {
+              if (onDelete()) setDeleteOpen(false);
+            }}
+          >
+            Delete
+          </Button>
+        </div>
+      </Modal>
+    </>
   );
 }
 
@@ -278,6 +726,15 @@ function TimerApp() {
   const [now, setNow] = useState(() => performance.now());
   const [displayFontReady, setDisplayFontReady] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [saveOpen, setSaveOpen] = useState(false);
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [selectedRide, setSelectedRide] = useState(null);
+  const [rides, setRides] = useState(() => getSavedRides());
+  const [riderName, setRiderName] = useState("");
+  const [distanceMeters, setDistanceMeters] = useState("");
+  const [rideSaved, setRideSaved] = useState(false);
+  const [saveError, setSaveError] = useState("");
+  const [historyError, setHistoryError] = useState("");
   const [notice, setNotice] = useState("");
   const [starting, setStarting] = useState(false);
   const startPending = useRef(false);
@@ -375,7 +832,63 @@ function TimerApp() {
   const reset = () => {
     stopScheduledAudio();
     setNotice("");
+    setRideSaved(false);
     setTimer((current) => resetTimer(current));
+  };
+
+  const openSaveDialog = () => {
+    setRiderName("");
+    setDistanceMeters("");
+    setSaveError("");
+    setSaveOpen(true);
+  };
+
+  const submitRide = (event) => {
+    event.preventDefault();
+    if (rideSaved || timer.phase !== "ended") return;
+
+    try {
+      saveRide({
+        riderName,
+        distanceMeters,
+        completedAt: timer.completedAt,
+        elapsedMs: timer.elapsedMs,
+        laps: timer.laps,
+      });
+      setRides(getSavedRides());
+      setRideSaved(true);
+      setSaveOpen(false);
+      setSaveError("");
+      setNotice("");
+    } catch (error) {
+      setSaveError(error.message || "Ride could not be saved.");
+    }
+  };
+
+  const openHistory = () => {
+    setRides(getSavedRides());
+    setSelectedRide(null);
+    setHistoryError("");
+    setHistoryOpen(true);
+  };
+
+  const removeSelectedRide = () => {
+    if (!selectedRide) return false;
+    try {
+      const removed = deleteRide(selectedRide.id);
+      if (!removed) {
+        setHistoryError("This ride is no longer in local storage.");
+        setRides(getSavedRides());
+        return false;
+      }
+      setRides(getSavedRides());
+      setSelectedRide(null);
+      setHistoryError("");
+      return true;
+    } catch (error) {
+      setHistoryError(error.message || "Ride could not be deleted.");
+      return false;
+    }
   };
 
   const lap = () => {
@@ -397,19 +910,33 @@ function TimerApp() {
         <div className="brand-lockup">
           <h1>Velodrome Timer</h1>
         </div>
-        <ActionIcon
-          type="button"
-          aria-label="Open settings"
-          title="Settings"
-          className="settings-trigger"
-          color="white"
-          disabled={timer.phase !== "ready"}
-          onClick={() => setSettingsOpen(true)}
-          size={42}
-          variant="subtle"
-        >
-          <Settings2 aria-hidden="true" />
-        </ActionIcon>
+        <div className="header-actions">
+          <ActionIcon
+            type="button"
+            aria-label="Open ride history"
+            title="Ride history"
+            className="settings-trigger"
+            color="white"
+            onClick={openHistory}
+            size={42}
+            variant="subtle"
+          >
+            <ClipboardList aria-hidden="true" />
+          </ActionIcon>
+          <ActionIcon
+            type="button"
+            aria-label="Open settings"
+            title="Settings"
+            className="settings-trigger"
+            color="white"
+            disabled={timer.phase !== "ready"}
+            onClick={() => setSettingsOpen(true)}
+            size={42}
+            variant="subtle"
+          >
+            <Settings2 aria-hidden="true" />
+          </ActionIcon>
+        </div>
       </header>
 
       <section className="timer-stage" aria-label="Timer">
@@ -476,23 +1003,102 @@ function TimerApp() {
           </div>
         )}
         {timer.phase === "ended" && (
-          <Button
-            type="button"
-            className="action-button action-primary"
-            fullWidth
-            leftSection={<RotateCcw aria-hidden="true" />}
-            onClick={reset}
-          >
-            Reset
-          </Button>
+          <div className="end-actions">
+            <Button
+              type="button"
+              className="action-button action-primary"
+              disabled={rideSaved}
+              leftSection={<ClipboardPen aria-hidden="true" />}
+              onClick={openSaveDialog}
+            >
+              {rideSaved ? "Saved" : "Save"}
+            </Button>
+            <Button
+              type="button"
+              className="action-button action-reset"
+              leftSection={<RotateCcw aria-hidden="true" />}
+              onClick={reset}
+            >
+              Reset
+            </Button>
+          </div>
         )}
       </footer>
+
+      <Modal
+        centered
+        classNames={{
+          content: "save-modal-content",
+          header: "save-modal-header",
+          title: "save-modal-title",
+          body: "save-modal-body",
+        }}
+        onClose={() => setSaveOpen(false)}
+        opened={saveOpen}
+        overlayProps={{ backgroundOpacity: 0.7, blur: 2 }}
+        title="Save ride"
+      >
+        <form className="save-form" onSubmit={submitRide}>
+          <Autocomplete
+            autoComplete="off"
+            classNames={{ input: "save-input", label: "save-label" }}
+            data={getSavedRiderNames()}
+            label="Rider Name"
+            maxDropdownHeight={220}
+            required
+            value={riderName}
+            onChange={setRiderName}
+          />
+          <NumberInput
+            allowDecimal={false}
+            allowNegative={false}
+            classNames={{ input: "save-input", label: "save-label" }}
+            clampBehavior="strict"
+            label="Distance"
+            min={0}
+            required
+            suffix=" m"
+            thousandSeparator=","
+            value={distanceMeters}
+            onChange={setDistanceMeters}
+          />
+          {saveError && (
+            <p className="ride-form-error" role="alert">
+              {saveError}
+            </p>
+          )}
+          <div className="save-form-actions">
+            <Button onClick={() => setSaveOpen(false)} variant="default">
+              Cancel
+            </Button>
+            <Button
+              leftSection={<ClipboardPen aria-hidden="true" />}
+              type="submit"
+            >
+              Save
+            </Button>
+          </div>
+        </form>
+      </Modal>
 
       <SettingsDialog
         settings={timer.settings}
         onSettingChange={changeSettings}
         open={settingsOpen}
         onClose={() => setSettingsOpen(false)}
+      />
+      <SavedRidesDrawer
+        rides={rides}
+        selectedRide={selectedRide}
+        onSelect={setSelectedRide}
+        onBack={() => setSelectedRide(null)}
+        onDelete={removeSelectedRide}
+        error={historyError}
+        open={historyOpen}
+        onClose={() => {
+          setHistoryOpen(false);
+          setSelectedRide(null);
+        }}
       />
     </main>
   );

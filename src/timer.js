@@ -36,6 +36,7 @@ export function createTimer(settings) {
     countdownDeadline: null,
     stopwatchStartedAt: null,
     elapsedMs: 0,
+    completedAt: null,
     laps: [],
   };
 }
@@ -67,6 +68,7 @@ function addEndRow(timer, elapsedMs) {
     ...timer,
     phase: "ended",
     elapsedMs,
+    completedAt: new Date().toISOString(),
     laps: [
       ...timer.laps,
       {

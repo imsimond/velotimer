@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#171716"/>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="256" cy="394" rx="184" ry="14" fill="#000" opacity=".5" filter="url(#shadow)"/>
+
+  <rect x="42" y="72" width="428" height="310" rx="10" fill="#ed1c0b"/>
+  <rect x="58" y="94" width="396" height="238" rx="4" fill="#080909"/>
+  <rect x="68" y="104" width="376" height="218" fill="#10110f"/>
+
+  <g transform="translate(92.8 314) scale(.2 -.2)" fill="#28261f">
+    <path d="M93 75 64 105 96 469H114L126 456 211 364 193 167ZM134 544 120 531H102L133 894 167 925 252 833 235 636ZM586 562 642 500 575 438H230L174 500 241 562ZM215 969 248 1000H655L683 969 583 876H299ZM601 31 568 0H161L133 31 233 124H517ZM723 925 752 895 720 531H702L690 544 605 636 623 833ZM682 456 696 469H714L683 105 649 75 564 167 581 364Z"/>
+    <path transform="translate(816 0)" d="M93 75 64 105 96 469H114L126 456 211 364 193 167ZM134 544 120 531H102L133 894 167 925 252 833 235 636ZM586 562 642 500 575 438H230L174 500 241 562ZM215 969 248 1000H655L683 969 583 876H299ZM601 31 568 0H161L133 31 233 124H517ZM723 925 752 895 720 531H702L690 544 605 636 623 833ZM682 456 696 469H714L683 105 649 75 564 167 581 364Z"/>
+  </g>
+
+  <g transform="translate(92.8 314) scale(.2 -.2)" fill="#ffd15a" filter="url(#glow)">
+    <path d="M723 925 752 895 720 531H702L690 544 605 636 623 833ZM682 456 696 469H714L683 105 649 75 564 167 581 364Z"/>
+    <path transform="translate(816 0)" d="M93 75 64 105 96 469H114L126 456 211 364 193 167ZM586 562 642 500 575 438H230L174 500 241 562ZM215 969 248 1000H655L683 969 583 876H299ZM601 31 568 0H161L133 31 233 124H517ZM723 925 752 895 720 531H702L690 544 605 636 623 833Z"/>
+  </g>
+</svg>

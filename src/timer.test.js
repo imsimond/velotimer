@@ -75,6 +75,7 @@ test("Stop appends an END row with the final split", () => {
   const ended = stopTimer(firstLap, 8_765.432);
 
   assert.equal(ended.phase, "ended");
+  assert.equal(Number.isFinite(Date.parse(ended.completedAt)), true);
   assert.deepEqual(ended.laps.at(-1), {
     lapNumber: "END",
     splitMs: 3_530,
@@ -89,6 +90,7 @@ test("automatic end records the exact 99:59.999 limit once", () => {
 
   assert.equal(ended.phase, "ended");
   assert.equal(ended.elapsedMs, MAX_STOPWATCH_MS);
+  assert.equal(Number.isFinite(Date.parse(ended.completedAt)), true);
   assert.equal(ended.laps.at(-1).lapNumber, "END");
   assert.equal(ended.laps.at(-1).elapsedMs, MAX_STOPWATCH_MS);
 });
