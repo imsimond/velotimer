@@ -10325,17 +10325,18 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
   -webkit-overflow-scrolling: touch;
   width: 100%;
   max-height: min(78dvh, 700px);
-  overflow: auto;
+  overflow: hidden auto;
 }
 
 .history-compare-table {
+  --history-compare-lap-width: 56px;
   table-layout: fixed;
-  width: max-content;
+  width: 100%;
   min-width: 100%;
 }
 
-.history-compare-table th:not(:first-child), .history-compare-table td:not(:first-child) {
-  min-width: 132px;
+.history-compare-table col:first-child {
+  width: var(--history-compare-lap-width);
 }
 
 .history-compare-table thead th {
@@ -10350,10 +10351,10 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
 }
 
 .history-compare-table thead th:first-child, .history-compare-table tbody th {
+  width: var(--history-compare-lap-width);
+  min-width: var(--history-compare-lap-width);
   text-align: left;
   background-color: #292825;
-  width: 56px;
-  min-width: 56px;
 }
 
 .history-compare-tabs {
@@ -10369,7 +10370,7 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
 }
 
 .history-compare-table thead th:nth-child(3) {
-  text-align: right;
+  text-align: center;
 }
 
 .history-compare-table tbody tr:not(:last-child) > * {
@@ -10392,12 +10393,12 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
 
 .history-compare-row-bar {
   z-index: 0;
+  top: 1px;
+  left: var(--history-compare-lap-width);
+  width: calc(100% - var(--history-compare-lap-width));
   pointer-events: none;
-  width: calc(100% - 56px);
   height: calc(100% - 2px);
   position: absolute;
-  top: 1px;
-  left: 56px;
   overflow: visible;
 }
 
@@ -10471,6 +10472,46 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
   stroke-width: 3px;
   width: 16px;
   height: 16px;
+}
+
+@media (width <= 360px) {
+  .history-compare-table {
+    --history-compare-lap-width: 48px;
+  }
+
+  .history-compare-table thead th {
+    padding-inline: 3px;
+  }
+
+  .history-compare-table tbody th, .history-compare-table tbody td {
+    padding-inline: 2px;
+  }
+
+  .history-compare-table thead strong {
+    font-size: .62rem;
+  }
+
+  .history-compare-split {
+    font-size: .65rem;
+  }
+
+  .history-compare-table tbody td.history-compare-gap, .history-compare-lead strong {
+    font-size: .62rem;
+  }
+
+  .history-compare-lead {
+    gap: 1px;
+  }
+
+  .history-compare-arrow {
+    flex-basis: 10px;
+    width: 10px;
+  }
+
+  .history-compare-arrow svg {
+    width: 10px;
+    height: 10px;
+  }
 }
 
 .history-compare-arrow.is-faster {

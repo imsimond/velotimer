@@ -790,21 +790,22 @@ input:focus-visible,
 .history-compare-scroll {
   width: 100%;
   max-height: min(78dvh, 700px);
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #77736c #171716;
   -webkit-overflow-scrolling: touch;
 }
 
 .history-compare-table {
-  width: max-content;
+  --history-compare-lap-width: 56px;
+  width: 100%;
   min-width: 100%;
   table-layout: fixed;
 }
 
-.history-compare-table th:not(:first-child),
-.history-compare-table td:not(:first-child) {
-  min-width: 132px;
+.history-compare-table col:first-child {
+  width: var(--history-compare-lap-width);
 }
 
 .history-compare-table thead th {
@@ -820,8 +821,8 @@ input:focus-visible,
 
 .history-compare-table thead th:first-child,
 .history-compare-table tbody th {
-  width: 56px;
-  min-width: 56px;
+  width: var(--history-compare-lap-width);
+  min-width: var(--history-compare-lap-width);
   background-color: #292825;
   text-align: left;
 }
@@ -840,7 +841,7 @@ input:focus-visible,
 }
 
 .history-compare-table thead th:nth-child(3) {
-  text-align: right;
+  text-align: center;
 }
 
 .history-compare-table tbody tr:not(:last-child) > * {
@@ -866,8 +867,8 @@ input:focus-visible,
   position: absolute;
   z-index: 0;
   top: 1px;
-  left: 56px;
-  width: calc(100% - 56px);
+  left: var(--history-compare-lap-width);
+  width: calc(100% - var(--history-compare-lap-width));
   height: calc(100% - 2px);
   overflow: visible;
   pointer-events: none;
@@ -944,6 +945,48 @@ input:focus-visible,
   width: 16px;
   height: 16px;
   stroke-width: 3;
+}
+
+@media (max-width: 360px) {
+  .history-compare-table {
+    --history-compare-lap-width: 48px;
+  }
+
+  .history-compare-table thead th {
+    padding-inline: 3px;
+  }
+
+  .history-compare-table tbody th,
+  .history-compare-table tbody td {
+    padding-inline: 2px;
+  }
+
+  .history-compare-table thead strong {
+    font-size: 0.62rem;
+  }
+
+  .history-compare-split {
+    font-size: 0.65rem;
+  }
+
+  .history-compare-table tbody td.history-compare-gap,
+  .history-compare-lead strong {
+    font-size: 0.62rem;
+  }
+
+  .history-compare-lead {
+    gap: 1px;
+  }
+
+  .history-compare-arrow {
+    width: 10px;
+    flex-basis: 10px;
+  }
+
+  .history-compare-arrow svg {
+    width: 10px;
+    height: 10px;
+  }
 }
 
 .history-compare-arrow.is-faster {

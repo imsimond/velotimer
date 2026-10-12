@@ -288,6 +288,12 @@ function RideComparisonTable({ rides, mode }) {
         withRowBorders={false}
         withTableBorder={false}
       >
+        <colgroup>
+          <col className="history-compare-lap-column" />
+          <col />
+          <col />
+          <col />
+        </colgroup>
         <Table.Thead>
           <Table.Tr>
             <Table.Th scope="col">Lap</Table.Th>
