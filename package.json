@@ -1,0 +1,27 @@
+{
+  "name": "velodrome-countdown",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "parcel index.html",
+    "prebuild": "node scripts/clean-dist.js",
+    "build": "parcel build index.html --public-url ./ && node scripts/generate-sw.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@mantine/core": "^9.7.2",
+    "@mantine/hooks": "^9.7.2",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "workbox-build": "^7.3.0"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.16.4",
+    "@parcel/transformer-sass": "^2.15.4",
+    "@parcel/transformer-webmanifest": "^2.16.4",
+    "parcel": "^2.15.4",
+    "sass": "^1.83.0"
+  }
+}
