@@ -863,6 +863,39 @@ input:focus-visible,
   overflow-y: auto;
 }
 
+.history-notes {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    color: #eeece6;
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+
+  textarea {
+    width: 100%;
+    height: 96px;
+    min-height: 96px;
+    max-height: 96px;
+    padding: 10px;
+    overflow-y: auto;
+    border: 1px solid #6c6962;
+    border-radius: 7px;
+    background: #121211;
+    color: #fff;
+    font: inherit;
+    resize: none;
+  }
+
+  textarea:focus-visible {
+    outline: none;
+    border-color: #ffbd39;
+  }
+}
+
 .history-compare-footer {
   flex: 0 0 auto;
   margin-top: auto;

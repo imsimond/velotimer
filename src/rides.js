@@ -1,5 +1,6 @@
 const RIDES_KEY = "velotimer-rides";
 const STORAGE_VERSION = 1;
+export const MAX_RIDE_NOTES_LENGTH = 1000;
 
 function resolveStorage(storage) {
   if (storage !== undefined) return storage;
@@ -8,6 +9,11 @@ function resolveStorage(storage) {
   } catch {
     return null;
   }
+}
+
+export function stripHtmlTags(value) {
+  if (typeof value !== "string") return "";
+  return value.replace(/<[^>]*>/g, "").slice(0, MAX_RIDE_NOTES_LENGTH);
 }
 
 function isLap(lap) {
@@ -36,6 +42,7 @@ function isRide(ride) {
     Number.isFinite(Date.parse(ride.completedAt)) &&
     Number.isFinite(ride.elapsedMs) &&
     ride.elapsedMs >= 0 &&
+    (ride.notes === undefined || typeof ride.notes === "string") &&
     Array.isArray(ride.laps) &&
     ride.laps.every(isLap)
   );
@@ -57,6 +64,7 @@ function readRides(storage) {
     }
     return collection.rides
       .filter(isRide)
+      .map((ride) => ({ ...ride, notes: stripHtmlTags(ride.notes ?? "") }))
       .sort(
         (left, right) =>
           Date.parse(right.completedAt) - Date.parse(left.completedAt),
@@ -124,6 +132,7 @@ export function saveRide(ride, storage) {
     completedAt: ride.completedAt ?? new Date().toISOString(),
     elapsedMs: ride.elapsedMs,
     laps: ride.laps.map((lap) => ({ ...lap })),
+    notes: stripHtmlTags(ride.notes ?? ""),
   };
 
   if (!isRide(savedRide)) throw new Error("Enter a valid rider and ride.");
@@ -136,6 +145,19 @@ export function saveRide(ride, storage) {
   );
   writeRides(rides, storage);
   return savedRide;
+}
+
+export function updateRideNotes(rideId, notes, storage) {
+  const rides = readRides(storage);
+  let found = false;
+  const updatedRides = rides.map((ride) => {
+    if (ride.id !== rideId) return ride;
+    found = true;
+    return { ...ride, notes: stripHtmlTags(notes) };
+  });
+  if (!found) return false;
+  writeRides(updatedRides, storage);
+  return true;
 }
 
 export function deleteRide(rideId, storage) {

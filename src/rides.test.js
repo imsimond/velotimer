@@ -7,6 +7,7 @@ import {
   getSavedRiderNames,
   getSavedRides,
   saveRide,
+  updateRideNotes,
 } from "./rides.js";
 
 const STORAGE_KEY = "velotimer-rides";
@@ -59,6 +60,24 @@ test("saved ride keeps numeric lap data and returns newest rides first", () => {
     getSavedRides(storage).map(({ id }) => id),
     [newerRide.id, olderRide.id],
   );
+});
+
+test("ride notes strip HTML tags and persist as plain text", () => {
+  const storage = createStorage();
+  const savedRide = saveRide(ride(), storage);
+  const notes = "Warm up <b>inside</b> lane <img src=x onerror=alert(1)>";
+
+  assert.equal(updateRideNotes(savedRide.id, notes, storage), true);
+  assert.equal(getSavedRides(storage)[0].notes, "Warm up inside lane ");
+});
+
+test("ride notes are limited to 1000 characters", () => {
+  const storage = createStorage();
+  const savedRide = saveRide(ride(), storage);
+
+  updateRideNotes(savedRide.id, "n".repeat(1001), storage);
+
+  assert.equal(getSavedRides(storage)[0].notes.length, 1000);
 });
 
 test("rider suggestions are unique without case sensitivity", () => {

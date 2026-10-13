@@ -56,7 +56,10 @@ import {
   filterRides,
   getSavedRiderNames,
   getSavedRides,
+  MAX_RIDE_NOTES_LENGTH,
   saveRide,
+  stripHtmlTags,
+  updateRideNotes,
 } from "./rides.js";
 import "./styles/main.scss";
 
@@ -551,6 +554,7 @@ function SavedRidesDrawer({
   onSelect,
   onBack,
   onDelete,
+  onSaveNotes,
   error,
   open,
   onClose,
@@ -560,6 +564,22 @@ function SavedRidesDrawer({
   const [comparisonOpen, setComparisonOpen] = useState(false);
   const [riderFilter, setRiderFilter] = useState(null);
   const [distanceFilter, setDistanceFilter] = useState(null);
+  const [notesDraft, setNotesDraft] = useState("");
+
+  useEffect(() => {
+    setNotesDraft(stripHtmlTags(selectedRide?.notes ?? ""));
+  }, [selectedRide?.id, selectedRide?.notes]);
+
+  const saveSelectedNotes = () => {
+    if (!selectedRide) return true;
+    return onSaveNotes(selectedRide.id, notesDraft);
+  };
+  const closeDrawer = () => {
+    saveSelectedNotes();
+    setComparisonOpen(false);
+    setSelectedRideIds([]);
+    onClose();
+  };
   const riderOptions = [
     ...new Map(
       rides.map((ride) => [
@@ -602,11 +622,7 @@ function SavedRidesDrawer({
           "aria-label": "Close ride history",
           icon: <X aria-hidden="true" />,
         }}
-        onClose={() => {
-          setComparisonOpen(false);
-          setSelectedRideIds([]);
-          onClose();
-        }}
+        onClose={closeDrawer}
         opened={open}
         overlayProps={{ backgroundOpacity: 0.6, blur: 2 }}
         position="right"
@@ -629,7 +645,9 @@ function SavedRidesDrawer({
             <Button
               className="history-back"
               leftSection={<ArrowLeft aria-hidden="true" />}
-              onClick={onBack}
+              onClick={() => {
+                if (saveSelectedNotes()) onBack();
+              }}
               variant="subtle"
             >
               All rides
@@ -640,6 +658,18 @@ function SavedRidesDrawer({
                 {new Intl.NumberFormat().format(selectedRide.distanceMeters)} m
               </span>
               <strong>{formatLapTime(selectedRide.elapsedMs)}</strong>
+            </div>
+            <div className="history-notes">
+              <label htmlFor="history-ride-notes">Ride notes</label>
+              <textarea
+                id="history-ride-notes"
+                maxLength={MAX_RIDE_NOTES_LENGTH}
+                rows={4}
+                value={notesDraft}
+                onChange={(event) =>
+                  setNotesDraft(stripHtmlTags(event.currentTarget.value))
+                }
+              />
             </div>
             <LapTable
               className="history-lap-reserved"
@@ -1217,6 +1247,21 @@ function TimerApp() {
     }
   };
 
+  const saveSelectedRideNotes = (rideId, notes) => {
+    try {
+      if (!updateRideNotes(rideId, notes)) {
+        throw new Error("Ride notes could not be saved.");
+      }
+      setRides(getSavedRides());
+      setHistoryError("");
+      return true;
+    } catch {
+      setHistoryError("Ride notes could not be saved.");
+      setNotice("Ride notes could not be saved.");
+      return false;
+    }
+  };
+
   const lap = () => {
     const sampledAt = getTimerTime();
     setNow(sampledAt);
@@ -1434,6 +1479,7 @@ function TimerApp() {
         onSelect={setSelectedRide}
         onBack={() => setSelectedRide(null)}
         onDelete={removeSelectedRide}
+        onSaveNotes={saveSelectedRideNotes}
         error={historyError}
         open={historyOpen}
         onClose={() => {
