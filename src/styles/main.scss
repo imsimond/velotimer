@@ -535,6 +535,29 @@ input:focus-visible,
   background: var(--page);
 }
 
+.update-prompt {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 12px 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--face);
+
+  p {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .mantine-Button-root {
+    min-height: 40px;
+  }
+}
+
 .split-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;

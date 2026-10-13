@@ -7,6 +7,7 @@ import {
   ClipboardList,
   ClipboardPen,
   Copy,
+  RefreshCw,
   RotateCcw,
   Settings2,
   Square,
@@ -144,6 +145,78 @@ function useScreenWakeLock(active) {
       wakeLock.current = null;
     };
   }, [active]);
+}
+
+function useServiceWorkerUpdate() {
+  const [waitingWorker, setWaitingWorker] = useState(null);
+  const applyingUpdate = useRef(false);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production") return undefined;
+    if (!("serviceWorker" in navigator)) return undefined;
+
+    const serviceWorkerUrl = new URL("sw.js", document.baseURI);
+    const scope = new URL(".", document.baseURI).pathname;
+    let active = true;
+    let registration;
+
+    const announceWaitingWorker = () => {
+      if (
+        active &&
+        registration?.waiting &&
+        navigator.serviceWorker.controller
+      ) {
+        setWaitingWorker(registration.waiting);
+      }
+    };
+    const onUpdateFound = () => {
+      const installing = registration?.installing;
+      if (!installing) return;
+
+      const onStateChange = () => {
+        if (installing.state !== "installed") return;
+        announceWaitingWorker();
+        installing.removeEventListener("statechange", onStateChange);
+      };
+      installing.addEventListener("statechange", onStateChange);
+      onStateChange();
+    };
+    const onControllerChange = () => {
+      if (applyingUpdate.current) window.location.reload();
+    };
+
+    navigator.serviceWorker.addEventListener(
+      "controllerchange",
+      onControllerChange,
+    );
+    navigator.serviceWorker
+      .register(serviceWorkerUrl, { scope })
+      .then((serviceWorkerRegistration) => {
+        if (!active) return;
+        registration = serviceWorkerRegistration;
+        registration.addEventListener("updatefound", onUpdateFound);
+        onUpdateFound();
+        announceWaitingWorker();
+      })
+      .catch(() => {});
+
+    return () => {
+      active = false;
+      registration?.removeEventListener("updatefound", onUpdateFound);
+      navigator.serviceWorker.removeEventListener(
+        "controllerchange",
+        onControllerChange,
+      );
+    };
+  }, []);
+
+  const applyUpdate = () => {
+    if (!waitingWorker) return;
+    applyingUpdate.current = true;
+    waitingWorker.postMessage({ type: "SKIP_WAITING" });
+  };
+
+  return { updateAvailable: Boolean(waitingWorker), applyUpdate };
 }
 
 function formatAnnouncement(display) {
@@ -930,10 +1003,12 @@ function TimerApp() {
   const [historyError, setHistoryError] = useState("");
   const [notice, setNotice] = useState("");
   const [starting, setStarting] = useState(false);
+  const { updateAvailable, applyUpdate } = useServiceWorkerUpdate();
   const startPending = useRef(false);
   const frameMetrics = useRef({});
   const lapScrollRef = useRef(null);
   const isRunning = timer.phase === "countdown" || timer.phase === "stopwatch";
+  const canApplyUpdate = timer.phase === "ready" && !starting;
   useScreenWakeLock(isRunning);
 
   useEffect(() => {
@@ -1184,6 +1259,24 @@ function TimerApp() {
         </div>
       </header>
 
+      {updateAvailable && (
+        <div className="update-prompt" role="status">
+          <p>
+            {canApplyUpdate
+              ? "An app update is ready."
+              : "Finish and reset the timer to apply the update."}
+          </p>
+          <Button
+            disabled={!canApplyUpdate}
+            leftSection={<RefreshCw aria-hidden="true" size={14} />}
+            onClick={applyUpdate}
+            size="sm"
+          >
+            Apply update
+          </Button>
+        </div>
+      )}
+
       <section className="timer-stage" aria-label="Timer">
         <div className="clock-frame">
           <ClockDigits display={display} fontReady={displayFontReady} />
@@ -1357,14 +1450,6 @@ function TimerApp() {
   );
 }
 
-function registerServiceWorker() {
-  if (process.env.NODE_ENV !== "production") return;
-  if (!("serviceWorker" in navigator)) return;
-  const serviceWorkerUrl = new URL("sw.js", document.baseURI);
-  const scope = new URL(".", document.baseURI).pathname;
-  navigator.serviceWorker.register(serviceWorkerUrl, { scope }).catch(() => {});
-}
-
 const theme = createTheme({
   fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
   primaryColor: "red",
@@ -1375,5 +1460,3 @@ createRoot(document.getElementById("root")).render(
     <TimerApp />
   </MantineProvider>,
 );
-
-registerServiceWorker();

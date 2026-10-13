@@ -52,7 +52,7 @@ const { count, size, warnings } = await generateSW({
   additionalManifestEntries,
   swDest: "dist/sw.js",
   clientsClaim: true,
-  skipWaiting: true,
+  skipWaiting: false,
   navigateFallback: "index.html",
 });
 
