@@ -207,11 +207,11 @@
       });
     }
   }
-})({"jo1xG":[function(require,module,exports,__globalThis) {
+})({"9RH0m":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1235;
+var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -2400,6 +2400,7 @@ function TimerApp() {
     const [historyError, setHistoryError] = (0, _react.useState)("");
     const [notice, setNotice] = (0, _react.useState)("");
     const [starting, setStarting] = (0, _react.useState)(false);
+    const [updateDismissed, setUpdateDismissed] = (0, _react.useState)(false);
     const { updateAvailable, applyUpdate } = useServiceWorkerUpdate();
     const startPending = (0, _react.useRef)(false);
     const frameMetrics = (0, _react.useRef)({});
@@ -2599,12 +2600,12 @@ function TimerApp() {
                             children: "VeloTimer"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1230,
+                            lineNumber: 1231,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1229,
+                        lineNumber: 1230,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2623,12 +2624,12 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1243,
+                                    lineNumber: 1244,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1233,
+                                lineNumber: 1234,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.ActionIcon), {
@@ -2645,27 +2646,27 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1256,
+                                    lineNumber: 1257,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1245,
+                                lineNumber: 1246,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1232,
+                        lineNumber: 1233,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1228,
+                lineNumber: 1229,
                 columnNumber: 7
             }, this),
-            updateAvailable && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            updateAvailable && !updateDismissed && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "update-prompt",
                 role: "status",
                 children: [
@@ -2673,7 +2674,7 @@ function TimerApp() {
                         children: canApplyUpdate ? "An app update is ready." : "Finish and reset the timer to apply the update."
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1263,
+                        lineNumber: 1264,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2683,7 +2684,7 @@ function TimerApp() {
                             size: 14
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1270,
+                            lineNumber: 1271,
                             columnNumber: 26
                         }, void 0),
                         onClick: applyUpdate,
@@ -2691,13 +2692,34 @@ function TimerApp() {
                         children: "Apply update"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1268,
+                        lineNumber: 1269,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.ActionIcon), {
+                        type: "button",
+                        "aria-label": "Dismiss update notification",
+                        title: "Dismiss update notification",
+                        color: "white",
+                        onClick: ()=>setUpdateDismissed(true),
+                        size: 40,
+                        variant: "subtle",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.X), {
+                            size: 16,
+                            "aria-hidden": "true"
+                        }, void 0, false, {
+                            fileName: "src/main.jsx",
+                            lineNumber: 1286,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/main.jsx",
+                        lineNumber: 1277,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1262,
+                lineNumber: 1263,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -2711,7 +2733,7 @@ function TimerApp() {
                             fontReady: displayFontReady
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1281,
+                            lineNumber: 1293,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("output", {
@@ -2720,18 +2742,18 @@ function TimerApp() {
                             children: formatAnnouncement(display)
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1282,
+                            lineNumber: 1294,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 1280,
+                    lineNumber: 1292,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1279,
+                lineNumber: 1291,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2740,7 +2762,7 @@ function TimerApp() {
                 children: notice
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1288,
+                lineNumber: 1300,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(LapTable, {
@@ -2749,7 +2771,7 @@ function TimerApp() {
                 visible: timer.phase === "ended" || timer.laps.length > 0
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1292,
+                lineNumber: 1304,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
@@ -2761,7 +2783,7 @@ function TimerApp() {
                         settings: timer.settings
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1300,
+                        lineNumber: 1312,
                         columnNumber: 11
                     }, this),
                     timer.phase === "ready" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2774,7 +2796,7 @@ function TimerApp() {
                         children: "Start"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1307,
+                        lineNumber: 1319,
                         columnNumber: 11
                     }, this),
                     timer.phase === "countdown" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2785,14 +2807,14 @@ function TimerApp() {
                             "aria-hidden": "true"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1323,
+                            lineNumber: 1335,
                             columnNumber: 26
                         }, void 0),
                         onClick: reset,
                         children: "Reset"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1319,
+                        lineNumber: 1331,
                         columnNumber: 11
                     }, this),
                     timer.phase === "stopwatch" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2806,7 +2828,7 @@ function TimerApp() {
                                 children: "Lap"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1331,
+                                lineNumber: 1343,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2818,20 +2840,20 @@ function TimerApp() {
                                     fill: "currentColor"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1343,
+                                    lineNumber: 1355,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: stop,
                                 children: "Stop"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1339,
+                                lineNumber: 1351,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1330,
+                        lineNumber: 1342,
                         columnNumber: 11
                     }, this),
                     timer.phase === "ended" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2845,14 +2867,14 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1356,
+                                    lineNumber: 1368,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: openSaveDialog,
                                 children: rideSaved ? "Saved" : "Save"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1352,
+                                lineNumber: 1364,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2862,26 +2884,26 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1364,
+                                    lineNumber: 1376,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: reset,
                                 children: "Reset"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1361,
+                                lineNumber: 1373,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1351,
+                        lineNumber: 1363,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1298,
+                lineNumber: 1310,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Modal), {
@@ -2917,7 +2939,7 @@ function TimerApp() {
                             onChange: setRiderName
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1387,
+                            lineNumber: 1399,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.NumberInput), {
@@ -2937,7 +2959,7 @@ function TimerApp() {
                             onChange: setDistanceMeters
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1397,
+                            lineNumber: 1409,
                             columnNumber: 11
                         }, this),
                         saveError && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2946,7 +2968,7 @@ function TimerApp() {
                             children: saveError
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1411,
+                            lineNumber: 1423,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2958,7 +2980,7 @@ function TimerApp() {
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1416,
+                                    lineNumber: 1428,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2966,31 +2988,31 @@ function TimerApp() {
                                         "aria-hidden": "true"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1420,
+                                        lineNumber: 1432,
                                         columnNumber: 28
                                     }, void 0),
                                     type: "submit",
                                     children: "Save"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1419,
+                                    lineNumber: 1431,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1415,
+                            lineNumber: 1427,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 1386,
+                    lineNumber: 1398,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1373,
+                lineNumber: 1385,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(SettingsDialog, {
@@ -3000,7 +3022,7 @@ function TimerApp() {
                 onClose: ()=>setSettingsOpen(false)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1429,
+                lineNumber: 1441,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(SavedRidesDrawer, {
@@ -3017,17 +3039,17 @@ function TimerApp() {
                 }
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1435,
+                lineNumber: 1447,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 1227,
+        lineNumber: 1228,
         columnNumber: 5
     }, this);
 }
-_s4(TimerApp, "/erufDK9UoHaEAhlotSIZXK04jI=", false, function() {
+_s4(TimerApp, "nW1H22hQ97EeMs0/MMYp9wHkoU0=", false, function() {
     return [
         useServiceWorkerUpdate,
         useScreenWakeLock
@@ -3043,12 +3065,12 @@ const theme = (0, _core.createTheme)({
     theme: theme,
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(TimerApp, {}, void 0, false, {
         fileName: "src/main.jsx",
-        lineNumber: 1459,
+        lineNumber: 1471,
         columnNumber: 5
     }, undefined)
 }, void 0, false, {
     fileName: "src/main.jsx",
-    lineNumber: 1458,
+    lineNumber: 1470,
     columnNumber: 3
 }, undefined));
 var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7;
@@ -59870,6 +59892,6 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["jo1xG","eM1fv"], "eM1fv", "parcelRequiree23d", {}, null, null, "http://localhost:1235")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["9RH0m","eM1fv"], "eM1fv", "parcelRequiree23d", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=velotimer.64b87d6c.js.map

@@ -1002,6 +1002,7 @@ function TimerApp() {
   const [historyError, setHistoryError] = useState("");
   const [notice, setNotice] = useState("");
   const [starting, setStarting] = useState(false);
+  const [updateDismissed, setUpdateDismissed] = useState(false);
   const { updateAvailable, applyUpdate } = useServiceWorkerUpdate();
   const startPending = useRef(false);
   const frameMetrics = useRef({});
@@ -1258,7 +1259,7 @@ function TimerApp() {
         </div>
       </header>
 
-      {updateAvailable && (
+      {updateAvailable && !updateDismissed && (
         <div className="update-prompt" role="status">
           <p>
             {canApplyUpdate
@@ -1273,6 +1274,17 @@ function TimerApp() {
           >
             Apply update
           </Button>
+          <ActionIcon
+            type="button"
+            aria-label="Dismiss update notification"
+            title="Dismiss update notification"
+            color="white"
+            onClick={() => setUpdateDismissed(true)}
+            size={40}
+            variant="subtle"
+          >
+            <X size={16} aria-hidden="true" />
+          </ActionIcon>
         </div>
       )}
 

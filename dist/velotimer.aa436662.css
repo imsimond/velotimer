@@ -10092,7 +10092,7 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
   border: 1px solid var(--line);
   background: var(--face);
   border-radius: 6px;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 8px;
   margin: 8px 12px 0;

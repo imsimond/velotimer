@@ -537,7 +537,7 @@ input:focus-visible,
 
 .update-prompt {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 8px;
   margin: 8px 12px 0;
