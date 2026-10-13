@@ -207,11 +207,11 @@
       });
     }
   }
-})({"9RH0m":[function(require,module,exports,__globalThis) {
+})({"k10Yl":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1234;
+var HMR_SERVER_PORT = 1236;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -853,7 +853,7 @@ function ClockDigits({ display, fontReady }) {
                                     children: "88"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 246,
+                                    lineNumber: 248,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -861,13 +861,13 @@ function ClockDigits({ display, fontReady }) {
                                     children: display.minutes
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 247,
+                                    lineNumber: 249,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 245,
+                            lineNumber: 247,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -875,14 +875,14 @@ function ClockDigits({ display, fontReady }) {
                             children: ":"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 249,
+                            lineNumber: 251,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 242,
+                lineNumber: 244,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -894,7 +894,7 @@ function ClockDigits({ display, fontReady }) {
                         children: "88"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 254,
+                        lineNumber: 256,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -902,13 +902,13 @@ function ClockDigits({ display, fontReady }) {
                         children: display.seconds
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 255,
+                        lineNumber: 257,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 253,
+                lineNumber: 255,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -921,7 +921,7 @@ function ClockDigits({ display, fontReady }) {
                             children: ".8"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 263,
+                            lineNumber: 265,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -932,20 +932,20 @@ function ClockDigits({ display, fontReady }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 264,
+                            lineNumber: 266,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 257,
+                lineNumber: 259,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 239,
+        lineNumber: 241,
         columnNumber: 5
     }, this);
 }
@@ -977,7 +977,7 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Lap"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 290,
+                                        lineNumber: 292,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -985,7 +985,7 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Split"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 291,
+                                        lineNumber: 293,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -993,7 +993,7 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Diff"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 292,
+                                        lineNumber: 294,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1001,18 +1001,18 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Elapsed"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 293,
+                                        lineNumber: 295,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 289,
+                                lineNumber: 291,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 288,
+                            lineNumber: 290,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Tbody, {
@@ -1026,14 +1026,14 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                             children: lap.lapNumber
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 312,
+                                            lineNumber: 314,
                                             columnNumber: 23
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
                                             children: showSplit ? (0, _timerJs.formatLapTime)(lap.splitMs) : ""
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 313,
+                                            lineNumber: 315,
                                             columnNumber: 23
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1041,47 +1041,47 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                             children: lap.diffMs === null ? "" : (0, _timerJs.formatDiff)(lap.diffMs)
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 316,
+                                            lineNumber: 318,
                                             columnNumber: 23
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
                                             children: (0, _timerJs.formatLapTime)(lap.elapsedMs)
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 319,
+                                            lineNumber: 321,
                                             columnNumber: 23
                                         }, this)
                                     ]
                                 }, `${lap.lapNumber}-${lap.elapsedMs}-${index}`, true, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 308,
+                                    lineNumber: 310,
                                     columnNumber: 21
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 296,
+                            lineNumber: 298,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 278,
+                    lineNumber: 280,
                     columnNumber: 13
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 277,
+                lineNumber: 279,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "src/main.jsx",
-            lineNumber: 276,
+            lineNumber: 278,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "src/main.jsx",
-        lineNumber: 274,
+        lineNumber: 276,
         columnNumber: 5
     }, this);
 }
@@ -1142,16 +1142,6 @@ function RideComparisonTable({ rides, mode }) {
                             className: "history-compare-lap-column"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 397,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("col", {}, void 0, false, {
-                            fileName: "src/main.jsx",
-                            lineNumber: 398,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("col", {}, void 0, false, {
-                            fileName: "src/main.jsx",
                             lineNumber: 399,
                             columnNumber: 11
                         }, this),
@@ -1159,11 +1149,21 @@ function RideComparisonTable({ rides, mode }) {
                             fileName: "src/main.jsx",
                             lineNumber: 400,
                             columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("col", {}, void 0, false, {
+                            fileName: "src/main.jsx",
+                            lineNumber: 401,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("col", {}, void 0, false, {
+                            fileName: "src/main.jsx",
+                            lineNumber: 402,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 396,
+                    lineNumber: 398,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Thead, {
@@ -1174,7 +1174,7 @@ function RideComparisonTable({ rides, mode }) {
                                 children: "Lap"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 404,
+                                lineNumber: 406,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1185,7 +1185,7 @@ function RideComparisonTable({ rides, mode }) {
                                         children: leftRide.riderName
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 406,
+                                        lineNumber: 408,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1193,20 +1193,20 @@ function RideComparisonTable({ rides, mode }) {
                                         children: formatRideDateCompact(leftRide.completedAt)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 409,
+                                        lineNumber: 411,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                         children: (0, _timerJs.formatLapTime)(leftRide.elapsedMs)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 412,
+                                        lineNumber: 414,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 405,
+                                lineNumber: 407,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1215,7 +1215,7 @@ function RideComparisonTable({ rides, mode }) {
                                 children: "Gap"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 414,
+                                lineNumber: 416,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1226,7 +1226,7 @@ function RideComparisonTable({ rides, mode }) {
                                         children: rightRide.riderName
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 418,
+                                        lineNumber: 420,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1234,31 +1234,31 @@ function RideComparisonTable({ rides, mode }) {
                                         children: formatRideDateCompact(rightRide.completedAt)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 421,
+                                        lineNumber: 423,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                         children: (0, _timerJs.formatLapTime)(rightRide.elapsedMs)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 424,
+                                        lineNumber: 426,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 417,
+                                lineNumber: 419,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 403,
+                        lineNumber: 405,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 402,
+                    lineNumber: 404,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Tbody, {
@@ -1292,7 +1292,7 @@ function RideComparisonTable({ rides, mode }) {
                                                                 fill: "#363530"
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 455,
+                                                                lineNumber: 457,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
@@ -1302,18 +1302,18 @@ function RideComparisonTable({ rides, mode }) {
                                                                 strokeWidth: "2"
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 456,
+                                                                lineNumber: 458,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/main.jsx",
-                                                        lineNumber: 448,
+                                                        lineNumber: 450,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 447,
+                                                    lineNumber: 449,
                                                     columnNumber: 23
                                                 }, this),
                                                 barWidth > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("rect", {
@@ -1324,20 +1324,20 @@ function RideComparisonTable({ rides, mode }) {
                                                     y: "0"
                                                 }, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 465,
+                                                    lineNumber: 467,
                                                     columnNumber: 25
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 442,
+                                            lineNumber: 444,
                                             columnNumber: 21
                                         }, this),
                                         lapNumber
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 441,
+                                    lineNumber: 443,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1345,7 +1345,7 @@ function RideComparisonTable({ rides, mode }) {
                                     children: leftValue === null ? "\u2014" : (0, _timerJs.formatLapTime)(leftValue)
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 476,
+                                    lineNumber: 478,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1356,7 +1356,7 @@ function RideComparisonTable({ rides, mode }) {
                                         children: "0.000"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 492,
+                                        lineNumber: 494,
                                         columnNumber: 23
                                     }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         className: "history-compare-lead",
@@ -1366,19 +1366,19 @@ function RideComparisonTable({ rides, mode }) {
                                                 "aria-hidden": "true",
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.ArrowLeft), {}, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 499,
+                                                    lineNumber: 501,
                                                     columnNumber: 27
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 495,
+                                                lineNumber: 497,
                                                 columnNumber: 25
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                                 children: (Math.abs(difference) / 1000).toFixed(3)
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 501,
+                                                lineNumber: 503,
                                                 columnNumber: 25
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1386,23 +1386,23 @@ function RideComparisonTable({ rides, mode }) {
                                                 "aria-hidden": "true",
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.ArrowRight), {}, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 508,
+                                                    lineNumber: 510,
                                                     columnNumber: 27
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 504,
+                                                lineNumber: 506,
                                                 columnNumber: 25
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 494,
+                                        lineNumber: 496,
                                         columnNumber: 23
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 479,
+                                    lineNumber: 481,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1410,30 +1410,30 @@ function RideComparisonTable({ rides, mode }) {
                                     children: rightValue === null ? "\u2014" : (0, _timerJs.formatLapTime)(rightValue)
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 513,
+                                    lineNumber: 515,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, lapNumber, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 440,
+                            lineNumber: 442,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 428,
+                    lineNumber: 430,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/main.jsx",
-            lineNumber: 387,
+            lineNumber: 389,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/main.jsx",
-        lineNumber: 386,
+        lineNumber: 388,
         columnNumber: 5
     }, this);
 }
@@ -1456,7 +1456,7 @@ function RideComparisonTabs({ rides }) {
                         children: "Overall"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 538,
+                        lineNumber: 540,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Tabs).Tab, {
@@ -1464,13 +1464,13 @@ function RideComparisonTabs({ rides }) {
                         children: "Splits"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 539,
+                        lineNumber: 541,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 537,
+                lineNumber: 539,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Tabs).Panel, {
@@ -1481,12 +1481,12 @@ function RideComparisonTabs({ rides }) {
                     rides: rides
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 542,
+                    lineNumber: 544,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 541,
+                lineNumber: 543,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Tabs).Panel, {
@@ -1497,18 +1497,18 @@ function RideComparisonTabs({ rides }) {
                     rides: rides
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 545,
+                    lineNumber: 547,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 544,
+                lineNumber: 546,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 528,
+        lineNumber: 530,
         columnNumber: 5
     }, this);
 }
@@ -1560,6 +1560,23 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                 rideId
             ]);
     };
+    const exportRideHistory = ()=>{
+        const csv = (0, _ridesJs.ridesToCsv)(rides);
+        const blob = new Blob([
+            "\uFEFF",
+            csv
+        ], {
+            type: "text/csv;charset=utf-8"
+        });
+        const downloadUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = `velotimer-rides-${new Date().toISOString().slice(0, 10)}.csv`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        window.setTimeout(()=>URL.revokeObjectURL(downloadUrl), 1000);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Drawer), {
@@ -1575,7 +1592,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 623,
+                        lineNumber: 640,
                         columnNumber: 17
                     }, void 0)
                 },
@@ -1587,7 +1604,32 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                 },
                 position: "right",
                 size: "min(94vw, 480px)",
-                title: selectedRide ? selectedRide.riderName : comparisonOpen ? "Compare rides" : "Ride History",
+                title: selectedRide ? selectedRide.riderName : comparisonOpen ? "Compare rides" : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    children: [
+                        "Ride History",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
+                            "aria-label": "Export ride history as CSV",
+                            className: "history-export-button",
+                            disabled: !rides.length,
+                            leftSection: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Download), {
+                                "aria-hidden": "true",
+                                size: 16
+                            }, void 0, false, {
+                                fileName: "src/main.jsx",
+                                lineNumber: 659,
+                                columnNumber: 30
+                            }, void 0),
+                            onClick: exportRideHistory,
+                            size: "xs",
+                            variant: "default",
+                            children: "Export CSV"
+                        }, void 0, false, {
+                            fileName: "src/main.jsx",
+                            lineNumber: 655,
+                            columnNumber: 15
+                        }, void 0)
+                    ]
+                }, void 0, true),
                 children: [
                     error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "ride-form-error",
@@ -1595,7 +1637,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                         children: error
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 639,
+                        lineNumber: 671,
                         columnNumber: 11
                     }, this),
                     selectedRide ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1607,7 +1649,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 647,
+                                    lineNumber: 679,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: ()=>{
@@ -1617,7 +1659,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "All rides"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 645,
+                                lineNumber: 677,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1627,7 +1669,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         children: formatRideDate(selectedRide.completedAt)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 656,
+                                        lineNumber: 688,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1637,20 +1679,20 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 657,
+                                        lineNumber: 689,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                         children: (0, _timerJs.formatLapTime)(selectedRide.elapsedMs)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 660,
+                                        lineNumber: 692,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 655,
+                                lineNumber: 687,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1661,7 +1703,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         children: "Ride notes"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 663,
+                                        lineNumber: 695,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -1672,13 +1714,13 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         onChange: (event)=>setNotesDraft((0, _ridesJs.stripHtmlTags)(event.currentTarget.value))
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 664,
+                                        lineNumber: 696,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 662,
+                                lineNumber: 694,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(LapTable, {
@@ -1687,7 +1729,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 visible: true
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 674,
+                                lineNumber: 706,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -1696,7 +1738,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 681,
+                                    lineNumber: 713,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: ()=>setDeleteOpen(true),
@@ -1704,13 +1746,13 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "Delete ride"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 679,
+                                lineNumber: 711,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 644,
+                        lineNumber: 676,
                         columnNumber: 11
                     }, this) : comparisonOpen ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "history-detail history-comparison-detail",
@@ -1721,7 +1763,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 692,
+                                    lineNumber: 724,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: ()=>setComparisonOpen(false),
@@ -1729,20 +1771,20 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "All rides"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 690,
+                                lineNumber: 722,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RideComparisonTabs, {
                                 rides: comparisonRides
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 698,
+                                lineNumber: 730,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 689,
+                        lineNumber: 721,
                         columnNumber: 11
                     }, this) : rides.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "history-browser",
@@ -1763,7 +1805,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         onChange: setRiderFilter
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 703,
+                                        lineNumber: 735,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Select), {
@@ -1779,13 +1821,13 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         onChange: setDistanceFilter
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 715,
+                                        lineNumber: 747,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 702,
+                                lineNumber: 734,
                                 columnNumber: 13
                             }, this),
                             visibleRides.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1797,41 +1839,41 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {}, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 731,
+                                                lineNumber: 763,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Rider"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 732,
+                                                lineNumber: 764,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Date"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 733,
+                                                lineNumber: 765,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Dist"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 734,
+                                                lineNumber: 766,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Total"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 735,
+                                                lineNumber: 767,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 730,
+                                        lineNumber: 762,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -1848,7 +1890,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                         onChange: ()=>toggleRideSelection(ride.id)
                                                     }, void 0, false, {
                                                         fileName: "src/main.jsx",
-                                                        lineNumber: 740,
+                                                        lineNumber: 772,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -1862,7 +1904,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: ride.riderName
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 756,
+                                                                lineNumber: 788,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("time", {
@@ -1871,7 +1913,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: formatRideDateCompact(ride.completedAt)
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 759,
+                                                                lineNumber: 791,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1879,7 +1921,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: formatDistance(ride.distanceMeters)
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 765,
+                                                                lineNumber: 797,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
@@ -1887,37 +1929,37 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: (0, _timerJs.formatLapTime)(ride.elapsedMs)
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 768,
+                                                                lineNumber: 800,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/main.jsx",
-                                                        lineNumber: 750,
+                                                        lineNumber: 782,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, ride.id, true, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 739,
+                                                lineNumber: 771,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 737,
+                                        lineNumber: 769,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 729,
+                                lineNumber: 761,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "history-empty",
                                 children: "No rides match these filters."
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 777,
+                                lineNumber: 809,
                                 columnNumber: 15
                             }, this),
                             selectedRideIds.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1930,31 +1972,31 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     children: "Compare"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 781,
+                                    lineNumber: 813,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 780,
+                                lineNumber: 812,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 701,
+                        lineNumber: 733,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "history-empty",
                         children: "No saved rides yet."
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 793,
+                        lineNumber: 825,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 614,
+                lineNumber: 631,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Modal), {
@@ -1983,7 +2025,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 810,
+                        lineNumber: 842,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1995,7 +2037,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "Cancel"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 815,
+                                lineNumber: 847,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2004,7 +2046,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 820,
+                                    lineNumber: 852,
                                     columnNumber: 26
                                 }, void 0),
                                 onClick: ()=>{
@@ -2013,19 +2055,19 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "Delete"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 818,
+                                lineNumber: 850,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 814,
+                        lineNumber: 846,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 797,
+                lineNumber: 829,
                 columnNumber: 7
             }, this)
         ]
@@ -2047,7 +2089,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                 "aria-hidden": "true"
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 844,
+                lineNumber: 876,
                 columnNumber: 15
             }, void 0)
         },
@@ -2085,7 +2127,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                         }
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 854,
+                        lineNumber: 886,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2106,7 +2148,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                 }
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 875,
+                                lineNumber: 907,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Switch), {
@@ -2119,13 +2161,13 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                     })
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 885,
+                                lineNumber: 917,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 874,
+                        lineNumber: 906,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2139,7 +2181,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                         children: "Volume"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 897,
+                                        lineNumber: 929,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("output", {
@@ -2150,13 +2192,13 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 898,
+                                        lineNumber: 930,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 896,
+                                lineNumber: 928,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Slider), {
@@ -2172,19 +2214,19 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                     })
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 900,
+                                lineNumber: 932,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 895,
+                        lineNumber: 927,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 853,
+                lineNumber: 885,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
@@ -2200,7 +2242,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                 children: "Tintou Ltd"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 915,
+                                lineNumber: 947,
                                 columnNumber: 11
                             }, this),
                             " \u2022",
@@ -2210,39 +2252,39 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                 children: "Email"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 916,
+                                lineNumber: 948,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 913,
+                        lineNumber: 945,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "Fonts used under SIL Open Font License 1.1 \u2022 DSEG \xa9 2017 keshikan \u2022 Atkinson Hyperlegible Mono \xa9 2020-2024 The Atkinson Hyperlegible Mono Project Authors"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 918,
+                        lineNumber: 950,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "Always remember: the halfway point of a kilo is 900m."
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 923,
+                        lineNumber: 955,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 912,
+                lineNumber: 944,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 835,
+        lineNumber: 867,
         columnNumber: 5
     }, this);
 }
@@ -2354,18 +2396,18 @@ function TimingDiagnostics({ frameMetrics, fontReady, settings }) {
                             "aria-hidden": "true"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1000,
+                            lineNumber: 1032,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 994,
+                        lineNumber: 1026,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 992,
+                lineNumber: 1024,
                 columnNumber: 7
             }, this),
             open && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2378,32 +2420,32 @@ function TimingDiagnostics({ frameMetrics, fontReady, settings }) {
                                         children: label
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1008,
+                                        lineNumber: 1040,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
                                         children: value
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1009,
+                                        lineNumber: 1041,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, label, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1007,
+                                lineNumber: 1039,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1005,
+                        lineNumber: 1037,
                         columnNumber: 11
                     }, this),
                     snapshot?.startupError && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: snapshot.startupError
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1013,
+                        lineNumber: 1045,
                         columnNumber: 38
                     }, this),
                     copyStatus && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2411,19 +2453,19 @@ function TimingDiagnostics({ frameMetrics, fontReady, settings }) {
                         children: copyStatus
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1014,
+                        lineNumber: 1046,
                         columnNumber: 26
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1004,
+                lineNumber: 1036,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 988,
+        lineNumber: 1020,
         columnNumber: 5
     }, this);
 }
@@ -2657,12 +2699,12 @@ function TimerApp() {
                             children: "VeloTimer"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1282,
+                            lineNumber: 1314,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1281,
+                        lineNumber: 1313,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2681,12 +2723,12 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1295,
+                                    lineNumber: 1327,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1285,
+                                lineNumber: 1317,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.ActionIcon), {
@@ -2703,24 +2745,24 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1308,
+                                    lineNumber: 1340,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1297,
+                                lineNumber: 1329,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1284,
+                        lineNumber: 1316,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1280,
+                lineNumber: 1312,
                 columnNumber: 7
             }, this),
             isApplyingUpdate && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2732,14 +2774,14 @@ function TimerApp() {
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1315,
+                        lineNumber: 1347,
                         columnNumber: 11
                     }, this),
                     "App update in progress"
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1314,
+                lineNumber: 1346,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -2753,7 +2795,7 @@ function TimerApp() {
                             fontReady: displayFontReady
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1322,
+                            lineNumber: 1354,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("output", {
@@ -2762,18 +2804,18 @@ function TimerApp() {
                             children: formatAnnouncement(display)
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1323,
+                            lineNumber: 1355,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 1321,
+                    lineNumber: 1353,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1320,
+                lineNumber: 1352,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2782,7 +2824,7 @@ function TimerApp() {
                 children: notice
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1329,
+                lineNumber: 1361,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(LapTable, {
@@ -2791,7 +2833,7 @@ function TimerApp() {
                 visible: timer.phase === "ended" || timer.laps.length > 0
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1333,
+                lineNumber: 1365,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
@@ -2803,7 +2845,7 @@ function TimerApp() {
                         settings: timer.settings
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1341,
+                        lineNumber: 1373,
                         columnNumber: 11
                     }, this),
                     timer.phase === "ready" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2816,7 +2858,7 @@ function TimerApp() {
                         children: "Start"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1348,
+                        lineNumber: 1380,
                         columnNumber: 11
                     }, this),
                     timer.phase === "countdown" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2827,14 +2869,14 @@ function TimerApp() {
                             "aria-hidden": "true"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1364,
+                            lineNumber: 1396,
                             columnNumber: 26
                         }, void 0),
                         onClick: reset,
                         children: "Reset"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1360,
+                        lineNumber: 1392,
                         columnNumber: 11
                     }, this),
                     timer.phase === "stopwatch" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2848,7 +2890,7 @@ function TimerApp() {
                                 children: "Lap"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1372,
+                                lineNumber: 1404,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2860,20 +2902,20 @@ function TimerApp() {
                                     fill: "currentColor"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1384,
+                                    lineNumber: 1416,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: stop,
                                 children: "Stop"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1380,
+                                lineNumber: 1412,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1371,
+                        lineNumber: 1403,
                         columnNumber: 11
                     }, this),
                     timer.phase === "ended" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2887,14 +2929,14 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1397,
+                                    lineNumber: 1429,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: openSaveDialog,
                                 children: rideSaved ? "Saved" : "Save"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1393,
+                                lineNumber: 1425,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2904,26 +2946,26 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1405,
+                                    lineNumber: 1437,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: reset,
                                 children: "Reset"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1402,
+                                lineNumber: 1434,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1392,
+                        lineNumber: 1424,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1339,
+                lineNumber: 1371,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Modal), {
@@ -2959,7 +3001,7 @@ function TimerApp() {
                             onChange: setRiderName
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1428,
+                            lineNumber: 1460,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.NumberInput), {
@@ -2979,7 +3021,7 @@ function TimerApp() {
                             onChange: setDistanceMeters
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1438,
+                            lineNumber: 1470,
                             columnNumber: 11
                         }, this),
                         saveError && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2988,7 +3030,7 @@ function TimerApp() {
                             children: saveError
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1452,
+                            lineNumber: 1484,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3000,7 +3042,7 @@ function TimerApp() {
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1457,
+                                    lineNumber: 1489,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -3008,31 +3050,31 @@ function TimerApp() {
                                         "aria-hidden": "true"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1461,
+                                        lineNumber: 1493,
                                         columnNumber: 28
                                     }, void 0),
                                     type: "submit",
                                     children: "Save"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1460,
+                                    lineNumber: 1492,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1456,
+                            lineNumber: 1488,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 1427,
+                    lineNumber: 1459,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1414,
+                lineNumber: 1446,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(SettingsDialog, {
@@ -3042,7 +3084,7 @@ function TimerApp() {
                 onClose: ()=>setSettingsOpen(false)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1470,
+                lineNumber: 1502,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(SavedRidesDrawer, {
@@ -3060,13 +3102,13 @@ function TimerApp() {
                 }
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1476,
+                lineNumber: 1508,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 1279,
+        lineNumber: 1311,
         columnNumber: 5
     }, this);
 }
@@ -3086,12 +3128,12 @@ const theme = (0, _core.createTheme)({
     theme: theme,
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(TimerApp, {}, void 0, false, {
         fileName: "src/main.jsx",
-        lineNumber: 1501,
+        lineNumber: 1533,
         columnNumber: 5
     }, undefined)
 }, void 0, false, {
     fileName: "src/main.jsx",
-    lineNumber: 1500,
+    lineNumber: 1532,
     columnNumber: 3
 }, undefined));
 var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7;
@@ -29755,7 +29797,7 @@ var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJ
 var _iconJs = require("./Icon.js");
 var _iconJsDefault = parcelHelpers.interopDefault(_iconJs);
 
-},{"./icons/index.js":false,"./icons/alarm-clock-check.js":false,"./icons/alarm-clock-minus.js":false,"./icons/alarm-clock-plus.js":false,"./icons/arrow-down-a-z.js":false,"./icons/arrow-down-wide-narrow.js":false,"./icons/arrow-down-z-a.js":false,"./icons/arrow-up-a-z.js":false,"./icons/arrow-up-narrow-wide.js":false,"./icons/arrow-up-z-a.js":false,"./icons/axis-3d.js":false,"./icons/badge-check.js":false,"./icons/between-horizontal-end.js":false,"./icons/between-horizontal-start.js":false,"./icons/book-dashed.js":false,"./icons/braces.js":false,"./icons/captions.js":false,"./icons/chart-area.js":false,"./icons/chart-bar-big.js":false,"./icons/chart-bar.js":false,"./icons/chart-candlestick.js":false,"./icons/chart-column-big.js":false,"./icons/chart-column-increasing.js":false,"./icons/chart-column.js":false,"./icons/chart-line.js":false,"./icons/chart-no-axes-column-increasing.js":false,"./icons/chart-no-axes-column.js":false,"./icons/chart-no-axes-gantt.js":false,"./icons/chart-pie.js":false,"./icons/chart-scatter.js":false,"./icons/circle-alert.js":false,"./icons/circle-arrow-down.js":false,"./icons/circle-arrow-left.js":false,"./icons/circle-arrow-out-down-left.js":false,"./icons/circle-arrow-out-down-right.js":false,"./icons/circle-arrow-out-up-left.js":false,"./icons/circle-arrow-out-up-right.js":false,"./icons/circle-arrow-right.js":false,"./icons/circle-arrow-up.js":false,"./icons/circle-check-big.js":false,"./icons/circle-check.js":false,"./icons/circle-chevron-down.js":false,"./icons/circle-chevron-left.js":false,"./icons/circle-chevron-right.js":false,"./icons/circle-chevron-up.js":false,"./icons/circle-divide.js":false,"./icons/circle-gauge.js":false,"./icons/circle-help.js":false,"./icons/circle-minus.js":false,"./icons/circle-parking-off.js":false,"./icons/circle-parking.js":false,"./icons/circle-pause.js":false,"./icons/circle-percent.js":false,"./icons/circle-play.js":false,"./icons/circle-plus.js":false,"./icons/circle-power.js":false,"./icons/circle-slash-2.js":false,"./icons/circle-stop.js":false,"./icons/circle-user-round.js":false,"./icons/circle-user.js":false,"./icons/circle-x.js":false,"./icons/clipboard-pen-line.js":false,"./icons/clipboard-pen.js":"kUNJY","./icons/cloud-download.js":false,"./icons/cloud-upload.js":false,"./icons/code-xml.js":false,"./icons/columns-2.js":false,"./icons/columns-3.js":false,"./icons/contact-round.js":false,"./icons/diamond-percent.js":false,"./icons/earth.js":false,"./icons/ellipsis-vertical.js":false,"./icons/ellipsis.js":false,"./icons/file-axis-3d.js":false,"./icons/file-chart-column-increasing.js":false,"./icons/file-chart-column.js":false,"./icons/file-chart-line.js":false,"./icons/file-chart-pie.js":false,"./icons/file-cog.js":false,"./icons/file-pen-line.js":false,"./icons/file-pen.js":false,"./icons/folder-cog.js":false,"./icons/folder-pen.js":false,"./icons/git-commit-horizontal.js":false,"./icons/grid-2x2-plus.js":false,"./icons/grid-2x2.js":false,"./icons/grid-3x3.js":false,"./icons/hand-helping.js":false,"./icons/house.js":false,"./icons/ice-cream-bowl.js":false,"./icons/ice-cream-cone.js":false,"./icons/indent-decrease.js":false,"./icons/indent-increase.js":false,"./icons/laptop-minimal.js":false,"./icons/layers.js":false,"./icons/loader-circle.js":false,"./icons/lock-keyhole-open.js":false,"./icons/lock-open.js":false,"./icons/mic-vocal.js":false,"./icons/move-3d.js":false,"./icons/octagon-alert.js":false,"./icons/octagon-pause.js":false,"./icons/octagon-x.js":false,"./icons/paintbrush-vertical.js":false,"./icons/panel-bottom-dashed.js":false,"./icons/panel-left-close.js":false,"./icons/panel-left-dashed.js":false,"./icons/panel-left-open.js":false,"./icons/panel-left.js":false,"./icons/panel-right-dashed.js":false,"./icons/panel-top-dashed.js":false,"./icons/panels-top-left.js":false,"./icons/pen-line.js":false,"./icons/pen.js":false,"./icons/plug-zap.js":false,"./icons/rectangle-ellipsis.js":false,"./icons/rotate-3d.js":false,"./icons/rows-2.js":false,"./icons/rows-3.js":false,"./icons/scale-3d.js":false,"./icons/send-horizontal.js":false,"./icons/shield-x.js":false,"./icons/sliders-vertical.js":false,"./icons/sparkles.js":false,"./icons/square-activity.js":false,"./icons/square-arrow-down-left.js":false,"./icons/square-arrow-down-right.js":false,"./icons/square-arrow-down.js":false,"./icons/square-arrow-left.js":false,"./icons/square-arrow-out-down-left.js":false,"./icons/square-arrow-out-down-right.js":false,"./icons/square-arrow-out-up-left.js":false,"./icons/square-arrow-out-up-right.js":false,"./icons/square-arrow-right.js":false,"./icons/square-arrow-up-left.js":false,"./icons/square-arrow-up-right.js":false,"./icons/square-arrow-up.js":false,"./icons/square-asterisk.js":false,"./icons/square-bottom-dashed-scissors.js":false,"./icons/square-chart-gantt.js":false,"./icons/square-check-big.js":false,"./icons/square-check.js":false,"./icons/square-chevron-down.js":false,"./icons/square-chevron-left.js":false,"./icons/square-chevron-right.js":false,"./icons/square-chevron-up.js":false,"./icons/square-code.js":false,"./icons/square-dashed-kanban.js":false,"./icons/square-dashed-mouse-pointer.js":false,"./icons/square-dashed.js":false,"./icons/square-divide.js":false,"./icons/square-dot.js":false,"./icons/square-equal.js":false,"./icons/square-function.js":false,"./icons/square-kanban.js":false,"./icons/square-library.js":false,"./icons/square-m.js":false,"./icons/square-menu.js":false,"./icons/square-minus.js":false,"./icons/square-mouse-pointer.js":false,"./icons/square-parking-off.js":false,"./icons/square-parking.js":false,"./icons/square-pen.js":false,"./icons/square-percent.js":false,"./icons/square-pi.js":false,"./icons/square-pilcrow.js":false,"./icons/square-play.js":false,"./icons/square-plus.js":false,"./icons/square-power.js":false,"./icons/square-scissors.js":false,"./icons/square-sigma.js":false,"./icons/square-slash.js":false,"./icons/square-split-horizontal.js":false,"./icons/square-split-vertical.js":false,"./icons/square-terminal.js":false,"./icons/square-user-round.js":false,"./icons/square-user.js":false,"./icons/square-x.js":false,"./icons/test-tube-diagonal.js":false,"./icons/text-select.js":false,"./icons/tram-front.js":false,"./icons/tree-palm.js":false,"./icons/triangle-alert.js":false,"./icons/tv-minimal.js":false,"./icons/university.js":false,"./icons/user-round-check.js":false,"./icons/user-round-cog.js":false,"./icons/user-round-minus.js":false,"./icons/user-round-plus.js":false,"./icons/user-round-x.js":false,"./icons/user-round.js":false,"./icons/users-round.js":false,"./icons/utensils-crossed.js":false,"./icons/utensils.js":false,"./icons/wallet-minimal.js":false,"./icons/wand-sparkles.js":false,"./icons/a-arrow-down.js":false,"./icons/a-arrow-up.js":false,"./icons/a-large-small.js":false,"./icons/accessibility.js":false,"./icons/activity.js":false,"./icons/air-vent.js":false,"./icons/airplay.js":false,"./icons/alarm-clock-off.js":false,"./icons/alarm-clock.js":false,"./icons/alarm-smoke.js":false,"./icons/album.js":false,"./icons/align-center-horizontal.js":false,"./icons/align-center-vertical.js":false,"./icons/align-center.js":false,"./icons/align-end-horizontal.js":false,"./icons/align-end-vertical.js":false,"./icons/align-horizontal-distribute-center.js":false,"./icons/align-horizontal-distribute-end.js":false,"./icons/align-horizontal-distribute-start.js":false,"./icons/align-horizontal-justify-center.js":false,"./icons/align-horizontal-justify-end.js":false,"./icons/align-horizontal-justify-start.js":false,"./icons/align-horizontal-space-around.js":false,"./icons/align-horizontal-space-between.js":false,"./icons/align-justify.js":false,"./icons/align-left.js":false,"./icons/align-right.js":false,"./icons/align-start-horizontal.js":false,"./icons/align-start-vertical.js":false,"./icons/align-vertical-distribute-center.js":false,"./icons/align-vertical-distribute-end.js":false,"./icons/align-vertical-distribute-start.js":false,"./icons/align-vertical-justify-center.js":false,"./icons/align-vertical-justify-end.js":false,"./icons/align-vertical-justify-start.js":false,"./icons/align-vertical-space-around.js":false,"./icons/align-vertical-space-between.js":false,"./icons/ambulance.js":false,"./icons/ampersand.js":false,"./icons/ampersands.js":false,"./icons/amphora.js":false,"./icons/anchor.js":false,"./icons/angry.js":false,"./icons/annoyed.js":false,"./icons/antenna.js":false,"./icons/anvil.js":false,"./icons/aperture.js":false,"./icons/app-window-mac.js":false,"./icons/app-window.js":false,"./icons/apple.js":false,"./icons/archive-restore.js":false,"./icons/archive-x.js":false,"./icons/archive.js":false,"./icons/armchair.js":false,"./icons/arrow-big-down-dash.js":false,"./icons/arrow-big-down.js":false,"./icons/arrow-big-left-dash.js":false,"./icons/arrow-big-left.js":false,"./icons/arrow-big-right-dash.js":false,"./icons/arrow-big-right.js":false,"./icons/arrow-big-up-dash.js":false,"./icons/arrow-big-up.js":false,"./icons/arrow-down-from-line.js":false,"./icons/arrow-down-left.js":false,"./icons/arrow-down-narrow-wide.js":false,"./icons/arrow-down-right.js":false,"./icons/arrow-down-to-dot.js":false,"./icons/arrow-down-to-line.js":false,"./icons/arrow-down-up.js":false,"./icons/arrow-down.js":false,"./icons/arrow-left-from-line.js":false,"./icons/arrow-left-right.js":false,"./icons/arrow-left-to-line.js":false,"./icons/arrow-left.js":"j7Kdd","./icons/arrow-right-from-line.js":false,"./icons/arrow-right-left.js":false,"./icons/arrow-right-to-line.js":false,"./icons/arrow-right.js":"288ZK","./icons/arrow-up-down.js":false,"./icons/arrow-up-from-dot.js":false,"./icons/arrow-up-from-line.js":false,"./icons/arrow-up-left.js":false,"./icons/arrow-up-right.js":false,"./icons/arrow-up-to-line.js":false,"./icons/arrow-up-wide-narrow.js":false,"./icons/arrow-up.js":false,"./icons/arrows-up-from-line.js":false,"./icons/asterisk.js":false,"./icons/at-sign.js":false,"./icons/atom.js":false,"./icons/audio-lines.js":false,"./icons/audio-waveform.js":false,"./icons/award.js":false,"./icons/axe.js":false,"./icons/baby.js":false,"./icons/backpack.js":false,"./icons/badge-alert.js":false,"./icons/badge-cent.js":false,"./icons/badge-dollar-sign.js":false,"./icons/badge-euro.js":false,"./icons/badge-help.js":false,"./icons/badge-indian-rupee.js":false,"./icons/badge-info.js":false,"./icons/badge-japanese-yen.js":false,"./icons/badge-minus.js":false,"./icons/badge-percent.js":false,"./icons/badge-plus.js":false,"./icons/badge-pound-sterling.js":false,"./icons/badge-russian-ruble.js":false,"./icons/badge-swiss-franc.js":false,"./icons/badge-x.js":false,"./icons/badge.js":false,"./icons/baggage-claim.js":false,"./icons/ban.js":false,"./icons/banana.js":false,"./icons/bandage.js":false,"./icons/banknote.js":false,"./icons/barcode.js":false,"./icons/baseline.js":false,"./icons/bath.js":false,"./icons/battery-charging.js":false,"./icons/battery-full.js":false,"./icons/battery-low.js":false,"./icons/battery-medium.js":false,"./icons/battery-warning.js":false,"./icons/battery.js":false,"./icons/beaker.js":false,"./icons/bean-off.js":false,"./icons/bean.js":false,"./icons/bed-double.js":false,"./icons/bed-single.js":false,"./icons/bed.js":false,"./icons/beef.js":false,"./icons/beer-off.js":false,"./icons/beer.js":false,"./icons/bell-dot.js":false,"./icons/bell-electric.js":false,"./icons/bell-minus.js":false,"./icons/bell-off.js":false,"./icons/bell-plus.js":false,"./icons/bell-ring.js":false,"./icons/bell.js":false,"./icons/between-vertical-end.js":false,"./icons/between-vertical-start.js":false,"./icons/biceps-flexed.js":false,"./icons/bike.js":false,"./icons/binary.js":false,"./icons/binoculars.js":false,"./icons/biohazard.js":false,"./icons/bird.js":false,"./icons/bitcoin.js":false,"./icons/blend.js":false,"./icons/blinds.js":false,"./icons/blocks.js":false,"./icons/bluetooth-connected.js":false,"./icons/bluetooth-off.js":false,"./icons/bluetooth-searching.js":false,"./icons/bluetooth.js":false,"./icons/bold.js":false,"./icons/bolt.js":false,"./icons/bomb.js":false,"./icons/bone.js":false,"./icons/book-a.js":false,"./icons/book-audio.js":false,"./icons/book-check.js":false,"./icons/book-copy.js":false,"./icons/book-down.js":false,"./icons/book-headphones.js":false,"./icons/book-heart.js":false,"./icons/book-image.js":false,"./icons/book-key.js":false,"./icons/book-lock.js":false,"./icons/book-marked.js":false,"./icons/book-minus.js":false,"./icons/book-open-check.js":false,"./icons/book-open-text.js":false,"./icons/book-open.js":false,"./icons/book-plus.js":false,"./icons/book-text.js":false,"./icons/book-type.js":false,"./icons/book-up-2.js":false,"./icons/book-up.js":false,"./icons/book-user.js":false,"./icons/book-x.js":false,"./icons/book.js":false,"./icons/bookmark-check.js":false,"./icons/bookmark-minus.js":false,"./icons/bookmark-plus.js":false,"./icons/bookmark-x.js":false,"./icons/bookmark.js":false,"./icons/boom-box.js":false,"./icons/bot-message-square.js":false,"./icons/bot-off.js":false,"./icons/bot.js":false,"./icons/box.js":false,"./icons/boxes.js":false,"./icons/brackets.js":false,"./icons/brain-circuit.js":false,"./icons/brain-cog.js":false,"./icons/brain.js":false,"./icons/brick-wall.js":false,"./icons/briefcase-business.js":false,"./icons/briefcase-conveyor-belt.js":false,"./icons/briefcase-medical.js":false,"./icons/briefcase.js":false,"./icons/bring-to-front.js":false,"./icons/brush.js":false,"./icons/bug-off.js":false,"./icons/bug-play.js":false,"./icons/bug.js":false,"./icons/building-2.js":false,"./icons/building.js":false,"./icons/bus-front.js":false,"./icons/bus.js":false,"./icons/cable-car.js":false,"./icons/cable.js":false,"./icons/cake-slice.js":false,"./icons/cake.js":false,"./icons/calculator.js":false,"./icons/calendar-1.js":false,"./icons/calendar-arrow-down.js":false,"./icons/calendar-arrow-up.js":false,"./icons/calendar-check-2.js":false,"./icons/calendar-check.js":false,"./icons/calendar-clock.js":false,"./icons/calendar-cog.js":false,"./icons/calendar-days.js":false,"./icons/calendar-fold.js":false,"./icons/calendar-heart.js":false,"./icons/calendar-minus-2.js":false,"./icons/calendar-minus.js":false,"./icons/calendar-off.js":false,"./icons/calendar-plus-2.js":false,"./icons/calendar-plus.js":false,"./icons/calendar-range.js":false,"./icons/calendar-search.js":false,"./icons/calendar-sync.js":false,"./icons/calendar-x-2.js":false,"./icons/calendar-x.js":false,"./icons/calendar.js":false,"./icons/camera-off.js":false,"./icons/camera.js":false,"./icons/candy-cane.js":false,"./icons/candy-off.js":false,"./icons/candy.js":false,"./icons/cannabis.js":false,"./icons/captions-off.js":false,"./icons/car-front.js":false,"./icons/car-taxi-front.js":false,"./icons/car.js":false,"./icons/caravan.js":false,"./icons/carrot.js":false,"./icons/case-lower.js":false,"./icons/case-sensitive.js":false,"./icons/case-upper.js":false,"./icons/cassette-tape.js":false,"./icons/cast.js":false,"./icons/castle.js":false,"./icons/cat.js":false,"./icons/cctv.js":false,"./icons/chart-bar-decreasing.js":false,"./icons/chart-bar-increasing.js":false,"./icons/chart-bar-stacked.js":false,"./icons/chart-column-decreasing.js":false,"./icons/chart-column-stacked.js":false,"./icons/chart-gantt.js":false,"./icons/chart-network.js":false,"./icons/chart-no-axes-column-decreasing.js":false,"./icons/chart-no-axes-combined.js":false,"./icons/chart-spline.js":false,"./icons/check-check.js":false,"./icons/check.js":false,"./icons/chef-hat.js":false,"./icons/cherry.js":false,"./icons/chevron-down.js":false,"./icons/chevron-first.js":false,"./icons/chevron-last.js":false,"./icons/chevron-left.js":false,"./icons/chevron-right.js":false,"./icons/chevron-up.js":false,"./icons/chevrons-down-up.js":false,"./icons/chevrons-down.js":false,"./icons/chevrons-left-right-ellipsis.js":false,"./icons/chevrons-left-right.js":false,"./icons/chevrons-left.js":false,"./icons/chevrons-right-left.js":false,"./icons/chevrons-right.js":false,"./icons/chevrons-up-down.js":false,"./icons/chevrons-up.js":false,"./icons/chrome.js":false,"./icons/church.js":false,"./icons/cigarette-off.js":false,"./icons/cigarette.js":false,"./icons/circle-dashed.js":false,"./icons/circle-dollar-sign.js":false,"./icons/circle-dot-dashed.js":false,"./icons/circle-dot.js":false,"./icons/circle-ellipsis.js":false,"./icons/circle-equal.js":false,"./icons/circle-fading-arrow-up.js":false,"./icons/circle-fading-plus.js":false,"./icons/circle-off.js":false,"./icons/circle-slash.js":false,"./icons/circle.js":false,"./icons/circuit-board.js":false,"./icons/citrus.js":false,"./icons/clapperboard.js":false,"./icons/clipboard-check.js":false,"./icons/clipboard-copy.js":false,"./icons/clipboard-list.js":"du017","./icons/clipboard-minus.js":false,"./icons/clipboard-paste.js":false,"./icons/clipboard-plus.js":false,"./icons/clipboard-type.js":false,"./icons/clipboard-x.js":false,"./icons/clipboard.js":false,"./icons/clock-1.js":false,"./icons/clock-10.js":false,"./icons/clock-11.js":false,"./icons/clock-12.js":false,"./icons/clock-2.js":false,"./icons/clock-3.js":false,"./icons/clock-4.js":false,"./icons/clock-5.js":false,"./icons/clock-6.js":false,"./icons/clock-7.js":false,"./icons/clock-8.js":false,"./icons/clock-9.js":false,"./icons/clock-alert.js":false,"./icons/clock-arrow-down.js":false,"./icons/clock-arrow-up.js":false,"./icons/clock.js":false,"./icons/cloud-alert.js":false,"./icons/cloud-cog.js":false,"./icons/cloud-drizzle.js":false,"./icons/cloud-fog.js":false,"./icons/cloud-hail.js":false,"./icons/cloud-lightning.js":false,"./icons/cloud-moon-rain.js":false,"./icons/cloud-moon.js":false,"./icons/cloud-off.js":false,"./icons/cloud-rain-wind.js":false,"./icons/cloud-rain.js":false,"./icons/cloud-snow.js":false,"./icons/cloud-sun-rain.js":false,"./icons/cloud-sun.js":false,"./icons/cloud.js":false,"./icons/cloudy.js":false,"./icons/clover.js":false,"./icons/club.js":false,"./icons/code.js":false,"./icons/codepen.js":false,"./icons/codesandbox.js":false,"./icons/coffee.js":false,"./icons/cog.js":false,"./icons/coins.js":false,"./icons/columns-4.js":false,"./icons/combine.js":false,"./icons/command.js":false,"./icons/compass.js":false,"./icons/component.js":false,"./icons/computer.js":false,"./icons/concierge-bell.js":false,"./icons/cone.js":false,"./icons/construction.js":false,"./icons/contact.js":false,"./icons/container.js":false,"./icons/contrast.js":false,"./icons/cookie.js":false,"./icons/cooking-pot.js":false,"./icons/copy-check.js":false,"./icons/copy-minus.js":false,"./icons/copy-plus.js":false,"./icons/copy-slash.js":false,"./icons/copy-x.js":false,"./icons/copy.js":"h8FFa","./icons/copyleft.js":false,"./icons/copyright.js":false,"./icons/corner-down-left.js":false,"./icons/corner-down-right.js":false,"./icons/corner-left-down.js":false,"./icons/corner-left-up.js":false,"./icons/corner-right-down.js":false,"./icons/corner-right-up.js":false,"./icons/corner-up-left.js":false,"./icons/corner-up-right.js":false,"./icons/cpu.js":false,"./icons/creative-commons.js":false,"./icons/credit-card.js":false,"./icons/croissant.js":false,"./icons/crop.js":false,"./icons/cross.js":false,"./icons/crosshair.js":false,"./icons/crown.js":false,"./icons/cuboid.js":false,"./icons/cup-soda.js":false,"./icons/currency.js":false,"./icons/cylinder.js":false,"./icons/dam.js":false,"./icons/database-backup.js":false,"./icons/database-zap.js":false,"./icons/database.js":false,"./icons/delete.js":false,"./icons/dessert.js":false,"./icons/diameter.js":false,"./icons/diamond-minus.js":false,"./icons/diamond-plus.js":false,"./icons/diamond.js":false,"./icons/dice-1.js":false,"./icons/dice-2.js":false,"./icons/dice-3.js":false,"./icons/dice-4.js":false,"./icons/dice-5.js":false,"./icons/dice-6.js":false,"./icons/dices.js":false,"./icons/diff.js":false,"./icons/disc-2.js":false,"./icons/disc-3.js":false,"./icons/disc-album.js":false,"./icons/disc.js":false,"./icons/divide.js":false,"./icons/dna-off.js":false,"./icons/dna.js":false,"./icons/dock.js":false,"./icons/dog.js":false,"./icons/dollar-sign.js":false,"./icons/donut.js":false,"./icons/door-closed.js":false,"./icons/door-open.js":false,"./icons/dot.js":false,"./icons/download.js":false,"./icons/drafting-compass.js":false,"./icons/drama.js":false,"./icons/dribbble.js":false,"./icons/drill.js":false,"./icons/droplet-off.js":false,"./icons/droplet.js":false,"./icons/droplets.js":false,"./icons/drum.js":false,"./icons/drumstick.js":false,"./icons/dumbbell.js":false,"./icons/ear-off.js":false,"./icons/ear.js":false,"./icons/earth-lock.js":false,"./icons/eclipse.js":false,"./icons/egg-fried.js":false,"./icons/egg-off.js":false,"./icons/egg.js":false,"./icons/equal-approximately.js":false,"./icons/equal-not.js":false,"./icons/equal.js":false,"./icons/eraser.js":false,"./icons/ethernet-port.js":false,"./icons/euro.js":false,"./icons/expand.js":false,"./icons/external-link.js":false,"./icons/eye-closed.js":false,"./icons/eye-off.js":false,"./icons/eye.js":false,"./icons/facebook.js":false,"./icons/factory.js":false,"./icons/fan.js":false,"./icons/fast-forward.js":false,"./icons/feather.js":false,"./icons/fence.js":false,"./icons/ferris-wheel.js":false,"./icons/figma.js":false,"./icons/file-archive.js":false,"./icons/file-audio-2.js":false,"./icons/file-audio.js":false,"./icons/file-badge-2.js":false,"./icons/file-badge.js":false,"./icons/file-box.js":false,"./icons/file-check-2.js":false,"./icons/file-check.js":false,"./icons/file-clock.js":false,"./icons/file-code-2.js":false,"./icons/file-code.js":false,"./icons/file-diff.js":false,"./icons/file-digit.js":false,"./icons/file-down.js":false,"./icons/file-heart.js":false,"./icons/file-image.js":false,"./icons/file-input.js":false,"./icons/file-json-2.js":false,"./icons/file-json.js":false,"./icons/file-key-2.js":false,"./icons/file-key.js":false,"./icons/file-lock-2.js":false,"./icons/file-lock.js":false,"./icons/file-minus-2.js":false,"./icons/file-minus.js":false,"./icons/file-music.js":false,"./icons/file-output.js":false,"./icons/file-plus-2.js":false,"./icons/file-plus.js":false,"./icons/file-question.js":false,"./icons/file-scan.js":false,"./icons/file-search-2.js":false,"./icons/file-search.js":false,"./icons/file-sliders.js":false,"./icons/file-spreadsheet.js":false,"./icons/file-stack.js":false,"./icons/file-symlink.js":false,"./icons/file-terminal.js":false,"./icons/file-text.js":false,"./icons/file-type-2.js":false,"./icons/file-type.js":false,"./icons/file-up.js":false,"./icons/file-user.js":false,"./icons/file-video-2.js":false,"./icons/file-video.js":false,"./icons/file-volume-2.js":false,"./icons/file-volume.js":false,"./icons/file-warning.js":false,"./icons/file-x-2.js":false,"./icons/file-x.js":false,"./icons/file.js":false,"./icons/files.js":false,"./icons/film.js":false,"./icons/filter-x.js":false,"./icons/filter.js":false,"./icons/fingerprint.js":false,"./icons/fire-extinguisher.js":false,"./icons/fish-off.js":false,"./icons/fish-symbol.js":false,"./icons/fish.js":false,"./icons/flag-off.js":false,"./icons/flag-triangle-left.js":false,"./icons/flag-triangle-right.js":false,"./icons/flag.js":false,"./icons/flame-kindling.js":false,"./icons/flame.js":false,"./icons/flashlight-off.js":false,"./icons/flashlight.js":false,"./icons/flask-conical-off.js":false,"./icons/flask-conical.js":false,"./icons/flask-round.js":false,"./icons/flip-horizontal-2.js":false,"./icons/flip-horizontal.js":false,"./icons/flip-vertical-2.js":false,"./icons/flip-vertical.js":false,"./icons/flower-2.js":false,"./icons/flower.js":false,"./icons/focus.js":false,"./icons/fold-horizontal.js":false,"./icons/fold-vertical.js":false,"./icons/folder-archive.js":false,"./icons/folder-check.js":false,"./icons/folder-clock.js":false,"./icons/folder-closed.js":false,"./icons/folder-code.js":false,"./icons/folder-dot.js":false,"./icons/folder-down.js":false,"./icons/folder-git-2.js":false,"./icons/folder-git.js":false,"./icons/folder-heart.js":false,"./icons/folder-input.js":false,"./icons/folder-kanban.js":false,"./icons/folder-key.js":false,"./icons/folder-lock.js":false,"./icons/folder-minus.js":false,"./icons/folder-open-dot.js":false,"./icons/folder-open.js":false,"./icons/folder-output.js":false,"./icons/folder-plus.js":false,"./icons/folder-root.js":false,"./icons/folder-search-2.js":false,"./icons/folder-search.js":false,"./icons/folder-symlink.js":false,"./icons/folder-sync.js":false,"./icons/folder-tree.js":false,"./icons/folder-up.js":false,"./icons/folder-x.js":false,"./icons/folder.js":false,"./icons/folders.js":false,"./icons/footprints.js":false,"./icons/forklift.js":false,"./icons/forward.js":false,"./icons/frame.js":false,"./icons/framer.js":false,"./icons/frown.js":false,"./icons/fuel.js":false,"./icons/fullscreen.js":false,"./icons/gallery-horizontal-end.js":false,"./icons/gallery-horizontal.js":false,"./icons/gallery-thumbnails.js":false,"./icons/gallery-vertical-end.js":false,"./icons/gallery-vertical.js":false,"./icons/gamepad-2.js":false,"./icons/gamepad.js":false,"./icons/gauge.js":false,"./icons/gavel.js":false,"./icons/gem.js":false,"./icons/ghost.js":false,"./icons/gift.js":false,"./icons/git-branch-plus.js":false,"./icons/git-branch.js":false,"./icons/git-commit-vertical.js":false,"./icons/git-compare-arrows.js":false,"./icons/git-compare.js":false,"./icons/git-fork.js":false,"./icons/git-graph.js":false,"./icons/git-merge.js":false,"./icons/git-pull-request-arrow.js":false,"./icons/git-pull-request-closed.js":false,"./icons/git-pull-request-create-arrow.js":false,"./icons/git-pull-request-create.js":false,"./icons/git-pull-request-draft.js":false,"./icons/git-pull-request.js":false,"./icons/github.js":false,"./icons/gitlab.js":false,"./icons/glass-water.js":false,"./icons/glasses.js":false,"./icons/globe-lock.js":false,"./icons/globe.js":false,"./icons/goal.js":false,"./icons/grab.js":false,"./icons/graduation-cap.js":false,"./icons/grape.js":false,"./icons/grid-2x2-check.js":false,"./icons/grid-2x2-x.js":false,"./icons/grip-horizontal.js":false,"./icons/grip-vertical.js":false,"./icons/grip.js":false,"./icons/group.js":false,"./icons/guitar.js":false,"./icons/ham.js":false,"./icons/hammer.js":false,"./icons/hand-coins.js":false,"./icons/hand-heart.js":false,"./icons/hand-metal.js":false,"./icons/hand-platter.js":false,"./icons/hand.js":false,"./icons/handshake.js":false,"./icons/hard-drive-download.js":false,"./icons/hard-drive-upload.js":false,"./icons/hard-drive.js":false,"./icons/hard-hat.js":false,"./icons/hash.js":false,"./icons/haze.js":false,"./icons/hdmi-port.js":false,"./icons/heading-1.js":false,"./icons/heading-2.js":false,"./icons/heading-3.js":false,"./icons/heading-4.js":false,"./icons/heading-5.js":false,"./icons/heading-6.js":false,"./icons/heading.js":false,"./icons/headphone-off.js":false,"./icons/headphones.js":false,"./icons/headset.js":false,"./icons/heart-crack.js":false,"./icons/heart-handshake.js":false,"./icons/heart-off.js":false,"./icons/heart-pulse.js":false,"./icons/heart.js":false,"./icons/heater.js":false,"./icons/hexagon.js":false,"./icons/highlighter.js":false,"./icons/history.js":false,"./icons/hop-off.js":false,"./icons/hop.js":false,"./icons/hospital.js":false,"./icons/hotel.js":false,"./icons/hourglass.js":false,"./icons/house-plug.js":false,"./icons/house-plus.js":false,"./icons/id-card.js":false,"./icons/image-down.js":false,"./icons/image-minus.js":false,"./icons/image-off.js":false,"./icons/image-play.js":false,"./icons/image-plus.js":false,"./icons/image-up.js":false,"./icons/image-upscale.js":false,"./icons/image.js":false,"./icons/images.js":false,"./icons/import.js":false,"./icons/inbox.js":false,"./icons/indian-rupee.js":false,"./icons/infinity.js":false,"./icons/info.js":false,"./icons/inspection-panel.js":false,"./icons/instagram.js":false,"./icons/italic.js":false,"./icons/iteration-ccw.js":false,"./icons/iteration-cw.js":false,"./icons/japanese-yen.js":false,"./icons/joystick.js":false,"./icons/kanban.js":false,"./icons/key-round.js":false,"./icons/key-square.js":false,"./icons/key.js":false,"./icons/keyboard-music.js":false,"./icons/keyboard-off.js":false,"./icons/keyboard.js":false,"./icons/lamp-ceiling.js":false,"./icons/lamp-desk.js":false,"./icons/lamp-floor.js":false,"./icons/lamp-wall-down.js":false,"./icons/lamp-wall-up.js":false,"./icons/lamp.js":false,"./icons/land-plot.js":false,"./icons/landmark.js":false,"./icons/languages.js":false,"./icons/laptop-minimal-check.js":false,"./icons/laptop.js":false,"./icons/lasso-select.js":false,"./icons/lasso.js":false,"./icons/laugh.js":false,"./icons/layers-2.js":false,"./icons/layout-dashboard.js":false,"./icons/layout-grid.js":false,"./icons/layout-list.js":false,"./icons/layout-panel-left.js":false,"./icons/layout-panel-top.js":false,"./icons/layout-template.js":false,"./icons/leaf.js":false,"./icons/leafy-green.js":false,"./icons/lectern.js":false,"./icons/letter-text.js":false,"./icons/library-big.js":false,"./icons/library.js":false,"./icons/life-buoy.js":false,"./icons/ligature.js":false,"./icons/lightbulb-off.js":false,"./icons/lightbulb.js":false,"./icons/link-2-off.js":false,"./icons/link-2.js":false,"./icons/link.js":false,"./icons/linkedin.js":false,"./icons/list-check.js":false,"./icons/list-checks.js":false,"./icons/list-collapse.js":false,"./icons/list-end.js":false,"./icons/list-filter-plus.js":false,"./icons/list-filter.js":false,"./icons/list-minus.js":false,"./icons/list-music.js":false,"./icons/list-ordered.js":false,"./icons/list-plus.js":false,"./icons/list-restart.js":false,"./icons/list-start.js":false,"./icons/list-todo.js":false,"./icons/list-tree.js":false,"./icons/list-video.js":false,"./icons/list-x.js":false,"./icons/list.js":false,"./icons/loader-pinwheel.js":false,"./icons/loader.js":false,"./icons/locate-fixed.js":false,"./icons/locate-off.js":false,"./icons/locate.js":false,"./icons/lock-keyhole.js":false,"./icons/lock.js":false,"./icons/log-in.js":false,"./icons/log-out.js":false,"./icons/logs.js":false,"./icons/lollipop.js":false,"./icons/luggage.js":false,"./icons/magnet.js":false,"./icons/mail-check.js":false,"./icons/mail-minus.js":false,"./icons/mail-open.js":false,"./icons/mail-plus.js":false,"./icons/mail-question.js":false,"./icons/mail-search.js":false,"./icons/mail-warning.js":false,"./icons/mail-x.js":false,"./icons/mail.js":false,"./icons/mailbox.js":false,"./icons/mails.js":false,"./icons/map-pin-check-inside.js":false,"./icons/map-pin-check.js":false,"./icons/map-pin-house.js":false,"./icons/map-pin-minus-inside.js":false,"./icons/map-pin-minus.js":false,"./icons/map-pin-off.js":false,"./icons/map-pin-plus-inside.js":false,"./icons/map-pin-plus.js":false,"./icons/map-pin-x-inside.js":false,"./icons/map-pin-x.js":false,"./icons/map-pin.js":false,"./icons/map-pinned.js":false,"./icons/map.js":false,"./icons/martini.js":false,"./icons/maximize-2.js":false,"./icons/maximize.js":false,"./icons/medal.js":false,"./icons/megaphone-off.js":false,"./icons/megaphone.js":false,"./icons/meh.js":false,"./icons/memory-stick.js":false,"./icons/menu.js":false,"./icons/merge.js":false,"./icons/message-circle-code.js":false,"./icons/message-circle-dashed.js":false,"./icons/message-circle-heart.js":false,"./icons/message-circle-more.js":false,"./icons/message-circle-off.js":false,"./icons/message-circle-plus.js":false,"./icons/message-circle-question.js":false,"./icons/message-circle-reply.js":false,"./icons/message-circle-warning.js":false,"./icons/message-circle-x.js":false,"./icons/message-circle.js":false,"./icons/message-square-code.js":false,"./icons/message-square-dashed.js":false,"./icons/message-square-diff.js":false,"./icons/message-square-dot.js":false,"./icons/message-square-heart.js":false,"./icons/message-square-lock.js":false,"./icons/message-square-more.js":false,"./icons/message-square-off.js":false,"./icons/message-square-plus.js":false,"./icons/message-square-quote.js":false,"./icons/message-square-reply.js":false,"./icons/message-square-share.js":false,"./icons/message-square-text.js":false,"./icons/message-square-warning.js":false,"./icons/message-square-x.js":false,"./icons/message-square.js":false,"./icons/messages-square.js":false,"./icons/mic-off.js":false,"./icons/mic.js":false,"./icons/microchip.js":false,"./icons/microscope.js":false,"./icons/microwave.js":false,"./icons/milestone.js":false,"./icons/milk-off.js":false,"./icons/milk.js":false,"./icons/minimize-2.js":false,"./icons/minimize.js":false,"./icons/minus.js":false,"./icons/monitor-check.js":false,"./icons/monitor-cog.js":false,"./icons/monitor-dot.js":false,"./icons/monitor-down.js":false,"./icons/monitor-off.js":false,"./icons/monitor-pause.js":false,"./icons/monitor-play.js":false,"./icons/monitor-smartphone.js":false,"./icons/monitor-speaker.js":false,"./icons/monitor-stop.js":false,"./icons/monitor-up.js":false,"./icons/monitor-x.js":false,"./icons/monitor.js":false,"./icons/moon-star.js":false,"./icons/moon.js":false,"./icons/mountain-snow.js":false,"./icons/mountain.js":false,"./icons/mouse-off.js":false,"./icons/mouse-pointer-2.js":false,"./icons/mouse-pointer-ban.js":false,"./icons/mouse-pointer-click.js":false,"./icons/mouse-pointer.js":false,"./icons/mouse.js":false,"./icons/move-diagonal-2.js":false,"./icons/move-diagonal.js":false,"./icons/move-down-left.js":false,"./icons/move-down-right.js":false,"./icons/move-down.js":false,"./icons/move-horizontal.js":false,"./icons/move-left.js":false,"./icons/move-right.js":false,"./icons/move-up-left.js":false,"./icons/move-up-right.js":false,"./icons/move-up.js":false,"./icons/move-vertical.js":false,"./icons/move.js":false,"./icons/music-2.js":false,"./icons/music-3.js":false,"./icons/music-4.js":false,"./icons/music.js":false,"./icons/navigation-2-off.js":false,"./icons/navigation-2.js":false,"./icons/navigation-off.js":false,"./icons/navigation.js":false,"./icons/network.js":false,"./icons/newspaper.js":false,"./icons/nfc.js":false,"./icons/notebook-pen.js":false,"./icons/notebook-tabs.js":false,"./icons/notebook-text.js":false,"./icons/notebook.js":false,"./icons/notepad-text-dashed.js":false,"./icons/notepad-text.js":false,"./icons/nut-off.js":false,"./icons/nut.js":false,"./icons/octagon-minus.js":false,"./icons/octagon.js":false,"./icons/omega.js":false,"./icons/option.js":false,"./icons/orbit.js":false,"./icons/origami.js":false,"./icons/package-2.js":false,"./icons/package-check.js":false,"./icons/package-minus.js":false,"./icons/package-open.js":false,"./icons/package-plus.js":false,"./icons/package-search.js":false,"./icons/package-x.js":false,"./icons/package.js":false,"./icons/paint-bucket.js":false,"./icons/paint-roller.js":false,"./icons/paintbrush.js":false,"./icons/palette.js":false,"./icons/panel-bottom-close.js":false,"./icons/panel-bottom-open.js":false,"./icons/panel-bottom.js":false,"./icons/panel-right-close.js":false,"./icons/panel-right-open.js":false,"./icons/panel-right.js":false,"./icons/panel-top-close.js":false,"./icons/panel-top-open.js":false,"./icons/panel-top.js":false,"./icons/panels-left-bottom.js":false,"./icons/panels-right-bottom.js":false,"./icons/paperclip.js":false,"./icons/parentheses.js":false,"./icons/parking-meter.js":false,"./icons/party-popper.js":false,"./icons/pause.js":false,"./icons/paw-print.js":false,"./icons/pc-case.js":false,"./icons/pen-off.js":false,"./icons/pen-tool.js":false,"./icons/pencil-line.js":false,"./icons/pencil-off.js":false,"./icons/pencil-ruler.js":false,"./icons/pencil.js":false,"./icons/pentagon.js":false,"./icons/percent.js":false,"./icons/person-standing.js":false,"./icons/philippine-peso.js":false,"./icons/phone-call.js":false,"./icons/phone-forwarded.js":false,"./icons/phone-incoming.js":false,"./icons/phone-missed.js":false,"./icons/phone-off.js":false,"./icons/phone-outgoing.js":false,"./icons/phone.js":false,"./icons/pi.js":false,"./icons/piano.js":false,"./icons/pickaxe.js":false,"./icons/picture-in-picture-2.js":false,"./icons/picture-in-picture.js":false,"./icons/piggy-bank.js":false,"./icons/pilcrow-left.js":false,"./icons/pilcrow-right.js":false,"./icons/pilcrow.js":false,"./icons/pill-bottle.js":false,"./icons/pill.js":false,"./icons/pin-off.js":false,"./icons/pin.js":false,"./icons/pipette.js":false,"./icons/pizza.js":false,"./icons/plane-landing.js":false,"./icons/plane-takeoff.js":false,"./icons/plane.js":false,"./icons/play.js":false,"./icons/plug-2.js":false,"./icons/plug.js":false,"./icons/plus.js":false,"./icons/pocket-knife.js":false,"./icons/pocket.js":false,"./icons/podcast.js":false,"./icons/pointer-off.js":false,"./icons/pointer.js":false,"./icons/popcorn.js":false,"./icons/popsicle.js":false,"./icons/pound-sterling.js":false,"./icons/power-off.js":false,"./icons/power.js":false,"./icons/presentation.js":false,"./icons/printer-check.js":false,"./icons/printer.js":false,"./icons/projector.js":false,"./icons/proportions.js":false,"./icons/puzzle.js":false,"./icons/pyramid.js":false,"./icons/qr-code.js":false,"./icons/quote.js":false,"./icons/rabbit.js":false,"./icons/radar.js":false,"./icons/radiation.js":false,"./icons/radical.js":false,"./icons/radio-receiver.js":false,"./icons/radio-tower.js":false,"./icons/radio.js":false,"./icons/radius.js":false,"./icons/rail-symbol.js":false,"./icons/rainbow.js":false,"./icons/rat.js":false,"./icons/ratio.js":false,"./icons/receipt-cent.js":false,"./icons/receipt-euro.js":false,"./icons/receipt-indian-rupee.js":false,"./icons/receipt-japanese-yen.js":false,"./icons/receipt-pound-sterling.js":false,"./icons/receipt-russian-ruble.js":false,"./icons/receipt-swiss-franc.js":false,"./icons/receipt-text.js":false,"./icons/receipt.js":false,"./icons/rectangle-horizontal.js":false,"./icons/rectangle-vertical.js":false,"./icons/recycle.js":false,"./icons/redo-2.js":false,"./icons/redo-dot.js":false,"./icons/redo.js":false,"./icons/refresh-ccw-dot.js":false,"./icons/refresh-ccw.js":false,"./icons/refresh-cw-off.js":false,"./icons/refresh-cw.js":"j5851","./icons/refrigerator.js":false,"./icons/regex.js":false,"./icons/remove-formatting.js":false,"./icons/repeat-1.js":false,"./icons/repeat-2.js":false,"./icons/repeat.js":false,"./icons/replace-all.js":false,"./icons/replace.js":false,"./icons/reply-all.js":false,"./icons/reply.js":false,"./icons/rewind.js":false,"./icons/ribbon.js":false,"./icons/rocket.js":false,"./icons/rocking-chair.js":false,"./icons/roller-coaster.js":false,"./icons/rotate-ccw-square.js":false,"./icons/rotate-ccw.js":"d1ydU","./icons/rotate-cw-square.js":false,"./icons/rotate-cw.js":false,"./icons/route-off.js":false,"./icons/route.js":false,"./icons/router.js":false,"./icons/rows-4.js":false,"./icons/rss.js":false,"./icons/ruler.js":false,"./icons/russian-ruble.js":false,"./icons/sailboat.js":false,"./icons/salad.js":false,"./icons/sandwich.js":false,"./icons/satellite-dish.js":false,"./icons/satellite.js":false,"./icons/save-all.js":false,"./icons/save-off.js":false,"./icons/save.js":false,"./icons/scale.js":false,"./icons/scaling.js":false,"./icons/scan-barcode.js":false,"./icons/scan-eye.js":false,"./icons/scan-face.js":false,"./icons/scan-heart.js":false,"./icons/scan-line.js":false,"./icons/scan-qr-code.js":false,"./icons/scan-search.js":false,"./icons/scan-text.js":false,"./icons/scan.js":false,"./icons/school.js":false,"./icons/scissors-line-dashed.js":false,"./icons/scissors.js":false,"./icons/screen-share-off.js":false,"./icons/screen-share.js":false,"./icons/scroll-text.js":false,"./icons/scroll.js":false,"./icons/search-check.js":false,"./icons/search-code.js":false,"./icons/search-slash.js":false,"./icons/search-x.js":false,"./icons/search.js":false,"./icons/section.js":false,"./icons/send-to-back.js":false,"./icons/send.js":false,"./icons/separator-horizontal.js":false,"./icons/separator-vertical.js":false,"./icons/server-cog.js":false,"./icons/server-crash.js":false,"./icons/server-off.js":false,"./icons/server.js":false,"./icons/settings-2.js":"eUMK8","./icons/settings.js":false,"./icons/shapes.js":false,"./icons/share-2.js":false,"./icons/share.js":false,"./icons/sheet.js":false,"./icons/shell.js":false,"./icons/shield-alert.js":false,"./icons/shield-ban.js":false,"./icons/shield-check.js":false,"./icons/shield-ellipsis.js":false,"./icons/shield-half.js":false,"./icons/shield-minus.js":false,"./icons/shield-off.js":false,"./icons/shield-plus.js":false,"./icons/shield-question.js":false,"./icons/shield.js":false,"./icons/ship-wheel.js":false,"./icons/ship.js":false,"./icons/shirt.js":false,"./icons/shopping-bag.js":false,"./icons/shopping-basket.js":false,"./icons/shopping-cart.js":false,"./icons/shovel.js":false,"./icons/shower-head.js":false,"./icons/shrink.js":false,"./icons/shrub.js":false,"./icons/shuffle.js":false,"./icons/sigma.js":false,"./icons/signal-high.js":false,"./icons/signal-low.js":false,"./icons/signal-medium.js":false,"./icons/signal-zero.js":false,"./icons/signal.js":false,"./icons/signature.js":false,"./icons/signpost-big.js":false,"./icons/signpost.js":false,"./icons/siren.js":false,"./icons/skip-back.js":false,"./icons/skip-forward.js":false,"./icons/skull.js":false,"./icons/slack.js":false,"./icons/slash.js":false,"./icons/slice.js":false,"./icons/sliders-horizontal.js":false,"./icons/smartphone-charging.js":false,"./icons/smartphone-nfc.js":false,"./icons/smartphone.js":false,"./icons/smile-plus.js":false,"./icons/smile.js":false,"./icons/snail.js":false,"./icons/snowflake.js":false,"./icons/sofa.js":false,"./icons/soup.js":false,"./icons/space.js":false,"./icons/spade.js":false,"./icons/sparkle.js":false,"./icons/speaker.js":false,"./icons/speech.js":false,"./icons/spell-check-2.js":false,"./icons/spell-check.js":false,"./icons/spline.js":false,"./icons/split.js":false,"./icons/spray-can.js":false,"./icons/sprout.js":false,"./icons/square-dashed-bottom-code.js":false,"./icons/square-dashed-bottom.js":false,"./icons/square-radical.js":false,"./icons/square-square.js":false,"./icons/square-stack.js":false,"./icons/square.js":"b05vQ","./icons/squircle.js":false,"./icons/squirrel.js":false,"./icons/stamp.js":false,"./icons/star-half.js":false,"./icons/star-off.js":false,"./icons/star.js":false,"./icons/step-back.js":false,"./icons/step-forward.js":false,"./icons/stethoscope.js":false,"./icons/sticker.js":false,"./icons/sticky-note.js":false,"./icons/store.js":false,"./icons/stretch-horizontal.js":false,"./icons/stretch-vertical.js":false,"./icons/strikethrough.js":false,"./icons/subscript.js":false,"./icons/sun-dim.js":false,"./icons/sun-medium.js":false,"./icons/sun-moon.js":false,"./icons/sun-snow.js":false,"./icons/sun.js":false,"./icons/sunrise.js":false,"./icons/sunset.js":false,"./icons/superscript.js":false,"./icons/swatch-book.js":false,"./icons/swiss-franc.js":false,"./icons/switch-camera.js":false,"./icons/sword.js":false,"./icons/swords.js":false,"./icons/syringe.js":false,"./icons/table-2.js":false,"./icons/table-cells-merge.js":false,"./icons/table-cells-split.js":false,"./icons/table-columns-split.js":false,"./icons/table-of-contents.js":false,"./icons/table-properties.js":false,"./icons/table-rows-split.js":false,"./icons/table.js":false,"./icons/tablet-smartphone.js":false,"./icons/tablet.js":false,"./icons/tablets.js":false,"./icons/tag.js":false,"./icons/tags.js":false,"./icons/tally-1.js":false,"./icons/tally-2.js":false,"./icons/tally-3.js":false,"./icons/tally-4.js":false,"./icons/tally-5.js":false,"./icons/tangent.js":false,"./icons/target.js":false,"./icons/telescope.js":false,"./icons/tent-tree.js":false,"./icons/tent.js":false,"./icons/terminal.js":false,"./icons/test-tube.js":false,"./icons/test-tubes.js":false,"./icons/text-cursor-input.js":false,"./icons/text-cursor.js":false,"./icons/text-quote.js":false,"./icons/text-search.js":false,"./icons/text.js":false,"./icons/theater.js":false,"./icons/thermometer-snowflake.js":false,"./icons/thermometer-sun.js":false,"./icons/thermometer.js":false,"./icons/thumbs-down.js":false,"./icons/thumbs-up.js":false,"./icons/ticket-check.js":false,"./icons/ticket-minus.js":false,"./icons/ticket-percent.js":false,"./icons/ticket-plus.js":false,"./icons/ticket-slash.js":false,"./icons/ticket-x.js":false,"./icons/ticket.js":false,"./icons/tickets-plane.js":false,"./icons/tickets.js":false,"./icons/timer-off.js":false,"./icons/timer-reset.js":false,"./icons/timer.js":false,"./icons/toggle-left.js":false,"./icons/toggle-right.js":false,"./icons/toilet.js":false,"./icons/tornado.js":false,"./icons/torus.js":false,"./icons/touchpad-off.js":false,"./icons/touchpad.js":false,"./icons/tower-control.js":false,"./icons/toy-brick.js":false,"./icons/tractor.js":false,"./icons/traffic-cone.js":false,"./icons/train-front-tunnel.js":false,"./icons/train-front.js":false,"./icons/train-track.js":false,"./icons/trash-2.js":"e3cIN","./icons/trash.js":false,"./icons/tree-deciduous.js":false,"./icons/tree-pine.js":false,"./icons/trees.js":false,"./icons/trello.js":false,"./icons/trending-down.js":false,"./icons/trending-up-down.js":false,"./icons/trending-up.js":false,"./icons/triangle-right.js":false,"./icons/triangle.js":false,"./icons/trophy.js":false,"./icons/truck.js":false,"./icons/turtle.js":false,"./icons/tv-minimal-play.js":false,"./icons/tv.js":false,"./icons/twitch.js":false,"./icons/twitter.js":false,"./icons/type-outline.js":false,"./icons/type.js":false,"./icons/umbrella-off.js":false,"./icons/umbrella.js":false,"./icons/underline.js":false,"./icons/undo-2.js":false,"./icons/undo-dot.js":false,"./icons/undo.js":false,"./icons/unfold-horizontal.js":false,"./icons/unfold-vertical.js":false,"./icons/ungroup.js":false,"./icons/unlink-2.js":false,"./icons/unlink.js":false,"./icons/unplug.js":false,"./icons/upload.js":false,"./icons/usb.js":false,"./icons/user-check.js":false,"./icons/user-cog.js":false,"./icons/user-minus.js":false,"./icons/user-pen.js":false,"./icons/user-plus.js":false,"./icons/user-round-pen.js":false,"./icons/user-round-search.js":false,"./icons/user-search.js":false,"./icons/user-x.js":false,"./icons/user.js":false,"./icons/users.js":false,"./icons/utility-pole.js":false,"./icons/variable.js":false,"./icons/vault.js":false,"./icons/vegan.js":false,"./icons/venetian-mask.js":false,"./icons/vibrate-off.js":false,"./icons/vibrate.js":false,"./icons/video-off.js":false,"./icons/video.js":false,"./icons/videotape.js":false,"./icons/view.js":false,"./icons/voicemail.js":false,"./icons/volleyball.js":false,"./icons/volume-1.js":false,"./icons/volume-2.js":false,"./icons/volume-off.js":false,"./icons/volume-x.js":false,"./icons/volume.js":false,"./icons/vote.js":false,"./icons/wallet-cards.js":false,"./icons/wallet.js":false,"./icons/wallpaper.js":false,"./icons/wand.js":false,"./icons/warehouse.js":false,"./icons/washing-machine.js":false,"./icons/watch.js":false,"./icons/waves-ladder.js":false,"./icons/waves.js":false,"./icons/waypoints.js":false,"./icons/webcam.js":false,"./icons/webhook-off.js":false,"./icons/webhook.js":false,"./icons/weight.js":false,"./icons/wheat-off.js":false,"./icons/wheat.js":false,"./icons/whole-word.js":false,"./icons/wifi-high.js":false,"./icons/wifi-low.js":false,"./icons/wifi-off.js":false,"./icons/wifi-zero.js":false,"./icons/wifi.js":false,"./icons/wind-arrow-down.js":false,"./icons/wind.js":false,"./icons/wine-off.js":false,"./icons/wine.js":false,"./icons/workflow.js":false,"./icons/worm.js":false,"./icons/wrap-text.js":false,"./icons/wrench.js":false,"./icons/x.js":"aJBqa","./icons/youtube.js":false,"./icons/zap-off.js":false,"./icons/zap.js":false,"./icons/zoom-in.js":false,"./icons/zoom-out.js":false,"./icons/arrow-down-0-1.js":false,"./icons/arrow-down-1-0.js":false,"./icons/arrow-up-0-1.js":false,"./icons/arrow-up-1-0.js":false,"./createLucideIcon.js":false,"./Icon.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kUNJY":[function(require,module,exports,__globalThis) {
+},{"./icons/index.js":false,"./icons/alarm-clock-check.js":false,"./icons/alarm-clock-minus.js":false,"./icons/alarm-clock-plus.js":false,"./icons/arrow-down-a-z.js":false,"./icons/arrow-down-wide-narrow.js":false,"./icons/arrow-down-z-a.js":false,"./icons/arrow-up-a-z.js":false,"./icons/arrow-up-narrow-wide.js":false,"./icons/arrow-up-z-a.js":false,"./icons/axis-3d.js":false,"./icons/badge-check.js":false,"./icons/between-horizontal-end.js":false,"./icons/between-horizontal-start.js":false,"./icons/book-dashed.js":false,"./icons/braces.js":false,"./icons/captions.js":false,"./icons/chart-area.js":false,"./icons/chart-bar-big.js":false,"./icons/chart-bar.js":false,"./icons/chart-candlestick.js":false,"./icons/chart-column-big.js":false,"./icons/chart-column-increasing.js":false,"./icons/chart-column.js":false,"./icons/chart-line.js":false,"./icons/chart-no-axes-column-increasing.js":false,"./icons/chart-no-axes-column.js":false,"./icons/chart-no-axes-gantt.js":false,"./icons/chart-pie.js":false,"./icons/chart-scatter.js":false,"./icons/circle-alert.js":false,"./icons/circle-arrow-down.js":false,"./icons/circle-arrow-left.js":false,"./icons/circle-arrow-out-down-left.js":false,"./icons/circle-arrow-out-down-right.js":false,"./icons/circle-arrow-out-up-left.js":false,"./icons/circle-arrow-out-up-right.js":false,"./icons/circle-arrow-right.js":false,"./icons/circle-arrow-up.js":false,"./icons/circle-check-big.js":false,"./icons/circle-check.js":false,"./icons/circle-chevron-down.js":false,"./icons/circle-chevron-left.js":false,"./icons/circle-chevron-right.js":false,"./icons/circle-chevron-up.js":false,"./icons/circle-divide.js":false,"./icons/circle-gauge.js":false,"./icons/circle-help.js":false,"./icons/circle-minus.js":false,"./icons/circle-parking-off.js":false,"./icons/circle-parking.js":false,"./icons/circle-pause.js":false,"./icons/circle-percent.js":false,"./icons/circle-play.js":false,"./icons/circle-plus.js":false,"./icons/circle-power.js":false,"./icons/circle-slash-2.js":false,"./icons/circle-stop.js":false,"./icons/circle-user-round.js":false,"./icons/circle-user.js":false,"./icons/circle-x.js":false,"./icons/clipboard-pen-line.js":false,"./icons/clipboard-pen.js":"kUNJY","./icons/cloud-download.js":false,"./icons/cloud-upload.js":false,"./icons/code-xml.js":false,"./icons/columns-2.js":false,"./icons/columns-3.js":false,"./icons/contact-round.js":false,"./icons/diamond-percent.js":false,"./icons/earth.js":false,"./icons/ellipsis-vertical.js":false,"./icons/ellipsis.js":false,"./icons/file-axis-3d.js":false,"./icons/file-chart-column-increasing.js":false,"./icons/file-chart-column.js":false,"./icons/file-chart-line.js":false,"./icons/file-chart-pie.js":false,"./icons/file-cog.js":false,"./icons/file-pen-line.js":false,"./icons/file-pen.js":false,"./icons/folder-cog.js":false,"./icons/folder-pen.js":false,"./icons/git-commit-horizontal.js":false,"./icons/grid-2x2-plus.js":false,"./icons/grid-2x2.js":false,"./icons/grid-3x3.js":false,"./icons/hand-helping.js":false,"./icons/house.js":false,"./icons/ice-cream-bowl.js":false,"./icons/ice-cream-cone.js":false,"./icons/indent-decrease.js":false,"./icons/indent-increase.js":false,"./icons/laptop-minimal.js":false,"./icons/layers.js":false,"./icons/loader-circle.js":false,"./icons/lock-keyhole-open.js":false,"./icons/lock-open.js":false,"./icons/mic-vocal.js":false,"./icons/move-3d.js":false,"./icons/octagon-alert.js":false,"./icons/octagon-pause.js":false,"./icons/octagon-x.js":false,"./icons/paintbrush-vertical.js":false,"./icons/panel-bottom-dashed.js":false,"./icons/panel-left-close.js":false,"./icons/panel-left-dashed.js":false,"./icons/panel-left-open.js":false,"./icons/panel-left.js":false,"./icons/panel-right-dashed.js":false,"./icons/panel-top-dashed.js":false,"./icons/panels-top-left.js":false,"./icons/pen-line.js":false,"./icons/pen.js":false,"./icons/plug-zap.js":false,"./icons/rectangle-ellipsis.js":false,"./icons/rotate-3d.js":false,"./icons/rows-2.js":false,"./icons/rows-3.js":false,"./icons/scale-3d.js":false,"./icons/send-horizontal.js":false,"./icons/shield-x.js":false,"./icons/sliders-vertical.js":false,"./icons/sparkles.js":false,"./icons/square-activity.js":false,"./icons/square-arrow-down-left.js":false,"./icons/square-arrow-down-right.js":false,"./icons/square-arrow-down.js":false,"./icons/square-arrow-left.js":false,"./icons/square-arrow-out-down-left.js":false,"./icons/square-arrow-out-down-right.js":false,"./icons/square-arrow-out-up-left.js":false,"./icons/square-arrow-out-up-right.js":false,"./icons/square-arrow-right.js":false,"./icons/square-arrow-up-left.js":false,"./icons/square-arrow-up-right.js":false,"./icons/square-arrow-up.js":false,"./icons/square-asterisk.js":false,"./icons/square-bottom-dashed-scissors.js":false,"./icons/square-chart-gantt.js":false,"./icons/square-check-big.js":false,"./icons/square-check.js":false,"./icons/square-chevron-down.js":false,"./icons/square-chevron-left.js":false,"./icons/square-chevron-right.js":false,"./icons/square-chevron-up.js":false,"./icons/square-code.js":false,"./icons/square-dashed-kanban.js":false,"./icons/square-dashed-mouse-pointer.js":false,"./icons/square-dashed.js":false,"./icons/square-divide.js":false,"./icons/square-dot.js":false,"./icons/square-equal.js":false,"./icons/square-function.js":false,"./icons/square-kanban.js":false,"./icons/square-library.js":false,"./icons/square-m.js":false,"./icons/square-menu.js":false,"./icons/square-minus.js":false,"./icons/square-mouse-pointer.js":false,"./icons/square-parking-off.js":false,"./icons/square-parking.js":false,"./icons/square-pen.js":false,"./icons/square-percent.js":false,"./icons/square-pi.js":false,"./icons/square-pilcrow.js":false,"./icons/square-play.js":false,"./icons/square-plus.js":false,"./icons/square-power.js":false,"./icons/square-scissors.js":false,"./icons/square-sigma.js":false,"./icons/square-slash.js":false,"./icons/square-split-horizontal.js":false,"./icons/square-split-vertical.js":false,"./icons/square-terminal.js":false,"./icons/square-user-round.js":false,"./icons/square-user.js":false,"./icons/square-x.js":false,"./icons/test-tube-diagonal.js":false,"./icons/text-select.js":false,"./icons/tram-front.js":false,"./icons/tree-palm.js":false,"./icons/triangle-alert.js":false,"./icons/tv-minimal.js":false,"./icons/university.js":false,"./icons/user-round-check.js":false,"./icons/user-round-cog.js":false,"./icons/user-round-minus.js":false,"./icons/user-round-plus.js":false,"./icons/user-round-x.js":false,"./icons/user-round.js":false,"./icons/users-round.js":false,"./icons/utensils-crossed.js":false,"./icons/utensils.js":false,"./icons/wallet-minimal.js":false,"./icons/wand-sparkles.js":false,"./icons/a-arrow-down.js":false,"./icons/a-arrow-up.js":false,"./icons/a-large-small.js":false,"./icons/accessibility.js":false,"./icons/activity.js":false,"./icons/air-vent.js":false,"./icons/airplay.js":false,"./icons/alarm-clock-off.js":false,"./icons/alarm-clock.js":false,"./icons/alarm-smoke.js":false,"./icons/album.js":false,"./icons/align-center-horizontal.js":false,"./icons/align-center-vertical.js":false,"./icons/align-center.js":false,"./icons/align-end-horizontal.js":false,"./icons/align-end-vertical.js":false,"./icons/align-horizontal-distribute-center.js":false,"./icons/align-horizontal-distribute-end.js":false,"./icons/align-horizontal-distribute-start.js":false,"./icons/align-horizontal-justify-center.js":false,"./icons/align-horizontal-justify-end.js":false,"./icons/align-horizontal-justify-start.js":false,"./icons/align-horizontal-space-around.js":false,"./icons/align-horizontal-space-between.js":false,"./icons/align-justify.js":false,"./icons/align-left.js":false,"./icons/align-right.js":false,"./icons/align-start-horizontal.js":false,"./icons/align-start-vertical.js":false,"./icons/align-vertical-distribute-center.js":false,"./icons/align-vertical-distribute-end.js":false,"./icons/align-vertical-distribute-start.js":false,"./icons/align-vertical-justify-center.js":false,"./icons/align-vertical-justify-end.js":false,"./icons/align-vertical-justify-start.js":false,"./icons/align-vertical-space-around.js":false,"./icons/align-vertical-space-between.js":false,"./icons/ambulance.js":false,"./icons/ampersand.js":false,"./icons/ampersands.js":false,"./icons/amphora.js":false,"./icons/anchor.js":false,"./icons/angry.js":false,"./icons/annoyed.js":false,"./icons/antenna.js":false,"./icons/anvil.js":false,"./icons/aperture.js":false,"./icons/app-window-mac.js":false,"./icons/app-window.js":false,"./icons/apple.js":false,"./icons/archive-restore.js":false,"./icons/archive-x.js":false,"./icons/archive.js":false,"./icons/armchair.js":false,"./icons/arrow-big-down-dash.js":false,"./icons/arrow-big-down.js":false,"./icons/arrow-big-left-dash.js":false,"./icons/arrow-big-left.js":false,"./icons/arrow-big-right-dash.js":false,"./icons/arrow-big-right.js":false,"./icons/arrow-big-up-dash.js":false,"./icons/arrow-big-up.js":false,"./icons/arrow-down-from-line.js":false,"./icons/arrow-down-left.js":false,"./icons/arrow-down-narrow-wide.js":false,"./icons/arrow-down-right.js":false,"./icons/arrow-down-to-dot.js":false,"./icons/arrow-down-to-line.js":false,"./icons/arrow-down-up.js":false,"./icons/arrow-down.js":false,"./icons/arrow-left-from-line.js":false,"./icons/arrow-left-right.js":false,"./icons/arrow-left-to-line.js":false,"./icons/arrow-left.js":"j7Kdd","./icons/arrow-right-from-line.js":false,"./icons/arrow-right-left.js":false,"./icons/arrow-right-to-line.js":false,"./icons/arrow-right.js":"288ZK","./icons/arrow-up-down.js":false,"./icons/arrow-up-from-dot.js":false,"./icons/arrow-up-from-line.js":false,"./icons/arrow-up-left.js":false,"./icons/arrow-up-right.js":false,"./icons/arrow-up-to-line.js":false,"./icons/arrow-up-wide-narrow.js":false,"./icons/arrow-up.js":false,"./icons/arrows-up-from-line.js":false,"./icons/asterisk.js":false,"./icons/at-sign.js":false,"./icons/atom.js":false,"./icons/audio-lines.js":false,"./icons/audio-waveform.js":false,"./icons/award.js":false,"./icons/axe.js":false,"./icons/baby.js":false,"./icons/backpack.js":false,"./icons/badge-alert.js":false,"./icons/badge-cent.js":false,"./icons/badge-dollar-sign.js":false,"./icons/badge-euro.js":false,"./icons/badge-help.js":false,"./icons/badge-indian-rupee.js":false,"./icons/badge-info.js":false,"./icons/badge-japanese-yen.js":false,"./icons/badge-minus.js":false,"./icons/badge-percent.js":false,"./icons/badge-plus.js":false,"./icons/badge-pound-sterling.js":false,"./icons/badge-russian-ruble.js":false,"./icons/badge-swiss-franc.js":false,"./icons/badge-x.js":false,"./icons/badge.js":false,"./icons/baggage-claim.js":false,"./icons/ban.js":false,"./icons/banana.js":false,"./icons/bandage.js":false,"./icons/banknote.js":false,"./icons/barcode.js":false,"./icons/baseline.js":false,"./icons/bath.js":false,"./icons/battery-charging.js":false,"./icons/battery-full.js":false,"./icons/battery-low.js":false,"./icons/battery-medium.js":false,"./icons/battery-warning.js":false,"./icons/battery.js":false,"./icons/beaker.js":false,"./icons/bean-off.js":false,"./icons/bean.js":false,"./icons/bed-double.js":false,"./icons/bed-single.js":false,"./icons/bed.js":false,"./icons/beef.js":false,"./icons/beer-off.js":false,"./icons/beer.js":false,"./icons/bell-dot.js":false,"./icons/bell-electric.js":false,"./icons/bell-minus.js":false,"./icons/bell-off.js":false,"./icons/bell-plus.js":false,"./icons/bell-ring.js":false,"./icons/bell.js":false,"./icons/between-vertical-end.js":false,"./icons/between-vertical-start.js":false,"./icons/biceps-flexed.js":false,"./icons/bike.js":false,"./icons/binary.js":false,"./icons/binoculars.js":false,"./icons/biohazard.js":false,"./icons/bird.js":false,"./icons/bitcoin.js":false,"./icons/blend.js":false,"./icons/blinds.js":false,"./icons/blocks.js":false,"./icons/bluetooth-connected.js":false,"./icons/bluetooth-off.js":false,"./icons/bluetooth-searching.js":false,"./icons/bluetooth.js":false,"./icons/bold.js":false,"./icons/bolt.js":false,"./icons/bomb.js":false,"./icons/bone.js":false,"./icons/book-a.js":false,"./icons/book-audio.js":false,"./icons/book-check.js":false,"./icons/book-copy.js":false,"./icons/book-down.js":false,"./icons/book-headphones.js":false,"./icons/book-heart.js":false,"./icons/book-image.js":false,"./icons/book-key.js":false,"./icons/book-lock.js":false,"./icons/book-marked.js":false,"./icons/book-minus.js":false,"./icons/book-open-check.js":false,"./icons/book-open-text.js":false,"./icons/book-open.js":false,"./icons/book-plus.js":false,"./icons/book-text.js":false,"./icons/book-type.js":false,"./icons/book-up-2.js":false,"./icons/book-up.js":false,"./icons/book-user.js":false,"./icons/book-x.js":false,"./icons/book.js":false,"./icons/bookmark-check.js":false,"./icons/bookmark-minus.js":false,"./icons/bookmark-plus.js":false,"./icons/bookmark-x.js":false,"./icons/bookmark.js":false,"./icons/boom-box.js":false,"./icons/bot-message-square.js":false,"./icons/bot-off.js":false,"./icons/bot.js":false,"./icons/box.js":false,"./icons/boxes.js":false,"./icons/brackets.js":false,"./icons/brain-circuit.js":false,"./icons/brain-cog.js":false,"./icons/brain.js":false,"./icons/brick-wall.js":false,"./icons/briefcase-business.js":false,"./icons/briefcase-conveyor-belt.js":false,"./icons/briefcase-medical.js":false,"./icons/briefcase.js":false,"./icons/bring-to-front.js":false,"./icons/brush.js":false,"./icons/bug-off.js":false,"./icons/bug-play.js":false,"./icons/bug.js":false,"./icons/building-2.js":false,"./icons/building.js":false,"./icons/bus-front.js":false,"./icons/bus.js":false,"./icons/cable-car.js":false,"./icons/cable.js":false,"./icons/cake-slice.js":false,"./icons/cake.js":false,"./icons/calculator.js":false,"./icons/calendar-1.js":false,"./icons/calendar-arrow-down.js":false,"./icons/calendar-arrow-up.js":false,"./icons/calendar-check-2.js":false,"./icons/calendar-check.js":false,"./icons/calendar-clock.js":false,"./icons/calendar-cog.js":false,"./icons/calendar-days.js":false,"./icons/calendar-fold.js":false,"./icons/calendar-heart.js":false,"./icons/calendar-minus-2.js":false,"./icons/calendar-minus.js":false,"./icons/calendar-off.js":false,"./icons/calendar-plus-2.js":false,"./icons/calendar-plus.js":false,"./icons/calendar-range.js":false,"./icons/calendar-search.js":false,"./icons/calendar-sync.js":false,"./icons/calendar-x-2.js":false,"./icons/calendar-x.js":false,"./icons/calendar.js":false,"./icons/camera-off.js":false,"./icons/camera.js":false,"./icons/candy-cane.js":false,"./icons/candy-off.js":false,"./icons/candy.js":false,"./icons/cannabis.js":false,"./icons/captions-off.js":false,"./icons/car-front.js":false,"./icons/car-taxi-front.js":false,"./icons/car.js":false,"./icons/caravan.js":false,"./icons/carrot.js":false,"./icons/case-lower.js":false,"./icons/case-sensitive.js":false,"./icons/case-upper.js":false,"./icons/cassette-tape.js":false,"./icons/cast.js":false,"./icons/castle.js":false,"./icons/cat.js":false,"./icons/cctv.js":false,"./icons/chart-bar-decreasing.js":false,"./icons/chart-bar-increasing.js":false,"./icons/chart-bar-stacked.js":false,"./icons/chart-column-decreasing.js":false,"./icons/chart-column-stacked.js":false,"./icons/chart-gantt.js":false,"./icons/chart-network.js":false,"./icons/chart-no-axes-column-decreasing.js":false,"./icons/chart-no-axes-combined.js":false,"./icons/chart-spline.js":false,"./icons/check-check.js":false,"./icons/check.js":false,"./icons/chef-hat.js":false,"./icons/cherry.js":false,"./icons/chevron-down.js":false,"./icons/chevron-first.js":false,"./icons/chevron-last.js":false,"./icons/chevron-left.js":false,"./icons/chevron-right.js":false,"./icons/chevron-up.js":false,"./icons/chevrons-down-up.js":false,"./icons/chevrons-down.js":false,"./icons/chevrons-left-right-ellipsis.js":false,"./icons/chevrons-left-right.js":false,"./icons/chevrons-left.js":false,"./icons/chevrons-right-left.js":false,"./icons/chevrons-right.js":false,"./icons/chevrons-up-down.js":false,"./icons/chevrons-up.js":false,"./icons/chrome.js":false,"./icons/church.js":false,"./icons/cigarette-off.js":false,"./icons/cigarette.js":false,"./icons/circle-dashed.js":false,"./icons/circle-dollar-sign.js":false,"./icons/circle-dot-dashed.js":false,"./icons/circle-dot.js":false,"./icons/circle-ellipsis.js":false,"./icons/circle-equal.js":false,"./icons/circle-fading-arrow-up.js":false,"./icons/circle-fading-plus.js":false,"./icons/circle-off.js":false,"./icons/circle-slash.js":false,"./icons/circle.js":false,"./icons/circuit-board.js":false,"./icons/citrus.js":false,"./icons/clapperboard.js":false,"./icons/clipboard-check.js":false,"./icons/clipboard-copy.js":false,"./icons/clipboard-list.js":"du017","./icons/clipboard-minus.js":false,"./icons/clipboard-paste.js":false,"./icons/clipboard-plus.js":false,"./icons/clipboard-type.js":false,"./icons/clipboard-x.js":false,"./icons/clipboard.js":false,"./icons/clock-1.js":false,"./icons/clock-10.js":false,"./icons/clock-11.js":false,"./icons/clock-12.js":false,"./icons/clock-2.js":false,"./icons/clock-3.js":false,"./icons/clock-4.js":false,"./icons/clock-5.js":false,"./icons/clock-6.js":false,"./icons/clock-7.js":false,"./icons/clock-8.js":false,"./icons/clock-9.js":false,"./icons/clock-alert.js":false,"./icons/clock-arrow-down.js":false,"./icons/clock-arrow-up.js":false,"./icons/clock.js":false,"./icons/cloud-alert.js":false,"./icons/cloud-cog.js":false,"./icons/cloud-drizzle.js":false,"./icons/cloud-fog.js":false,"./icons/cloud-hail.js":false,"./icons/cloud-lightning.js":false,"./icons/cloud-moon-rain.js":false,"./icons/cloud-moon.js":false,"./icons/cloud-off.js":false,"./icons/cloud-rain-wind.js":false,"./icons/cloud-rain.js":false,"./icons/cloud-snow.js":false,"./icons/cloud-sun-rain.js":false,"./icons/cloud-sun.js":false,"./icons/cloud.js":false,"./icons/cloudy.js":false,"./icons/clover.js":false,"./icons/club.js":false,"./icons/code.js":false,"./icons/codepen.js":false,"./icons/codesandbox.js":false,"./icons/coffee.js":false,"./icons/cog.js":false,"./icons/coins.js":false,"./icons/columns-4.js":false,"./icons/combine.js":false,"./icons/command.js":false,"./icons/compass.js":false,"./icons/component.js":false,"./icons/computer.js":false,"./icons/concierge-bell.js":false,"./icons/cone.js":false,"./icons/construction.js":false,"./icons/contact.js":false,"./icons/container.js":false,"./icons/contrast.js":false,"./icons/cookie.js":false,"./icons/cooking-pot.js":false,"./icons/copy-check.js":false,"./icons/copy-minus.js":false,"./icons/copy-plus.js":false,"./icons/copy-slash.js":false,"./icons/copy-x.js":false,"./icons/copy.js":"h8FFa","./icons/copyleft.js":false,"./icons/copyright.js":false,"./icons/corner-down-left.js":false,"./icons/corner-down-right.js":false,"./icons/corner-left-down.js":false,"./icons/corner-left-up.js":false,"./icons/corner-right-down.js":false,"./icons/corner-right-up.js":false,"./icons/corner-up-left.js":false,"./icons/corner-up-right.js":false,"./icons/cpu.js":false,"./icons/creative-commons.js":false,"./icons/credit-card.js":false,"./icons/croissant.js":false,"./icons/crop.js":false,"./icons/cross.js":false,"./icons/crosshair.js":false,"./icons/crown.js":false,"./icons/cuboid.js":false,"./icons/cup-soda.js":false,"./icons/currency.js":false,"./icons/cylinder.js":false,"./icons/dam.js":false,"./icons/database-backup.js":false,"./icons/database-zap.js":false,"./icons/database.js":false,"./icons/delete.js":false,"./icons/dessert.js":false,"./icons/diameter.js":false,"./icons/diamond-minus.js":false,"./icons/diamond-plus.js":false,"./icons/diamond.js":false,"./icons/dice-1.js":false,"./icons/dice-2.js":false,"./icons/dice-3.js":false,"./icons/dice-4.js":false,"./icons/dice-5.js":false,"./icons/dice-6.js":false,"./icons/dices.js":false,"./icons/diff.js":false,"./icons/disc-2.js":false,"./icons/disc-3.js":false,"./icons/disc-album.js":false,"./icons/disc.js":false,"./icons/divide.js":false,"./icons/dna-off.js":false,"./icons/dna.js":false,"./icons/dock.js":false,"./icons/dog.js":false,"./icons/dollar-sign.js":false,"./icons/donut.js":false,"./icons/door-closed.js":false,"./icons/door-open.js":false,"./icons/dot.js":false,"./icons/download.js":"85DSq","./icons/drafting-compass.js":false,"./icons/drama.js":false,"./icons/dribbble.js":false,"./icons/drill.js":false,"./icons/droplet-off.js":false,"./icons/droplet.js":false,"./icons/droplets.js":false,"./icons/drum.js":false,"./icons/drumstick.js":false,"./icons/dumbbell.js":false,"./icons/ear-off.js":false,"./icons/ear.js":false,"./icons/earth-lock.js":false,"./icons/eclipse.js":false,"./icons/egg-fried.js":false,"./icons/egg-off.js":false,"./icons/egg.js":false,"./icons/equal-approximately.js":false,"./icons/equal-not.js":false,"./icons/equal.js":false,"./icons/eraser.js":false,"./icons/ethernet-port.js":false,"./icons/euro.js":false,"./icons/expand.js":false,"./icons/external-link.js":false,"./icons/eye-closed.js":false,"./icons/eye-off.js":false,"./icons/eye.js":false,"./icons/facebook.js":false,"./icons/factory.js":false,"./icons/fan.js":false,"./icons/fast-forward.js":false,"./icons/feather.js":false,"./icons/fence.js":false,"./icons/ferris-wheel.js":false,"./icons/figma.js":false,"./icons/file-archive.js":false,"./icons/file-audio-2.js":false,"./icons/file-audio.js":false,"./icons/file-badge-2.js":false,"./icons/file-badge.js":false,"./icons/file-box.js":false,"./icons/file-check-2.js":false,"./icons/file-check.js":false,"./icons/file-clock.js":false,"./icons/file-code-2.js":false,"./icons/file-code.js":false,"./icons/file-diff.js":false,"./icons/file-digit.js":false,"./icons/file-down.js":false,"./icons/file-heart.js":false,"./icons/file-image.js":false,"./icons/file-input.js":false,"./icons/file-json-2.js":false,"./icons/file-json.js":false,"./icons/file-key-2.js":false,"./icons/file-key.js":false,"./icons/file-lock-2.js":false,"./icons/file-lock.js":false,"./icons/file-minus-2.js":false,"./icons/file-minus.js":false,"./icons/file-music.js":false,"./icons/file-output.js":false,"./icons/file-plus-2.js":false,"./icons/file-plus.js":false,"./icons/file-question.js":false,"./icons/file-scan.js":false,"./icons/file-search-2.js":false,"./icons/file-search.js":false,"./icons/file-sliders.js":false,"./icons/file-spreadsheet.js":false,"./icons/file-stack.js":false,"./icons/file-symlink.js":false,"./icons/file-terminal.js":false,"./icons/file-text.js":false,"./icons/file-type-2.js":false,"./icons/file-type.js":false,"./icons/file-up.js":false,"./icons/file-user.js":false,"./icons/file-video-2.js":false,"./icons/file-video.js":false,"./icons/file-volume-2.js":false,"./icons/file-volume.js":false,"./icons/file-warning.js":false,"./icons/file-x-2.js":false,"./icons/file-x.js":false,"./icons/file.js":false,"./icons/files.js":false,"./icons/film.js":false,"./icons/filter-x.js":false,"./icons/filter.js":false,"./icons/fingerprint.js":false,"./icons/fire-extinguisher.js":false,"./icons/fish-off.js":false,"./icons/fish-symbol.js":false,"./icons/fish.js":false,"./icons/flag-off.js":false,"./icons/flag-triangle-left.js":false,"./icons/flag-triangle-right.js":false,"./icons/flag.js":false,"./icons/flame-kindling.js":false,"./icons/flame.js":false,"./icons/flashlight-off.js":false,"./icons/flashlight.js":false,"./icons/flask-conical-off.js":false,"./icons/flask-conical.js":false,"./icons/flask-round.js":false,"./icons/flip-horizontal-2.js":false,"./icons/flip-horizontal.js":false,"./icons/flip-vertical-2.js":false,"./icons/flip-vertical.js":false,"./icons/flower-2.js":false,"./icons/flower.js":false,"./icons/focus.js":false,"./icons/fold-horizontal.js":false,"./icons/fold-vertical.js":false,"./icons/folder-archive.js":false,"./icons/folder-check.js":false,"./icons/folder-clock.js":false,"./icons/folder-closed.js":false,"./icons/folder-code.js":false,"./icons/folder-dot.js":false,"./icons/folder-down.js":false,"./icons/folder-git-2.js":false,"./icons/folder-git.js":false,"./icons/folder-heart.js":false,"./icons/folder-input.js":false,"./icons/folder-kanban.js":false,"./icons/folder-key.js":false,"./icons/folder-lock.js":false,"./icons/folder-minus.js":false,"./icons/folder-open-dot.js":false,"./icons/folder-open.js":false,"./icons/folder-output.js":false,"./icons/folder-plus.js":false,"./icons/folder-root.js":false,"./icons/folder-search-2.js":false,"./icons/folder-search.js":false,"./icons/folder-symlink.js":false,"./icons/folder-sync.js":false,"./icons/folder-tree.js":false,"./icons/folder-up.js":false,"./icons/folder-x.js":false,"./icons/folder.js":false,"./icons/folders.js":false,"./icons/footprints.js":false,"./icons/forklift.js":false,"./icons/forward.js":false,"./icons/frame.js":false,"./icons/framer.js":false,"./icons/frown.js":false,"./icons/fuel.js":false,"./icons/fullscreen.js":false,"./icons/gallery-horizontal-end.js":false,"./icons/gallery-horizontal.js":false,"./icons/gallery-thumbnails.js":false,"./icons/gallery-vertical-end.js":false,"./icons/gallery-vertical.js":false,"./icons/gamepad-2.js":false,"./icons/gamepad.js":false,"./icons/gauge.js":false,"./icons/gavel.js":false,"./icons/gem.js":false,"./icons/ghost.js":false,"./icons/gift.js":false,"./icons/git-branch-plus.js":false,"./icons/git-branch.js":false,"./icons/git-commit-vertical.js":false,"./icons/git-compare-arrows.js":false,"./icons/git-compare.js":false,"./icons/git-fork.js":false,"./icons/git-graph.js":false,"./icons/git-merge.js":false,"./icons/git-pull-request-arrow.js":false,"./icons/git-pull-request-closed.js":false,"./icons/git-pull-request-create-arrow.js":false,"./icons/git-pull-request-create.js":false,"./icons/git-pull-request-draft.js":false,"./icons/git-pull-request.js":false,"./icons/github.js":false,"./icons/gitlab.js":false,"./icons/glass-water.js":false,"./icons/glasses.js":false,"./icons/globe-lock.js":false,"./icons/globe.js":false,"./icons/goal.js":false,"./icons/grab.js":false,"./icons/graduation-cap.js":false,"./icons/grape.js":false,"./icons/grid-2x2-check.js":false,"./icons/grid-2x2-x.js":false,"./icons/grip-horizontal.js":false,"./icons/grip-vertical.js":false,"./icons/grip.js":false,"./icons/group.js":false,"./icons/guitar.js":false,"./icons/ham.js":false,"./icons/hammer.js":false,"./icons/hand-coins.js":false,"./icons/hand-heart.js":false,"./icons/hand-metal.js":false,"./icons/hand-platter.js":false,"./icons/hand.js":false,"./icons/handshake.js":false,"./icons/hard-drive-download.js":false,"./icons/hard-drive-upload.js":false,"./icons/hard-drive.js":false,"./icons/hard-hat.js":false,"./icons/hash.js":false,"./icons/haze.js":false,"./icons/hdmi-port.js":false,"./icons/heading-1.js":false,"./icons/heading-2.js":false,"./icons/heading-3.js":false,"./icons/heading-4.js":false,"./icons/heading-5.js":false,"./icons/heading-6.js":false,"./icons/heading.js":false,"./icons/headphone-off.js":false,"./icons/headphones.js":false,"./icons/headset.js":false,"./icons/heart-crack.js":false,"./icons/heart-handshake.js":false,"./icons/heart-off.js":false,"./icons/heart-pulse.js":false,"./icons/heart.js":false,"./icons/heater.js":false,"./icons/hexagon.js":false,"./icons/highlighter.js":false,"./icons/history.js":false,"./icons/hop-off.js":false,"./icons/hop.js":false,"./icons/hospital.js":false,"./icons/hotel.js":false,"./icons/hourglass.js":false,"./icons/house-plug.js":false,"./icons/house-plus.js":false,"./icons/id-card.js":false,"./icons/image-down.js":false,"./icons/image-minus.js":false,"./icons/image-off.js":false,"./icons/image-play.js":false,"./icons/image-plus.js":false,"./icons/image-up.js":false,"./icons/image-upscale.js":false,"./icons/image.js":false,"./icons/images.js":false,"./icons/import.js":false,"./icons/inbox.js":false,"./icons/indian-rupee.js":false,"./icons/infinity.js":false,"./icons/info.js":false,"./icons/inspection-panel.js":false,"./icons/instagram.js":false,"./icons/italic.js":false,"./icons/iteration-ccw.js":false,"./icons/iteration-cw.js":false,"./icons/japanese-yen.js":false,"./icons/joystick.js":false,"./icons/kanban.js":false,"./icons/key-round.js":false,"./icons/key-square.js":false,"./icons/key.js":false,"./icons/keyboard-music.js":false,"./icons/keyboard-off.js":false,"./icons/keyboard.js":false,"./icons/lamp-ceiling.js":false,"./icons/lamp-desk.js":false,"./icons/lamp-floor.js":false,"./icons/lamp-wall-down.js":false,"./icons/lamp-wall-up.js":false,"./icons/lamp.js":false,"./icons/land-plot.js":false,"./icons/landmark.js":false,"./icons/languages.js":false,"./icons/laptop-minimal-check.js":false,"./icons/laptop.js":false,"./icons/lasso-select.js":false,"./icons/lasso.js":false,"./icons/laugh.js":false,"./icons/layers-2.js":false,"./icons/layout-dashboard.js":false,"./icons/layout-grid.js":false,"./icons/layout-list.js":false,"./icons/layout-panel-left.js":false,"./icons/layout-panel-top.js":false,"./icons/layout-template.js":false,"./icons/leaf.js":false,"./icons/leafy-green.js":false,"./icons/lectern.js":false,"./icons/letter-text.js":false,"./icons/library-big.js":false,"./icons/library.js":false,"./icons/life-buoy.js":false,"./icons/ligature.js":false,"./icons/lightbulb-off.js":false,"./icons/lightbulb.js":false,"./icons/link-2-off.js":false,"./icons/link-2.js":false,"./icons/link.js":false,"./icons/linkedin.js":false,"./icons/list-check.js":false,"./icons/list-checks.js":false,"./icons/list-collapse.js":false,"./icons/list-end.js":false,"./icons/list-filter-plus.js":false,"./icons/list-filter.js":false,"./icons/list-minus.js":false,"./icons/list-music.js":false,"./icons/list-ordered.js":false,"./icons/list-plus.js":false,"./icons/list-restart.js":false,"./icons/list-start.js":false,"./icons/list-todo.js":false,"./icons/list-tree.js":false,"./icons/list-video.js":false,"./icons/list-x.js":false,"./icons/list.js":false,"./icons/loader-pinwheel.js":false,"./icons/loader.js":false,"./icons/locate-fixed.js":false,"./icons/locate-off.js":false,"./icons/locate.js":false,"./icons/lock-keyhole.js":false,"./icons/lock.js":false,"./icons/log-in.js":false,"./icons/log-out.js":false,"./icons/logs.js":false,"./icons/lollipop.js":false,"./icons/luggage.js":false,"./icons/magnet.js":false,"./icons/mail-check.js":false,"./icons/mail-minus.js":false,"./icons/mail-open.js":false,"./icons/mail-plus.js":false,"./icons/mail-question.js":false,"./icons/mail-search.js":false,"./icons/mail-warning.js":false,"./icons/mail-x.js":false,"./icons/mail.js":false,"./icons/mailbox.js":false,"./icons/mails.js":false,"./icons/map-pin-check-inside.js":false,"./icons/map-pin-check.js":false,"./icons/map-pin-house.js":false,"./icons/map-pin-minus-inside.js":false,"./icons/map-pin-minus.js":false,"./icons/map-pin-off.js":false,"./icons/map-pin-plus-inside.js":false,"./icons/map-pin-plus.js":false,"./icons/map-pin-x-inside.js":false,"./icons/map-pin-x.js":false,"./icons/map-pin.js":false,"./icons/map-pinned.js":false,"./icons/map.js":false,"./icons/martini.js":false,"./icons/maximize-2.js":false,"./icons/maximize.js":false,"./icons/medal.js":false,"./icons/megaphone-off.js":false,"./icons/megaphone.js":false,"./icons/meh.js":false,"./icons/memory-stick.js":false,"./icons/menu.js":false,"./icons/merge.js":false,"./icons/message-circle-code.js":false,"./icons/message-circle-dashed.js":false,"./icons/message-circle-heart.js":false,"./icons/message-circle-more.js":false,"./icons/message-circle-off.js":false,"./icons/message-circle-plus.js":false,"./icons/message-circle-question.js":false,"./icons/message-circle-reply.js":false,"./icons/message-circle-warning.js":false,"./icons/message-circle-x.js":false,"./icons/message-circle.js":false,"./icons/message-square-code.js":false,"./icons/message-square-dashed.js":false,"./icons/message-square-diff.js":false,"./icons/message-square-dot.js":false,"./icons/message-square-heart.js":false,"./icons/message-square-lock.js":false,"./icons/message-square-more.js":false,"./icons/message-square-off.js":false,"./icons/message-square-plus.js":false,"./icons/message-square-quote.js":false,"./icons/message-square-reply.js":false,"./icons/message-square-share.js":false,"./icons/message-square-text.js":false,"./icons/message-square-warning.js":false,"./icons/message-square-x.js":false,"./icons/message-square.js":false,"./icons/messages-square.js":false,"./icons/mic-off.js":false,"./icons/mic.js":false,"./icons/microchip.js":false,"./icons/microscope.js":false,"./icons/microwave.js":false,"./icons/milestone.js":false,"./icons/milk-off.js":false,"./icons/milk.js":false,"./icons/minimize-2.js":false,"./icons/minimize.js":false,"./icons/minus.js":false,"./icons/monitor-check.js":false,"./icons/monitor-cog.js":false,"./icons/monitor-dot.js":false,"./icons/monitor-down.js":false,"./icons/monitor-off.js":false,"./icons/monitor-pause.js":false,"./icons/monitor-play.js":false,"./icons/monitor-smartphone.js":false,"./icons/monitor-speaker.js":false,"./icons/monitor-stop.js":false,"./icons/monitor-up.js":false,"./icons/monitor-x.js":false,"./icons/monitor.js":false,"./icons/moon-star.js":false,"./icons/moon.js":false,"./icons/mountain-snow.js":false,"./icons/mountain.js":false,"./icons/mouse-off.js":false,"./icons/mouse-pointer-2.js":false,"./icons/mouse-pointer-ban.js":false,"./icons/mouse-pointer-click.js":false,"./icons/mouse-pointer.js":false,"./icons/mouse.js":false,"./icons/move-diagonal-2.js":false,"./icons/move-diagonal.js":false,"./icons/move-down-left.js":false,"./icons/move-down-right.js":false,"./icons/move-down.js":false,"./icons/move-horizontal.js":false,"./icons/move-left.js":false,"./icons/move-right.js":false,"./icons/move-up-left.js":false,"./icons/move-up-right.js":false,"./icons/move-up.js":false,"./icons/move-vertical.js":false,"./icons/move.js":false,"./icons/music-2.js":false,"./icons/music-3.js":false,"./icons/music-4.js":false,"./icons/music.js":false,"./icons/navigation-2-off.js":false,"./icons/navigation-2.js":false,"./icons/navigation-off.js":false,"./icons/navigation.js":false,"./icons/network.js":false,"./icons/newspaper.js":false,"./icons/nfc.js":false,"./icons/notebook-pen.js":false,"./icons/notebook-tabs.js":false,"./icons/notebook-text.js":false,"./icons/notebook.js":false,"./icons/notepad-text-dashed.js":false,"./icons/notepad-text.js":false,"./icons/nut-off.js":false,"./icons/nut.js":false,"./icons/octagon-minus.js":false,"./icons/octagon.js":false,"./icons/omega.js":false,"./icons/option.js":false,"./icons/orbit.js":false,"./icons/origami.js":false,"./icons/package-2.js":false,"./icons/package-check.js":false,"./icons/package-minus.js":false,"./icons/package-open.js":false,"./icons/package-plus.js":false,"./icons/package-search.js":false,"./icons/package-x.js":false,"./icons/package.js":false,"./icons/paint-bucket.js":false,"./icons/paint-roller.js":false,"./icons/paintbrush.js":false,"./icons/palette.js":false,"./icons/panel-bottom-close.js":false,"./icons/panel-bottom-open.js":false,"./icons/panel-bottom.js":false,"./icons/panel-right-close.js":false,"./icons/panel-right-open.js":false,"./icons/panel-right.js":false,"./icons/panel-top-close.js":false,"./icons/panel-top-open.js":false,"./icons/panel-top.js":false,"./icons/panels-left-bottom.js":false,"./icons/panels-right-bottom.js":false,"./icons/paperclip.js":false,"./icons/parentheses.js":false,"./icons/parking-meter.js":false,"./icons/party-popper.js":false,"./icons/pause.js":false,"./icons/paw-print.js":false,"./icons/pc-case.js":false,"./icons/pen-off.js":false,"./icons/pen-tool.js":false,"./icons/pencil-line.js":false,"./icons/pencil-off.js":false,"./icons/pencil-ruler.js":false,"./icons/pencil.js":false,"./icons/pentagon.js":false,"./icons/percent.js":false,"./icons/person-standing.js":false,"./icons/philippine-peso.js":false,"./icons/phone-call.js":false,"./icons/phone-forwarded.js":false,"./icons/phone-incoming.js":false,"./icons/phone-missed.js":false,"./icons/phone-off.js":false,"./icons/phone-outgoing.js":false,"./icons/phone.js":false,"./icons/pi.js":false,"./icons/piano.js":false,"./icons/pickaxe.js":false,"./icons/picture-in-picture-2.js":false,"./icons/picture-in-picture.js":false,"./icons/piggy-bank.js":false,"./icons/pilcrow-left.js":false,"./icons/pilcrow-right.js":false,"./icons/pilcrow.js":false,"./icons/pill-bottle.js":false,"./icons/pill.js":false,"./icons/pin-off.js":false,"./icons/pin.js":false,"./icons/pipette.js":false,"./icons/pizza.js":false,"./icons/plane-landing.js":false,"./icons/plane-takeoff.js":false,"./icons/plane.js":false,"./icons/play.js":false,"./icons/plug-2.js":false,"./icons/plug.js":false,"./icons/plus.js":false,"./icons/pocket-knife.js":false,"./icons/pocket.js":false,"./icons/podcast.js":false,"./icons/pointer-off.js":false,"./icons/pointer.js":false,"./icons/popcorn.js":false,"./icons/popsicle.js":false,"./icons/pound-sterling.js":false,"./icons/power-off.js":false,"./icons/power.js":false,"./icons/presentation.js":false,"./icons/printer-check.js":false,"./icons/printer.js":false,"./icons/projector.js":false,"./icons/proportions.js":false,"./icons/puzzle.js":false,"./icons/pyramid.js":false,"./icons/qr-code.js":false,"./icons/quote.js":false,"./icons/rabbit.js":false,"./icons/radar.js":false,"./icons/radiation.js":false,"./icons/radical.js":false,"./icons/radio-receiver.js":false,"./icons/radio-tower.js":false,"./icons/radio.js":false,"./icons/radius.js":false,"./icons/rail-symbol.js":false,"./icons/rainbow.js":false,"./icons/rat.js":false,"./icons/ratio.js":false,"./icons/receipt-cent.js":false,"./icons/receipt-euro.js":false,"./icons/receipt-indian-rupee.js":false,"./icons/receipt-japanese-yen.js":false,"./icons/receipt-pound-sterling.js":false,"./icons/receipt-russian-ruble.js":false,"./icons/receipt-swiss-franc.js":false,"./icons/receipt-text.js":false,"./icons/receipt.js":false,"./icons/rectangle-horizontal.js":false,"./icons/rectangle-vertical.js":false,"./icons/recycle.js":false,"./icons/redo-2.js":false,"./icons/redo-dot.js":false,"./icons/redo.js":false,"./icons/refresh-ccw-dot.js":false,"./icons/refresh-ccw.js":false,"./icons/refresh-cw-off.js":false,"./icons/refresh-cw.js":"j5851","./icons/refrigerator.js":false,"./icons/regex.js":false,"./icons/remove-formatting.js":false,"./icons/repeat-1.js":false,"./icons/repeat-2.js":false,"./icons/repeat.js":false,"./icons/replace-all.js":false,"./icons/replace.js":false,"./icons/reply-all.js":false,"./icons/reply.js":false,"./icons/rewind.js":false,"./icons/ribbon.js":false,"./icons/rocket.js":false,"./icons/rocking-chair.js":false,"./icons/roller-coaster.js":false,"./icons/rotate-ccw-square.js":false,"./icons/rotate-ccw.js":"d1ydU","./icons/rotate-cw-square.js":false,"./icons/rotate-cw.js":false,"./icons/route-off.js":false,"./icons/route.js":false,"./icons/router.js":false,"./icons/rows-4.js":false,"./icons/rss.js":false,"./icons/ruler.js":false,"./icons/russian-ruble.js":false,"./icons/sailboat.js":false,"./icons/salad.js":false,"./icons/sandwich.js":false,"./icons/satellite-dish.js":false,"./icons/satellite.js":false,"./icons/save-all.js":false,"./icons/save-off.js":false,"./icons/save.js":false,"./icons/scale.js":false,"./icons/scaling.js":false,"./icons/scan-barcode.js":false,"./icons/scan-eye.js":false,"./icons/scan-face.js":false,"./icons/scan-heart.js":false,"./icons/scan-line.js":false,"./icons/scan-qr-code.js":false,"./icons/scan-search.js":false,"./icons/scan-text.js":false,"./icons/scan.js":false,"./icons/school.js":false,"./icons/scissors-line-dashed.js":false,"./icons/scissors.js":false,"./icons/screen-share-off.js":false,"./icons/screen-share.js":false,"./icons/scroll-text.js":false,"./icons/scroll.js":false,"./icons/search-check.js":false,"./icons/search-code.js":false,"./icons/search-slash.js":false,"./icons/search-x.js":false,"./icons/search.js":false,"./icons/section.js":false,"./icons/send-to-back.js":false,"./icons/send.js":false,"./icons/separator-horizontal.js":false,"./icons/separator-vertical.js":false,"./icons/server-cog.js":false,"./icons/server-crash.js":false,"./icons/server-off.js":false,"./icons/server.js":false,"./icons/settings-2.js":"eUMK8","./icons/settings.js":false,"./icons/shapes.js":false,"./icons/share-2.js":false,"./icons/share.js":false,"./icons/sheet.js":false,"./icons/shell.js":false,"./icons/shield-alert.js":false,"./icons/shield-ban.js":false,"./icons/shield-check.js":false,"./icons/shield-ellipsis.js":false,"./icons/shield-half.js":false,"./icons/shield-minus.js":false,"./icons/shield-off.js":false,"./icons/shield-plus.js":false,"./icons/shield-question.js":false,"./icons/shield.js":false,"./icons/ship-wheel.js":false,"./icons/ship.js":false,"./icons/shirt.js":false,"./icons/shopping-bag.js":false,"./icons/shopping-basket.js":false,"./icons/shopping-cart.js":false,"./icons/shovel.js":false,"./icons/shower-head.js":false,"./icons/shrink.js":false,"./icons/shrub.js":false,"./icons/shuffle.js":false,"./icons/sigma.js":false,"./icons/signal-high.js":false,"./icons/signal-low.js":false,"./icons/signal-medium.js":false,"./icons/signal-zero.js":false,"./icons/signal.js":false,"./icons/signature.js":false,"./icons/signpost-big.js":false,"./icons/signpost.js":false,"./icons/siren.js":false,"./icons/skip-back.js":false,"./icons/skip-forward.js":false,"./icons/skull.js":false,"./icons/slack.js":false,"./icons/slash.js":false,"./icons/slice.js":false,"./icons/sliders-horizontal.js":false,"./icons/smartphone-charging.js":false,"./icons/smartphone-nfc.js":false,"./icons/smartphone.js":false,"./icons/smile-plus.js":false,"./icons/smile.js":false,"./icons/snail.js":false,"./icons/snowflake.js":false,"./icons/sofa.js":false,"./icons/soup.js":false,"./icons/space.js":false,"./icons/spade.js":false,"./icons/sparkle.js":false,"./icons/speaker.js":false,"./icons/speech.js":false,"./icons/spell-check-2.js":false,"./icons/spell-check.js":false,"./icons/spline.js":false,"./icons/split.js":false,"./icons/spray-can.js":false,"./icons/sprout.js":false,"./icons/square-dashed-bottom-code.js":false,"./icons/square-dashed-bottom.js":false,"./icons/square-radical.js":false,"./icons/square-square.js":false,"./icons/square-stack.js":false,"./icons/square.js":"b05vQ","./icons/squircle.js":false,"./icons/squirrel.js":false,"./icons/stamp.js":false,"./icons/star-half.js":false,"./icons/star-off.js":false,"./icons/star.js":false,"./icons/step-back.js":false,"./icons/step-forward.js":false,"./icons/stethoscope.js":false,"./icons/sticker.js":false,"./icons/sticky-note.js":false,"./icons/store.js":false,"./icons/stretch-horizontal.js":false,"./icons/stretch-vertical.js":false,"./icons/strikethrough.js":false,"./icons/subscript.js":false,"./icons/sun-dim.js":false,"./icons/sun-medium.js":false,"./icons/sun-moon.js":false,"./icons/sun-snow.js":false,"./icons/sun.js":false,"./icons/sunrise.js":false,"./icons/sunset.js":false,"./icons/superscript.js":false,"./icons/swatch-book.js":false,"./icons/swiss-franc.js":false,"./icons/switch-camera.js":false,"./icons/sword.js":false,"./icons/swords.js":false,"./icons/syringe.js":false,"./icons/table-2.js":false,"./icons/table-cells-merge.js":false,"./icons/table-cells-split.js":false,"./icons/table-columns-split.js":false,"./icons/table-of-contents.js":false,"./icons/table-properties.js":false,"./icons/table-rows-split.js":false,"./icons/table.js":false,"./icons/tablet-smartphone.js":false,"./icons/tablet.js":false,"./icons/tablets.js":false,"./icons/tag.js":false,"./icons/tags.js":false,"./icons/tally-1.js":false,"./icons/tally-2.js":false,"./icons/tally-3.js":false,"./icons/tally-4.js":false,"./icons/tally-5.js":false,"./icons/tangent.js":false,"./icons/target.js":false,"./icons/telescope.js":false,"./icons/tent-tree.js":false,"./icons/tent.js":false,"./icons/terminal.js":false,"./icons/test-tube.js":false,"./icons/test-tubes.js":false,"./icons/text-cursor-input.js":false,"./icons/text-cursor.js":false,"./icons/text-quote.js":false,"./icons/text-search.js":false,"./icons/text.js":false,"./icons/theater.js":false,"./icons/thermometer-snowflake.js":false,"./icons/thermometer-sun.js":false,"./icons/thermometer.js":false,"./icons/thumbs-down.js":false,"./icons/thumbs-up.js":false,"./icons/ticket-check.js":false,"./icons/ticket-minus.js":false,"./icons/ticket-percent.js":false,"./icons/ticket-plus.js":false,"./icons/ticket-slash.js":false,"./icons/ticket-x.js":false,"./icons/ticket.js":false,"./icons/tickets-plane.js":false,"./icons/tickets.js":false,"./icons/timer-off.js":false,"./icons/timer-reset.js":false,"./icons/timer.js":false,"./icons/toggle-left.js":false,"./icons/toggle-right.js":false,"./icons/toilet.js":false,"./icons/tornado.js":false,"./icons/torus.js":false,"./icons/touchpad-off.js":false,"./icons/touchpad.js":false,"./icons/tower-control.js":false,"./icons/toy-brick.js":false,"./icons/tractor.js":false,"./icons/traffic-cone.js":false,"./icons/train-front-tunnel.js":false,"./icons/train-front.js":false,"./icons/train-track.js":false,"./icons/trash-2.js":"e3cIN","./icons/trash.js":false,"./icons/tree-deciduous.js":false,"./icons/tree-pine.js":false,"./icons/trees.js":false,"./icons/trello.js":false,"./icons/trending-down.js":false,"./icons/trending-up-down.js":false,"./icons/trending-up.js":false,"./icons/triangle-right.js":false,"./icons/triangle.js":false,"./icons/trophy.js":false,"./icons/truck.js":false,"./icons/turtle.js":false,"./icons/tv-minimal-play.js":false,"./icons/tv.js":false,"./icons/twitch.js":false,"./icons/twitter.js":false,"./icons/type-outline.js":false,"./icons/type.js":false,"./icons/umbrella-off.js":false,"./icons/umbrella.js":false,"./icons/underline.js":false,"./icons/undo-2.js":false,"./icons/undo-dot.js":false,"./icons/undo.js":false,"./icons/unfold-horizontal.js":false,"./icons/unfold-vertical.js":false,"./icons/ungroup.js":false,"./icons/unlink-2.js":false,"./icons/unlink.js":false,"./icons/unplug.js":false,"./icons/upload.js":false,"./icons/usb.js":false,"./icons/user-check.js":false,"./icons/user-cog.js":false,"./icons/user-minus.js":false,"./icons/user-pen.js":false,"./icons/user-plus.js":false,"./icons/user-round-pen.js":false,"./icons/user-round-search.js":false,"./icons/user-search.js":false,"./icons/user-x.js":false,"./icons/user.js":false,"./icons/users.js":false,"./icons/utility-pole.js":false,"./icons/variable.js":false,"./icons/vault.js":false,"./icons/vegan.js":false,"./icons/venetian-mask.js":false,"./icons/vibrate-off.js":false,"./icons/vibrate.js":false,"./icons/video-off.js":false,"./icons/video.js":false,"./icons/videotape.js":false,"./icons/view.js":false,"./icons/voicemail.js":false,"./icons/volleyball.js":false,"./icons/volume-1.js":false,"./icons/volume-2.js":false,"./icons/volume-off.js":false,"./icons/volume-x.js":false,"./icons/volume.js":false,"./icons/vote.js":false,"./icons/wallet-cards.js":false,"./icons/wallet.js":false,"./icons/wallpaper.js":false,"./icons/wand.js":false,"./icons/warehouse.js":false,"./icons/washing-machine.js":false,"./icons/watch.js":false,"./icons/waves-ladder.js":false,"./icons/waves.js":false,"./icons/waypoints.js":false,"./icons/webcam.js":false,"./icons/webhook-off.js":false,"./icons/webhook.js":false,"./icons/weight.js":false,"./icons/wheat-off.js":false,"./icons/wheat.js":false,"./icons/whole-word.js":false,"./icons/wifi-high.js":false,"./icons/wifi-low.js":false,"./icons/wifi-off.js":false,"./icons/wifi-zero.js":false,"./icons/wifi.js":false,"./icons/wind-arrow-down.js":false,"./icons/wind.js":false,"./icons/wine-off.js":false,"./icons/wine.js":false,"./icons/workflow.js":false,"./icons/worm.js":false,"./icons/wrap-text.js":false,"./icons/wrench.js":false,"./icons/x.js":"aJBqa","./icons/youtube.js":false,"./icons/zap-off.js":false,"./icons/zap.js":false,"./icons/zoom-in.js":false,"./icons/zoom-out.js":false,"./icons/arrow-down-0-1.js":false,"./icons/arrow-down-1-0.js":false,"./icons/arrow-up-0-1.js":false,"./icons/arrow-up-1-0.js":false,"./createLucideIcon.js":false,"./Icon.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kUNJY":[function(require,module,exports,__globalThis) {
 /**
  * @license lucide-react v0.468.0 - ISC
  *
@@ -30068,6 +30110,44 @@ const Copy = (0, _createLucideIconJsDefault.default)("Copy", [
         {
             d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2",
             key: "zix9uf"
+        }
+    ]
+]);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"85DSq":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.468.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Download);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const Download = (0, _createLucideIconJsDefault.default)("Download", [
+    [
+        "path",
+        {
+            d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
+            key: "ih7n3h"
+        }
+    ],
+    [
+        "polyline",
+        {
+            points: "7 10 12 15 17 10",
+            key: "2ggqvy"
+        }
+    ],
+    [
+        "line",
+        {
+            x1: "12",
+            x2: "12",
+            y1: "15",
+            y2: "3",
+            key: "1vk2je"
         }
     ]
 ]);
@@ -57541,6 +57621,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MAX_RIDE_NOTES_LENGTH", ()=>MAX_RIDE_NOTES_LENGTH);
 parcelHelpers.export(exports, "stripHtmlTags", ()=>stripHtmlTags);
 parcelHelpers.export(exports, "getSavedRides", ()=>getSavedRides);
+parcelHelpers.export(exports, "ridesToCsv", ()=>ridesToCsv);
 parcelHelpers.export(exports, "getSavedRiderNames", ()=>getSavedRiderNames);
 parcelHelpers.export(exports, "filterRides", ()=>filterRides);
 parcelHelpers.export(exports, "saveRide", ()=>saveRide);
@@ -57601,6 +57682,45 @@ function createRideId() {
 }
 function getSavedRides(storage) {
     return readRides(storage);
+}
+function formatElapsedTime(milliseconds) {
+    const roundedMilliseconds = Math.max(0, Math.round(milliseconds));
+    const minutes = Math.floor(roundedMilliseconds / 60000);
+    const seconds = String(Math.floor(roundedMilliseconds / 1000) % 60).padStart(2, "0");
+    const fractionalMilliseconds = String(roundedMilliseconds % 1000).padStart(3, "0");
+    return `${minutes}:${seconds}.${fractionalMilliseconds}`;
+}
+function csvCell(value) {
+    let text = String(value ?? "");
+    if (/^[\t\r\n ]*[=+\-@]/.test(text)) text = `'${text}`;
+    return `"${text.replaceAll('"', '""')}"`;
+}
+function ridesToCsv(rides) {
+    const maxSplitCount = Math.max(0, ...rides.map((ride)=>ride.laps.length));
+    const splitColumns = Array.from({
+        length: maxSplitCount
+    }, (_, index)=>`lap${index + 1}_splitMs`);
+    const rows = [
+        [
+            "riderName",
+            "completedAt",
+            "distanceMetres",
+            "elapsedTime",
+            "notes",
+            "splitCount",
+            ...splitColumns
+        ],
+        ...rides.map((ride)=>[
+                ride.riderName,
+                ride.completedAt,
+                ride.distanceMeters,
+                formatElapsedTime(ride.elapsedMs),
+                ride.notes,
+                ride.laps.length,
+                ...splitColumns.map((_, index)=>ride.laps[index]?.splitMs ?? "")
+            ])
+    ];
+    return rows.map((row)=>row.map(csvCell).join(",")).join("\r\n");
 }
 function getSavedRiderNames(storage) {
     const names = new Map();
@@ -59940,6 +60060,6 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["9RH0m","eM1fv"], "eM1fv", "parcelRequiree23d", {}, null, null, "http://localhost:1234")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["k10Yl","eM1fv"], "eM1fv", "parcelRequiree23d", {}, null, null, "http://localhost:1236")
 
 //# sourceMappingURL=velotimer.64b87d6c.js.map

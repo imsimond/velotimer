@@ -99,6 +99,57 @@ export function getSavedRides(storage) {
   return readRides(storage);
 }
 
+function formatElapsedTime(milliseconds) {
+  const roundedMilliseconds = Math.max(0, Math.round(milliseconds));
+  const minutes = Math.floor(roundedMilliseconds / 60_000);
+  const seconds = String(Math.floor(roundedMilliseconds / 1000) % 60).padStart(
+    2,
+    "0",
+  );
+  const fractionalMilliseconds = String(roundedMilliseconds % 1000).padStart(
+    3,
+    "0",
+  );
+  return `${minutes}:${seconds}.${fractionalMilliseconds}`;
+}
+
+function csvCell(value) {
+  let text = String(value ?? "");
+  if (/^[\t\r\n ]*[=+\-@]/.test(text)) text = `'${text}`;
+  return `"${text.replaceAll('"', '""')}"`;
+}
+
+export function ridesToCsv(rides) {
+  const maxSplitCount = Math.max(0, ...rides.map((ride) => ride.laps.length));
+  const splitColumns = Array.from(
+    { length: maxSplitCount },
+    (_, index) => `lap${index + 1}_splitMs`,
+  );
+
+  const rows = [
+    [
+      "riderName",
+      "completedAt",
+      "distanceMetres",
+      "elapsedTime",
+      "notes",
+      "splitCount",
+      ...splitColumns,
+    ],
+    ...rides.map((ride) => [
+      ride.riderName,
+      ride.completedAt,
+      ride.distanceMeters,
+      formatElapsedTime(ride.elapsedMs),
+      ride.notes,
+      ride.laps.length,
+      ...splitColumns.map((_, index) => ride.laps[index]?.splitMs ?? ""),
+    ]),
+  ];
+
+  return rows.map((row) => row.map(csvCell).join(",")).join("\r\n");
+}
+
 export function getSavedRiderNames(storage) {
   const names = new Map();
   for (const ride of readRides(storage)) {

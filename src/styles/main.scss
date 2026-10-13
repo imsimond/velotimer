@@ -693,9 +693,17 @@ input:focus-visible,
 }
 
 .history-drawer-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   color: var(--text);
   font-size: 1.35rem;
   font-weight: 700;
+}
+
+.history-export-button {
+  flex: 0 0 auto;
 }
 
 .history-drawer-body {

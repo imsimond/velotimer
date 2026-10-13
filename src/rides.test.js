@@ -6,6 +6,7 @@ import {
   filterRides,
   getSavedRiderNames,
   getSavedRides,
+  ridesToCsv,
   saveRide,
   updateRideNotes,
 } from "./rides.js";
@@ -78,6 +79,43 @@ test("ride notes are limited to 1000 characters", () => {
   updateRideNotes(savedRide.id, "n".repeat(1001), storage);
 
   assert.equal(getSavedRides(storage)[0].notes.length, 1000);
+});
+
+test("ride history exports ordered CSV with split counts and positional splits", () => {
+  const csv = ridesToCsv([
+    ride({
+      riderName: 'Rider, "One"',
+      notes: "Warm up, inside lane",
+    }),
+    ride({
+      riderName: "One Lap Rider",
+      completedAt: "2026-10-12T11:00:00.000Z",
+      elapsedMs: 12_345,
+      laps: [
+        { lapNumber: "END", splitMs: 12_345, diffMs: null, elapsedMs: 12_345 },
+      ],
+    }),
+    ride({
+      riderName: "=FORMULA()",
+      completedAt: "2026-10-12T13:00:00.000Z",
+      elapsedMs: 63_004,
+      laps: [
+        { lapNumber: 1, splitMs: 10_000, diffMs: null, elapsedMs: 10_000 },
+        { lapNumber: 2, splitMs: 20_000, diffMs: null, elapsedMs: 30_000 },
+        { lapNumber: "END", splitMs: 33_004, diffMs: null, elapsedMs: 63_004 },
+      ],
+    }),
+  ]);
+
+  assert.equal(
+    csv,
+    [
+      '"riderName","completedAt","distanceMetres","elapsedTime","notes","splitCount","lap1_splitMs","lap2_splitMs","lap3_splitMs"',
+      '"Rider, ""One""","2026-10-12T12:00:00.000Z","250","0:12.345","Warm up, inside lane","2","6000","6345",""',
+      '"One Lap Rider","2026-10-12T11:00:00.000Z","250","0:12.345","","1","12345","",""',
+      '"\'=FORMULA()","2026-10-12T13:00:00.000Z","250","1:03.004","","3","10000","20000","33004"',
+    ].join("\r\n"),
+  );
 });
 
 test("rider suggestions are unique without case sensitivity", () => {

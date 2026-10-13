@@ -10234,8 +10234,16 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
 
 .history-drawer-title {
   color: var(--text);
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   font-size: 1.35rem;
   font-weight: 700;
+  display: flex;
+}
+
+.history-export-button {
+  flex: none;
 }
 
 .history-drawer-body {

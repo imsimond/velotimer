@@ -7,6 +7,7 @@ import {
   ClipboardList,
   ClipboardPen,
   Copy,
+  Download,
   RefreshCw,
   RotateCcw,
   Settings2,
@@ -57,6 +58,7 @@ import {
   getSavedRiderNames,
   getSavedRides,
   MAX_RIDE_NOTES_LENGTH,
+  ridesToCsv,
   saveRide,
   stripHtmlTags,
   updateRideNotes,
@@ -609,6 +611,21 @@ function SavedRidesDrawer({
     );
   };
 
+  const exportRideHistory = () => {
+    const csv = ridesToCsv(rides);
+    const blob = new Blob(["\uFEFF", csv], {
+      type: "text/csv;charset=utf-8",
+    });
+    const downloadUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.download = `velotimer-rides-${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+  };
+
   return (
     <>
       <Drawer
@@ -628,11 +645,26 @@ function SavedRidesDrawer({
         position="right"
         size="min(94vw, 480px)"
         title={
-          selectedRide
-            ? selectedRide.riderName
-            : comparisonOpen
-              ? "Compare rides"
-              : "Ride History"
+          selectedRide ? (
+            selectedRide.riderName
+          ) : comparisonOpen ? (
+            "Compare rides"
+          ) : (
+            <>
+              Ride History
+              <Button
+                aria-label="Export ride history as CSV"
+                className="history-export-button"
+                disabled={!rides.length}
+                leftSection={<Download aria-hidden="true" size={16} />}
+                onClick={exportRideHistory}
+                size="xs"
+                variant="default"
+              >
+                Export CSV
+              </Button>
+            </>
+          )
         }
       >
         {error && (
