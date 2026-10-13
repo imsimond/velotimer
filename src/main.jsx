@@ -766,25 +766,27 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
             }
           }}
         />
-        <Select
-          classNames={{ label: "setting-label" }}
-          data={beepPatternOptions}
-          label="Audio pattern"
-          value={settings.beepPattern}
-          allowDeselect={false}
-          onChange={(beepPattern) => {
-            if (beepPattern) onSettingChange({ beepPattern });
-          }}
-        />
-        <Switch
-          checked={settings.withEcho}
-          className="setting-toggle"
-          color="red"
-          label="Echo"
-          onChange={(event) =>
-            onSettingChange({ withEcho: event.currentTarget.checked })
-          }
-        />
+        <div className="settings-audio-options">
+          <Select
+            classNames={{ label: "setting-label" }}
+            data={beepPatternOptions}
+            label="Audio pattern"
+            value={settings.beepPattern}
+            allowDeselect={false}
+            onChange={(beepPattern) => {
+              if (beepPattern) onSettingChange({ beepPattern });
+            }}
+          />
+          <Switch
+            checked={settings.withEcho}
+            className="setting-toggle"
+            color="red"
+            label="Echo"
+            onChange={(event) =>
+              onSettingChange({ withEcho: event.currentTarget.checked })
+            }
+          />
+        </div>
         <div className="volume-setting">
           <div className="setting-row">
             <span className="setting-label">Volume</span>
@@ -802,6 +804,20 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
           />
         </div>
       </div>
+      <footer className="settings-credit">
+        <p>
+          &copy; 2026{" "}
+          <a href="https://tintou.simondickson.co.uk/">Tintou Ltd</a> &bull;{" "}
+          <a href="mailto:tintou@simondickson.co.uk">Email</a> &bull;{" "}
+          <em>Up up up!</em>
+        </p>
+        <p>
+          Fonts used under SIL Open Font License 1.1 &bull; DSEG © 2017 keshikan
+          &bull; Atkinson Hyperlegible Mono © 2020-2024 The Atkinson
+          Hyperlegible Mono Project Authors
+        </p>
+        <p>Always remember: the halfway point of a kilo is 900m.</p>
+      </footer>
     </Drawer>
   );
 }

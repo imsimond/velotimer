@@ -1126,6 +1126,11 @@ input:focus-visible,
   border-radius: 16px 0 0 16px;
   background: #232321;
   color: var(--text);
+
+  &.mantine-Paper-root {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .settings-drawer-header {
@@ -1141,7 +1146,10 @@ input:focus-visible,
 }
 
 .settings-drawer-body {
-  max-height: min(70dvh, 480px);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
   padding: 16px 20px calc(24px + env(safe-area-inset-bottom));
   overflow-y: auto;
 }
@@ -1166,6 +1174,35 @@ input:focus-visible,
 .settings-fields {
   display: grid;
   gap: 24px;
+}
+
+.settings-audio-options {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: end;
+  gap: 12px;
+
+  .setting-toggle {
+    transform: translateY(16px);
+  }
+}
+
+.settings-credit {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #55524d;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+
+  p {
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: 4px;
+  }
 }
 
 .countdown-setting,
