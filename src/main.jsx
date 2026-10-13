@@ -881,8 +881,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
         <p>
           &copy; 2026{" "}
           <a href="https://tintou.simondickson.co.uk/">Tintou Ltd</a> &bull;{" "}
-          <a href="mailto:tintou@simondickson.co.uk">Email</a> &bull;{" "}
-          <em>Up up up!</em>
+          <a href="mailto:tintou@simondickson.co.uk">Email</a>
         </p>
         <p>
           Fonts used under SIL Open Font License 1.1 &bull; DSEG © 2017 keshikan
