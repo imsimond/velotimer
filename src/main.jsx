@@ -879,7 +879,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
       </div>
       <footer className="settings-credit">
         <p>
-          &copy; 2026{" "}
+          &copy; {new Date().getFullYear()}{" "}
           <a href="https://tintou.simondickson.co.uk/">Tintou Ltd</a> &bull;{" "}
           <a href="mailto:tintou@simondickson.co.uk">Email</a>
         </p>

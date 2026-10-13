@@ -207,11 +207,11 @@
       });
     }
   }
-})({"9RH0m":[function(require,module,exports,__globalThis) {
+})({"jo1xG":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1234;
+var HMR_SERVER_PORT = 1235;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -2147,7 +2147,8 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: [
-                            "\xa9 2026",
+                            "\xa9 ",
+                            new Date().getFullYear(),
                             " ",
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                                 href: "https://tintou.simondickson.co.uk/",
@@ -57087,7 +57088,7 @@ module.exports = JSON.parse("{\"name\":\"Silent\",\"events\":[]}");
 module.exports = JSON.parse("{\"name\":\"Standard\",\"type\":\"square\",\"events\":[{\"seconds\":30,\"frequency\":488,\"duration\":0.66},{\"seconds\":10,\"frequency\":488,\"duration\":0.66},{\"seconds\":5,\"frequency\":488,\"duration\":0.33},{\"seconds\":4,\"frequency\":488,\"duration\":0.33},{\"seconds\":3,\"frequency\":488,\"duration\":0.33},{\"seconds\":2,\"frequency\":488,\"duration\":0.33},{\"seconds\":1,\"frequency\":488,\"duration\":0.33},{\"seconds\":0,\"frequency\":976,\"duration\":0.66}]}");
 
 },{}],"l8sja":[function(require,module,exports,__globalThis) {
-module.exports = JSON.parse("{\"name\":\"Sundrive\",\"events\":[{\"seconds\":30,\"frequency\":450,\"duration\":0.3},{\"seconds\":10,\"frequency\":450,\"duration\":0.3},{\"seconds\":5,\"frequency\":450,\"duration\":0.3},{\"seconds\":4,\"frequency\":450,\"duration\":0.3},{\"seconds\":3,\"frequency\":450,\"duration\":0.3},{\"seconds\":2,\"frequency\":450,\"duration\":0.3},{\"seconds\":1,\"frequency\":450,\"duration\":0.3},{\"seconds\":0,\"frequency\":900,\"duration\":0.2}]}");
+module.exports = JSON.parse("{\"name\":\"Sundrive, Dublin\",\"events\":[{\"seconds\":30,\"frequency\":450,\"duration\":0.3},{\"seconds\":10,\"frequency\":450,\"duration\":0.3},{\"seconds\":5,\"frequency\":450,\"duration\":0.3},{\"seconds\":4,\"frequency\":450,\"duration\":0.3},{\"seconds\":3,\"frequency\":450,\"duration\":0.3},{\"seconds\":2,\"frequency\":450,\"duration\":0.3},{\"seconds\":1,\"frequency\":450,\"duration\":0.3},{\"seconds\":0,\"frequency\":900,\"duration\":0.2}]}");
 
 },{}],"bTyvi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -59892,6 +59893,6 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["9RH0m","eM1fv"], "eM1fv", "parcelRequiree23d", {}, null, null, "http://localhost:1234")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["jo1xG","eM1fv"], "eM1fv", "parcelRequiree23d", {}, null, null, "http://localhost:1235")
 
 //# sourceMappingURL=velotimer.64b87d6c.js.map
