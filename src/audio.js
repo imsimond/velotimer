@@ -1,5 +1,5 @@
-const BASE_FREQUENCY = 488;
-const BASE_DURATION = 0.33;
+import standardPattern from "./beeps/standard.json" with { type: "json" };
+
 const SCHEDULE_LEAD_SECONDS = 0.12;
 const MAX_OUTPUT_TIMESTAMP_AGE_MS = 100;
 const AUDIO_READY_TIMEOUT_MS = 1000;
@@ -22,17 +22,28 @@ let countdownClock;
 let startupDurationMs = null;
 let startupError = null;
 
-function getEvents(countdownSeconds) {
-  return [
-    { number: 30, frequency: BASE_FREQUENCY, duration: BASE_DURATION * 2 },
-    { number: 10, frequency: BASE_FREQUENCY, duration: BASE_DURATION * 2 },
-    { number: 5, frequency: BASE_FREQUENCY, duration: BASE_DURATION },
-    { number: 4, frequency: BASE_FREQUENCY, duration: BASE_DURATION },
-    { number: 3, frequency: BASE_FREQUENCY, duration: BASE_DURATION },
-    { number: 2, frequency: BASE_FREQUENCY, duration: BASE_DURATION },
-    { number: 1, frequency: BASE_FREQUENCY, duration: BASE_DURATION },
-    { number: 0, frequency: BASE_FREQUENCY * 2, duration: BASE_DURATION * 3 },
-  ].filter((event) => countdownSeconds - event.number >= 0);
+function getEvents(countdownSeconds, pattern) {
+  if (
+    !["square", "sine", "sawtooth", "triangle"].includes(
+      pattern.type ?? "square",
+    ) ||
+    !Array.isArray(pattern.events) ||
+    pattern.events.some(
+      (event) =>
+        !event ||
+        !Number.isFinite(event.seconds) ||
+        event.seconds < 0 ||
+        !Number.isFinite(event.frequency) ||
+        event.frequency <= 0 ||
+        !Number.isFinite(event.duration) ||
+        event.duration <= 0,
+    )
+  ) {
+    throw new Error(`Invalid audio pattern: ${pattern.name ?? "Unnamed"}.`);
+  }
+  return pattern.events
+    .filter((event) => event.seconds <= countdownSeconds)
+    .sort((left, right) => right.seconds - left.seconds);
 }
 
 function ensureEchoTaps(duration) {
@@ -94,16 +105,22 @@ async function ensureAudio(settings) {
   }
 }
 
-function makeTone(when, frequency, duration, withEcho) {
+function makeTone(when, frequency, duration, withEcho, type) {
   const oscillator = audioContext.createOscillator();
   const envelope = audioContext.createGain();
-  oscillator.type = "square";
+  oscillator.type = type;
   oscillator.frequency.setValueAtTime(frequency, when);
 
   const peak = 0.75;
   envelope.gain.setValueAtTime(0, when);
-  envelope.gain.linearRampToValueAtTime(peak, when + 0.008);
-  envelope.gain.setValueAtTime(peak, when + duration - 0.025);
+  envelope.gain.linearRampToValueAtTime(
+    peak,
+    when + Math.min(0.008, duration / 2),
+  );
+  envelope.gain.setValueAtTime(
+    peak,
+    when + duration - Math.min(0.025, duration / 2),
+  );
   envelope.gain.linearRampToValueAtTime(0, when + duration);
 
   oscillator.connect(envelope);
@@ -205,13 +222,15 @@ async function waitForOutputClock() {
   }
 }
 
-export async function scheduleCountdown(settings) {
+export async function scheduleCountdown(settings, pattern = standardPattern) {
   const requestedAt = performance.now();
   startupDurationMs = null;
   startupError = null;
   stopScheduledAudio();
   let outputClock;
+  let events;
   try {
+    events = getEvents(settings.countdownSeconds, pattern);
     await ensureAudio(settings);
     outputClock = await waitForOutputClock();
   } catch (error) {
@@ -220,9 +239,9 @@ export async function scheduleCountdown(settings) {
     throw error;
   }
   startupDurationMs = performance.now() - requestedAt;
-  const events = getEvents(settings.countdownSeconds);
   const firstEventOffset = Math.min(
-    ...events.map((event) => settings.countdownSeconds - event.number),
+    settings.countdownSeconds,
+    ...events.map((event) => settings.countdownSeconds - event.seconds),
   );
   const leadSeconds = Math.max(
     SCHEDULE_LEAD_SECONDS,
@@ -231,13 +250,14 @@ export async function scheduleCountdown(settings) {
   const timerStartTime = outputClock.performanceTime + leadSeconds * 1000;
   const contextStartTime = outputClock.contextTime + leadSeconds;
   events.forEach((event) => {
-    const offset = settings.countdownSeconds - event.number;
+    const offset = settings.countdownSeconds - event.seconds;
     makeTone(
       outputClock.contextTime +
         (timerStartTime + offset * 1000 - outputClock.performanceTime) / 1000,
       event.frequency,
       event.duration,
       settings.withEcho,
+      pattern.type ?? "square",
     );
   });
 

@@ -11,6 +11,7 @@ import {
 test("waits for output readiness, aligns cues, and keeps stopwatch timing monotonic", async () => {
   const originalWindow = globalThis.window;
   const oscillatorStartTimes = [];
+  const tones = [];
   let outputPerformanceTime;
   let timestampMode = "warming";
   const createdAt = performance.now();
@@ -62,16 +63,26 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
     }
 
     createOscillator() {
-      return {
+      const oscillator = {
         connect() {},
         disconnect() {},
-        frequency: { setValueAtTime() {} },
-        start(when) {
-          if (when !== undefined) oscillatorStartTimes.push(when);
+        frequency: {
+          setValueAtTime(frequency) {
+            oscillator.hertz = frequency;
+          },
         },
-        stop() {},
+        start(when) {
+          if (when !== undefined) {
+            oscillatorStartTimes.push(when);
+            tones.push(oscillator);
+          }
+        },
+        stop(when) {
+          if (when !== undefined) oscillator.endsAt = when;
+        },
         type: "square",
       };
+      return oscillator;
     }
 
     getOutputTimestamp() {
@@ -108,6 +119,11 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
     assert.ok(Math.abs(getTimingDiagnostics().outputLatencyMs - 500) < 2);
     assert.ok(getTimingDiagnostics().startupDurationMs >= 100);
     assert.equal(oscillatorStartTimes.length, 8);
+    assert.deepEqual(
+      tones.map((tone) => tone.hertz),
+      [488, 488, 488, 488, 488, 488, 488, 976],
+    );
+    assert.ok(tones.every((tone) => tone.type === "square"));
     const offsets = [0, 20, 25, 26, 27, 28, 29, 30];
     for (let index = 1; index < oscillatorStartTimes.length; index += 1) {
       assert.ok(
@@ -171,6 +187,48 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
       ) < 0.001,
     );
     assert.equal(getTimingDiagnostics().clockSource, "Latency estimates");
+
+    oscillatorStartTimes.length = 0;
+    tones.length = 0;
+    await scheduleCountdown(
+      { countdownSeconds: 12, volume: 60, withEcho: false },
+      {
+        name: "Test velodrome",
+        type: "triangle",
+        events: [
+          { seconds: 0, frequency: 900, duration: 0.5 },
+          { seconds: 60, frequency: 400, duration: 0.2 },
+          { seconds: 7.5, frequency: 600, duration: 0.01 },
+        ],
+      },
+    );
+    assert.equal(tones.length, 2);
+    assert.deepEqual(
+      tones.map((tone) => tone.hertz),
+      [600, 900],
+    );
+    assert.ok(tones.every((tone) => tone.type === "triangle"));
+    assert.ok(
+      Math.abs(oscillatorStartTimes[1] - oscillatorStartTimes[0] - 7.5) < 0.001,
+    );
+    assert.ok(
+      Math.abs(tones[0].endsAt - oscillatorStartTimes[0] - 0.02) < 0.001,
+    );
+    assert.ok(
+      Math.abs(tones[1].endsAt - oscillatorStartTimes[1] - 0.51) < 0.001,
+    );
+
+    oscillatorStartTimes.length = 0;
+    const silentStart = await scheduleCountdown(
+      { countdownSeconds: 12, volume: 60, withEcho: false },
+      { name: "Silent", events: [] },
+    );
+    assert.ok(Number.isFinite(silentStart));
+    assert.equal(oscillatorStartTimes.length, 0);
+    await assert.rejects(
+      scheduleCountdown({}, { name: "Invalid", type: "custom", events: [] }),
+      /Invalid audio pattern: Invalid/,
+    );
   } finally {
     stopScheduledAudio();
     if (originalWindow === undefined) {

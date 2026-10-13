@@ -64,6 +64,7 @@ test("each cue boundary changes the digit exactly at the scheduled time", () => 
 test("countdown reset returns to ready and retains settings", () => {
   const configured = updateSettings(createTimer(), {
     countdownSeconds: 37,
+    beepPattern: "Test velodrome",
     withEcho: false,
     volume: 42,
   });
@@ -72,10 +73,17 @@ test("countdown reset returns to ready and retains settings", () => {
   assert.equal(reset.phase, "ready");
   assert.deepEqual(reset.settings, {
     countdownSeconds: 37,
+    beepPattern: "Test velodrome",
     withEcho: false,
     volume: 42,
   });
   assert.deepEqual(getDisplay(reset, 0), { phase: "ready", seconds: "37" });
+});
+
+test("audio pattern defaults to Standard for old or invalid settings", () => {
+  for (const beepPattern of [undefined, null, "", "  ", 123]) {
+    assert.equal(createTimer({ beepPattern }).settings.beepPattern, "standard");
+  }
 });
 
 test("laps record elapsed, split, and adjacent-split difference", () => {

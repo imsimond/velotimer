@@ -1,0 +1,13 @@
+{
+  "name": "Sundrive",
+  "events": [
+    { "seconds": 30, "frequency": 450, "duration": 0.3 },
+    { "seconds": 10, "frequency": 450, "duration": 0.3 },
+    { "seconds": 5, "frequency": 450, "duration": 0.3 },
+    { "seconds": 4, "frequency": 450, "duration": 0.3 },
+    { "seconds": 3, "frequency": 450, "duration": 0.3 },
+    { "seconds": 2, "frequency": 450, "duration": 0.3 },
+    { "seconds": 1, "frequency": 450, "duration": 0.3 },
+    { "seconds": 0, "frequency": 900, "duration": 0.2 }
+  ]
+}

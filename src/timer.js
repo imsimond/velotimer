@@ -1,5 +1,6 @@
 export const DEFAULT_SETTINGS = Object.freeze({
   countdownSeconds: 12,
+  beepPattern: "standard",
   withEcho: true,
   volume: 60,
 });
@@ -19,6 +20,10 @@ export function normalizeSettings(settings = {}) {
       countdownSeconds <= MAX_COUNTDOWN_SECONDS
         ? countdownSeconds
         : DEFAULT_SETTINGS.countdownSeconds,
+    beepPattern:
+      typeof settings.beepPattern === "string" && settings.beepPattern.trim()
+        ? settings.beepPattern
+        : DEFAULT_SETTINGS.beepPattern,
     withEcho:
       typeof settings.withEcho === "boolean"
         ? settings.withEcho

@@ -1,0 +1,13 @@
+{
+  "name": "Darebin",
+  "events": [
+    { "seconds": 30, "frequency": 445, "duration": 0.4 },
+    { "seconds": 10, "frequency": 445, "duration": 0.4 },
+    { "seconds": 5, "frequency": 445, "duration": 0.2 },
+    { "seconds": 4, "frequency": 445, "duration": 0.2 },
+    { "seconds": 3, "frequency": 445, "duration": 0.2 },
+    { "seconds": 2, "frequency": 445, "duration": 0.2 },
+    { "seconds": 1, "frequency": 445, "duration": 0.2 },
+    { "seconds": 0, "frequency": 900, "duration": 0.7 }
+  ]
+}

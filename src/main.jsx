@@ -30,6 +30,7 @@ import {
   createTheme,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
+import * as patternFiles from "./beeps/*.json";
 import {
   getTimerTime,
   getTimingDiagnostics,
@@ -59,10 +60,29 @@ import {
 import "./styles/main.scss";
 
 const SETTINGS_KEY = "velotimer-settings";
+const beepPatterns = Object.fromEntries(
+  Object.entries(patternFiles).map(([id, pattern]) => [
+    id,
+    pattern.default ?? pattern,
+  ]),
+);
+const beepPatternOptions = Object.entries(beepPatterns)
+  .map(([value, pattern]) => ({ value, label: pattern.name }))
+  .sort((left, right) => {
+    if (left.value === "standard") return -1;
+    if (right.value === "standard") return 1;
+    return left.label.localeCompare(right.label);
+  });
 
 function loadSettings() {
   try {
-    return JSON.parse(sessionStorage.getItem(SETTINGS_KEY) || "{}");
+    const settings = JSON.parse(sessionStorage.getItem(SETTINGS_KEY) || "{}");
+    return {
+      ...settings,
+      beepPattern: Object.hasOwn(beepPatterns, settings.beepPattern)
+        ? settings.beepPattern
+        : "standard",
+    };
   } catch {
     return {};
   }
@@ -743,6 +763,16 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
             }
           }}
         />
+        <Select
+          classNames={{ label: "setting-label" }}
+          data={beepPatternOptions}
+          label="Audio pattern"
+          value={settings.beepPattern}
+          allowDeselect={false}
+          onChange={(beepPattern) => {
+            if (beepPattern) onSettingChange({ beepPattern });
+          }}
+        />
         <Switch
           checked={settings.withEcho}
           className="setting-toggle"
@@ -1008,7 +1038,10 @@ function TimerApp() {
     setNotice("");
     frameMetrics.current = {};
     try {
-      const startsAt = await scheduleCountdown(timer.settings);
+      const startsAt = await scheduleCountdown(
+        timer.settings,
+        beepPatterns[timer.settings.beepPattern],
+      );
       setNow(getTimerTime());
       setTimer((current) => startCountdown(current, startsAt));
     } catch {

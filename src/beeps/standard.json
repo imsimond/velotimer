@@ -1,0 +1,14 @@
+{
+  "name": "Standard",
+  "type": "square",
+  "events": [
+    { "seconds": 30, "frequency": 488, "duration": 0.66 },
+    { "seconds": 10, "frequency": 488, "duration": 0.66 },
+    { "seconds": 5, "frequency": 488, "duration": 0.33 },
+    { "seconds": 4, "frequency": 488, "duration": 0.33 },
+    { "seconds": 3, "frequency": 488, "duration": 0.33 },
+    { "seconds": 2, "frequency": 488, "duration": 0.33 },
+    { "seconds": 1, "frequency": 488, "duration": 0.33 },
+    { "seconds": 0, "frequency": 976, "duration": 0.66 }
+  ]
+}
