@@ -57040,10 +57040,10 @@ module.exports = {
 };
 
 },{"3368586be179f71":"4lgSv","aadb7d286f6b6a35":"k7h53","ba22e26e68fda1d3":"exEtu","74eac14a062f39a4":"k1tJQ","1ed4384b2081da5":"l8sja"}],"4lgSv":[function(require,module,exports,__globalThis) {
-module.exports = JSON.parse("{\"name\":\"Carson\",\"events\":[{\"seconds\":30,\"frequency\":410,\"duration\":0.4},{\"seconds\":10,\"frequency\":410,\"duration\":1},{\"seconds\":5,\"frequency\":410,\"duration\":0.2},{\"seconds\":4,\"frequency\":410,\"duration\":0.2},{\"seconds\":3,\"frequency\":410,\"duration\":0.2},{\"seconds\":2,\"frequency\":410,\"duration\":0.2},{\"seconds\":1,\"frequency\":410,\"duration\":0.2},{\"seconds\":0,\"frequency\":820,\"duration\":0.2}]}");
+module.exports = JSON.parse("{\"name\":\"Carson, Los Angeles\",\"events\":[{\"seconds\":30,\"frequency\":410,\"duration\":0.4},{\"seconds\":10,\"frequency\":410,\"duration\":1},{\"seconds\":5,\"frequency\":410,\"duration\":0.2},{\"seconds\":4,\"frequency\":410,\"duration\":0.2},{\"seconds\":3,\"frequency\":410,\"duration\":0.2},{\"seconds\":2,\"frequency\":410,\"duration\":0.2},{\"seconds\":1,\"frequency\":410,\"duration\":0.2},{\"seconds\":0,\"frequency\":820,\"duration\":0.2}]}");
 
 },{}],"k7h53":[function(require,module,exports,__globalThis) {
-module.exports = JSON.parse("{\"name\":\"Darebin\",\"events\":[{\"seconds\":30,\"frequency\":445,\"duration\":0.4},{\"seconds\":10,\"frequency\":445,\"duration\":0.4},{\"seconds\":5,\"frequency\":445,\"duration\":0.2},{\"seconds\":4,\"frequency\":445,\"duration\":0.2},{\"seconds\":3,\"frequency\":445,\"duration\":0.2},{\"seconds\":2,\"frequency\":445,\"duration\":0.2},{\"seconds\":1,\"frequency\":445,\"duration\":0.2},{\"seconds\":0,\"frequency\":900,\"duration\":0.7}]}");
+module.exports = JSON.parse("{\"name\":\"Darebin, Melbourne\",\"events\":[{\"seconds\":30,\"frequency\":445,\"duration\":0.4},{\"seconds\":10,\"frequency\":445,\"duration\":0.4},{\"seconds\":5,\"frequency\":445,\"duration\":0.2},{\"seconds\":4,\"frequency\":445,\"duration\":0.2},{\"seconds\":3,\"frequency\":445,\"duration\":0.2},{\"seconds\":2,\"frequency\":445,\"duration\":0.2},{\"seconds\":1,\"frequency\":445,\"duration\":0.2},{\"seconds\":0,\"frequency\":900,\"duration\":0.7}]}");
 
 },{}],"exEtu":[function(require,module,exports,__globalThis) {
 module.exports = JSON.parse("{\"name\":\"Silent\",\"events\":[]}");

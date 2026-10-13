@@ -1,5 +1,5 @@
 {
-  "name": "Darebin",
+  "name": "Darebin, Melbourne",
   "events": [
     { "seconds": 30, "frequency": 445, "duration": 0.4 },
     { "seconds": 10, "frequency": 445, "duration": 0.4 },
