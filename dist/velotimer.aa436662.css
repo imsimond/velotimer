@@ -10088,27 +10088,20 @@ button:focus-visible, input:focus-visible, [data-scope="slider"] [data-part="thu
   flex: none;
 }
 
-.update-prompt {
-  border: 1px solid var(--line);
-  background: var(--face);
-  border-radius: 6px;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+.update-progress {
+  z-index: 1;
+  pointer-events: none;
+  color: var(--muted);
+  justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 8px 12px 0;
-  padding: 8px;
-  display: grid;
-}
-
-.update-prompt p {
-  color: var(--text);
   margin: 0;
   font-size: .8rem;
-  line-height: 1.4;
-}
-
-.update-prompt .mantine-Button-root {
-  min-height: 40px;
+  display: flex;
+  position: absolute;
+  top: 62px;
+  left: 12px;
+  right: 12px;
 }
 
 .split-actions, .end-actions {

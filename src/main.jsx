@@ -147,8 +147,9 @@ function useScreenWakeLock(active) {
   }, [active]);
 }
 
-function useServiceWorkerUpdate() {
+function useServiceWorkerUpdate(shouldApplyUpdate) {
   const [waitingWorker, setWaitingWorker] = useState(null);
+  const [isApplyingUpdate, setIsApplyingUpdate] = useState(false);
   const applyingUpdate = useRef(false);
 
   useEffect(() => {
@@ -210,13 +211,14 @@ function useServiceWorkerUpdate() {
     };
   }, []);
 
-  const applyUpdate = () => {
-    if (!waitingWorker) return;
+  useEffect(() => {
+    if (!waitingWorker || !shouldApplyUpdate || applyingUpdate.current) return;
     applyingUpdate.current = true;
+    setIsApplyingUpdate(true);
     waitingWorker.postMessage({ type: "SKIP_WAITING" });
-  };
+  }, [waitingWorker, shouldApplyUpdate]);
 
-  return { updateAvailable: Boolean(waitingWorker), applyUpdate };
+  return isApplyingUpdate;
 }
 
 function formatAnnouncement(display) {
@@ -1002,13 +1004,17 @@ function TimerApp() {
   const [historyError, setHistoryError] = useState("");
   const [notice, setNotice] = useState("");
   const [starting, setStarting] = useState(false);
-  const [updateDismissed, setUpdateDismissed] = useState(false);
-  const { updateAvailable, applyUpdate } = useServiceWorkerUpdate();
   const startPending = useRef(false);
   const frameMetrics = useRef({});
   const lapScrollRef = useRef(null);
   const isRunning = timer.phase === "countdown" || timer.phase === "stopwatch";
-  const canApplyUpdate = timer.phase === "ready" && !starting;
+  const canAutoApplyUpdate =
+    timer.phase === "ready" &&
+    !starting &&
+    !settingsOpen &&
+    !saveOpen &&
+    !historyOpen;
+  const isApplyingUpdate = useServiceWorkerUpdate(canAutoApplyUpdate);
   useScreenWakeLock(isRunning);
 
   useEffect(() => {
@@ -1259,33 +1265,11 @@ function TimerApp() {
         </div>
       </header>
 
-      {updateAvailable && !updateDismissed && (
-        <div className="update-prompt" role="status">
-          <p>
-            {canApplyUpdate
-              ? "An app update is ready."
-              : "Finish and reset the timer to apply the update."}
-          </p>
-          <Button
-            disabled={!canApplyUpdate}
-            leftSection={<RefreshCw aria-hidden="true" size={14} />}
-            onClick={applyUpdate}
-            size="sm"
-          >
-            Apply update
-          </Button>
-          <ActionIcon
-            type="button"
-            aria-label="Dismiss update notification"
-            title="Dismiss update notification"
-            color="white"
-            onClick={() => setUpdateDismissed(true)}
-            size={40}
-            variant="subtle"
-          >
-            <X size={16} aria-hidden="true" />
-          </ActionIcon>
-        </div>
+      {isApplyingUpdate && (
+        <p className="update-progress" role="status">
+          <RefreshCw size={14} aria-hidden="true" />
+          App update in progress
+        </p>
       )}
 
       <section className="timer-stage" aria-label="Timer">
