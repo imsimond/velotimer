@@ -60,6 +60,9 @@ import {
 import "./styles/main.scss";
 
 const SETTINGS_KEY = "velotimer-settings";
+const showTimingDiagnostics = new URLSearchParams(window.location.search).has(
+  "debug",
+);
 const beepPatterns = Object.fromEntries(
   Object.entries(patternFiles).map(([id, pattern]) => [
     id,
@@ -1185,11 +1188,13 @@ function TimerApp() {
       />
 
       <footer className={`action-dock phase-${timer.phase}`}>
-        <TimingDiagnostics
-          frameMetrics={frameMetrics}
-          fontReady={displayFontReady}
-          settings={timer.settings}
-        />
+        {showTimingDiagnostics && (
+          <TimingDiagnostics
+            frameMetrics={frameMetrics}
+            fontReady={displayFontReady}
+            settings={timer.settings}
+          />
+        )}
         {timer.phase === "ready" && (
           <Button
             type="button"
