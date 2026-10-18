@@ -85,7 +85,11 @@ const beepPatternOptions = Object.entries(beepPatterns)
 
 function loadSettings() {
   try {
-    const settings = JSON.parse(sessionStorage.getItem(SETTINGS_KEY) || "{}");
+    const storedSettings =
+      localStorage.getItem(SETTINGS_KEY) ??
+      sessionStorage.getItem(SETTINGS_KEY) ??
+      "{}";
+    const settings = JSON.parse(storedSettings);
     return {
       ...settings,
       beepPattern: Object.hasOwn(beepPatterns, settings.beepPattern)
@@ -1108,9 +1112,9 @@ function TimerApp() {
 
   useEffect(() => {
     try {
-      sessionStorage.setItem(SETTINGS_KEY, JSON.stringify(timer.settings));
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(timer.settings));
     } catch {
-      setNotice("Settings could not be saved for this tab.");
+      setNotice("Settings could not be saved.");
     }
   }, [timer.settings]);
 

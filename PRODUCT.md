@@ -31,7 +31,7 @@ Used trackside during cycling training. The coach starts the countdown, puts the
 - Countdown defaults to 12 seconds and is configurable from 1 to 99 seconds.
 - Countdown Reset cancels and returns to the configured start value.
 - Stopwatch captures lap and end times to three decimal places and auto-ends at 99:59.999.
-- Settings persist in the current browser tab's session storage; timer sessions do not.
+- Settings persist in browser storage across sessions; timer sessions do not.
 - The installable PWA must work offline and request a screen wake lock while timing where supported.
 - Browser event delivery, timer precision policies, and suspension prevent guaranteeing physical millisecond accuracy or uninterrupted background operation.
 - Advanced lap analytics and native React Native implementation are out of scope.
