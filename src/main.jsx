@@ -66,6 +66,7 @@ import {
 import "./styles/main.scss";
 
 const SETTINGS_KEY = "velotimer-settings";
+const BUILD_EPOCH_SECONDS = process.env.BUILD_EPOCH_SECONDS || "development";
 const showTimingDiagnostics = new URLSearchParams(window.location.search).has(
   "debug",
 );
@@ -949,7 +950,8 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
         <p>
           &copy; {new Date().getFullYear()}{" "}
           <a href="https://tintou.simondickson.co.uk/">Tintou Ltd</a> &bull;{" "}
-          <a href="mailto:tintou@simondickson.co.uk">Email</a>
+          <a href="mailto:tintou@simondickson.co.uk">Email</a> &bull;{" "}
+          {BUILD_EPOCH_SECONDS}
         </p>
         <p>
           Fonts used under SIL Open Font License 1.1 &bull; DSEG © 2017 keshikan

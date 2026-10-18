@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html",
     "prebuild": "node scripts/clean-dist.js",
-    "build": "parcel build index.html --public-url ./ && node scripts/generate-sw.js",
+    "build": "BUILD_EPOCH_SECONDS=$(date +%s) parcel build index.html --public-url ./ && node scripts/generate-sw.js",
     "test": "node --test"
   },
   "dependencies": {
