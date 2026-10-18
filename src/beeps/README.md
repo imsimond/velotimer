@@ -27,8 +27,8 @@ the dev server after adding or removing a file.
 - `duration` is a positive number in seconds.
 
 Include a cue at `0` for the start signal, or omit it for a silent start.
-An empty `events` array gives a completely silent countdown. Echo and volume
-are still controlled by the app's existing settings.
+An empty `events` array gives a completely silent countdown. Echo is controlled
+by the app's settings; tone loudness follows the device volume.
 
 The filename (without `.json`) identifies the saved selection, so keep it
 stable when changing the display name. If a selected file is removed, the app

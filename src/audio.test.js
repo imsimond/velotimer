@@ -12,6 +12,7 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
   const originalWindow = globalThis.window;
   const oscillatorStartTimes = [];
   const tones = [];
+  const masterGainTargets = [];
   let outputPerformanceTime;
   let timestampMode = "warming";
   const createdAt = performance.now();
@@ -46,7 +47,9 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
         disconnect() {},
         gain: {
           linearRampToValueAtTime() {},
-          setTargetAtTime() {},
+          setTargetAtTime(value) {
+            masterGainTargets.push(value);
+          },
           setValueAtTime() {},
           value: 1,
         },
@@ -106,9 +109,9 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
   try {
     const timerStartTime = await scheduleCountdown({
       countdownSeconds: 30,
-      volume: 60,
       withEcho: false,
     });
+    assert.deepEqual(masterGainTargets, [1]);
     const expectedOutputTime = 9.5 + (timerStartTime - createdAt) / 1000;
 
     assert.ok(Math.abs(oscillatorStartTimes[0] - expectedOutputTime) < 0.001);
@@ -153,7 +156,6 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
       await assert.rejects(
         scheduleCountdown({
           countdownSeconds: 30,
-          volume: 60,
           withEcho: false,
         }),
         /did not become ready/,
@@ -168,7 +170,7 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
     audioState = "suspended";
     resumeBlocked = true;
     await assert.rejects(
-      scheduleCountdown({ countdownSeconds: 1, volume: 60, withEcho: false }),
+      scheduleCountdown({ countdownSeconds: 1, withEcho: false }),
       /could not resume/,
     );
     assert.equal(oscillatorStartTimes.length, 0);
@@ -178,7 +180,6 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
     FakeAudioContext.prototype.getOutputTimestamp = undefined;
     const fallbackStart = await scheduleCountdown({
       countdownSeconds: 1,
-      volume: 60,
       withEcho: false,
     });
     assert.ok(
@@ -191,7 +192,7 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
     oscillatorStartTimes.length = 0;
     tones.length = 0;
     await scheduleCountdown(
-      { countdownSeconds: 12, volume: 60, withEcho: false },
+      { countdownSeconds: 12, withEcho: false },
       {
         name: "Test velodrome",
         type: "triangle",
@@ -220,7 +221,7 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
 
     oscillatorStartTimes.length = 0;
     const silentStart = await scheduleCountdown(
-      { countdownSeconds: 12, volume: 60, withEcho: false },
+      { countdownSeconds: 12, withEcho: false },
       { name: "Silent", events: [] },
     );
     assert.ok(Number.isFinite(silentStart));
@@ -229,6 +230,7 @@ test("waits for output readiness, aligns cues, and keeps stopwatch timing monoto
       scheduleCountdown({}, { name: "Invalid", type: "custom", events: [] }),
       /Invalid audio pattern: Invalid/,
     );
+    assert.ok(masterGainTargets.every((gain) => gain === 1));
   } finally {
     stopScheduledAudio();
     if (originalWindow === undefined) {

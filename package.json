@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "parcel index.html --no-cache",
     "start": "parcel index.html",
     "prebuild": "node scripts/clean-dist.js",
     "build": "BUILD_EPOCH_SECONDS=$(date +%s) parcel build index.html --public-url ./ && node scripts/generate-sw.js",

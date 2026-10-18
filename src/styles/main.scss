@@ -74,8 +74,7 @@ input {
 }
 
 button:focus-visible,
-input:focus-visible,
-[data-scope="slider"] [data-part="thumb"]:focus-visible {
+input:focus-visible {
   outline: 3px solid #ffbd39;
   outline-offset: 3px;
 }
@@ -253,6 +252,13 @@ input:focus-visible,
   font-variant-numeric: tabular-nums;
 }
 
+.clock-digits.has-milliseconds {
+  grid-template-columns:
+    calc(var(--clock-small-size) * 2)
+    max-content
+    calc(var(--clock-small-size) * 4.25);
+}
+
 .clock-digits.is-font-ready {
   opacity: 1;
 }
@@ -361,6 +367,66 @@ input:focus-visible,
 .clock-small-ghost {
   width: 100%;
   text-align: center;
+}
+
+.pursuit-lap-overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #000;
+  opacity: 1;
+  transition: opacity 400ms ease-out;
+}
+
+.pursuit-lap-overlay.pace-ahead {
+  background: #14532d;
+}
+
+.pursuit-lap-overlay.pace-behind {
+  background: #991b1b;
+}
+
+.pursuit-lap-overlay.pace-ahead .clock-large-value,
+.pursuit-lap-overlay.pace-ahead .clock-small-value,
+.pursuit-lap-overlay.pace-behind .clock-large-value,
+.pursuit-lap-overlay.pace-behind .clock-small-value {
+  color: #fff;
+  text-shadow: none;
+}
+
+.pursuit-lap-overlay .clock-ghost {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.pursuit-lap-overlay.is-fading {
+  opacity: 0;
+}
+
+.pursuit-lap-clock {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  container-type: inline-size;
+  place-items: center;
+}
+
+.pursuit-lap-clock .clock-digits {
+  --clock-large-size: min(24rem, 38cqi, 80dvh);
+  --clock-small-size: calc(var(--clock-large-size) * 0.28);
+  grid-template-columns: max-content max-content max-content;
+}
+
+.pursuit-lap-clock .clock-fraction-slot {
+  width: max-content;
+  margin-bottom: 0;
+  font-size: var(--clock-large-size);
+}
+
+.pursuit-lap-clock .clock-fraction-slot .clock-small-ghost,
+.pursuit-lap-clock .clock-fraction-slot .clock-small-value {
+  letter-spacing: 0;
 }
 
 .lap-reserved {
@@ -1211,13 +1277,6 @@ input:focus-visible,
   overflow-y: auto;
 }
 
-.setting-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
 .settings-trigger:hover {
   background: #0002;
 }
@@ -1242,6 +1301,50 @@ input:focus-visible,
   .setting-toggle {
     transform: translateY(16px);
   }
+}
+
+.audio-pattern-label {
+  margin-bottom: 8px;
+}
+
+.pursuit-settings {
+  display: grid;
+  margin-top: 8px;
+  gap: 12px;
+}
+
+.pursuit-settings-heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+.pursuit-settings-heading .setting-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.pursuit-time-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pursuit-time-setting {
+  min-width: 0;
+}
+
+.pursuit-time-input {
+  width: 100%;
+  min-width: 0;
 }
 
 .settings-credit {
@@ -1291,16 +1394,6 @@ input:focus-visible,
   color: var(--text);
 }
 
-.setting-row output {
-  color: #ddd9d0;
-  font-variant-numeric: tabular-nums;
-}
-
-.volume-range {
-  width: 100%;
-  margin-top: 14px;
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1333,6 +1426,81 @@ input:focus-visible,
     margin-block: 16px;
     border-top: 1px solid #3a3935;
     border-radius: 4px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .app-shell {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 54px minmax(0, 1fr);
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding-bottom: calc(68px + env(safe-area-inset-bottom));
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .app-header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .timer-stage {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 0;
+    padding: 4px 12px;
+    place-items: stretch center;
+  }
+
+  .status-notice {
+    position: absolute;
+    z-index: 1;
+    top: 58px;
+    right: 14px;
+    left: 14px;
+    min-height: 0;
+    margin: 0;
+  }
+
+  .clock-frame {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .lap-reserved {
+    grid-column: 2;
+    grid-row: 2;
+    height: 100%;
+    flex: none;
+    min-width: 0;
+    padding: 4px 8px 4px 0;
+  }
+
+  .clock-digits {
+    --clock-large-size: min(11rem, 33.5cqi, max(2rem, calc(100dvh - 218px)));
+  }
+
+  .lap-reserved {
+    flex-basis: min(18dvh, 76px);
+    padding-bottom: 4px;
+  }
+
+  .action-dock {
+    position: fixed;
+    z-index: 4;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 6px 12px calc(8px + env(safe-area-inset-bottom));
+  }
+
+  .action-button {
+    height: 54px !important;
+    min-height: 54px !important;
   }
 }
 

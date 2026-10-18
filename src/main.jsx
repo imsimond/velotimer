@@ -25,7 +25,6 @@ import {
   Modal,
   NumberInput,
   Select,
-  Slider,
   Switch,
   Tabs,
   Table,
@@ -37,7 +36,6 @@ import {
   getTimerTime,
   getTimingDiagnostics,
   scheduleCountdown,
-  setAudioVolume,
   stopScheduledAudio,
 } from "./audio.js";
 import {
@@ -46,6 +44,7 @@ import {
   formatDiff,
   formatLapTime,
   getDisplay,
+  getPursuitPace,
   recordLap,
   resetTimer,
   startCountdown,
@@ -102,12 +101,12 @@ function loadSettings() {
   }
 }
 
-function requestPortraitOrientationLock() {
+function requestOrientationLock(type) {
   const orientation = window.screen?.orientation;
   if (typeof orientation?.lock !== "function") return;
 
   try {
-    orientation.lock("portrait").catch(() => {});
+    orientation.lock(type).catch(() => {});
   } catch {
     // The API is optional and may be unavailable in browser tabs.
   }
@@ -241,10 +240,11 @@ function formatAnnouncement(display) {
 
 function ClockDigits({ display, fontReady }) {
   const isStopwatch = display.phase === "stopwatch";
+  const hasMilliseconds = display.fraction?.length === 3;
 
   return (
     <div
-      className={`clock-digits ${isStopwatch ? "is-stopwatch" : ""} ${fontReady ? "is-font-ready" : ""}`}
+      className={`clock-digits ${isStopwatch ? "is-stopwatch" : ""} ${hasMilliseconds ? "has-milliseconds" : ""} ${fontReady ? "is-font-ready" : ""}`}
     >
       <span className="clock-minute-group" aria-hidden="true">
         {isStopwatch && display.minutes && (
@@ -267,8 +267,12 @@ function ClockDigits({ display, fontReady }) {
       >
         {isStopwatch && (
           <>
-            <span className="clock-ghost clock-small-ghost">.8</span>
-            <span className="clock-small-value">.{display.tenths}</span>
+            <span className="clock-ghost clock-small-ghost">
+              {hasMilliseconds ? ".888" : ".8"}
+            </span>
+            <span className="clock-small-value">
+              .{hasMilliseconds ? display.fraction : display.tenths}
+            </span>
           </>
         )}
       </span>
@@ -868,6 +872,32 @@ function SavedRidesDrawer({
 }
 
 function SettingsDialog({ settings, onSettingChange, open, onClose }) {
+  const [firstLapDraft, setFirstLapDraft] = useState(() =>
+    settings.firstLapSeconds.toFixed(1),
+  );
+  const [otherLapsDraft, setOtherLapsDraft] = useState(() =>
+    settings.otherLapsSeconds.toFixed(1),
+  );
+
+  const changePursuitTime = (setting, setDraft, value) => {
+    const draft = String(value);
+    setDraft(draft);
+    const seconds = Number(draft);
+    if (draft !== "" && Number.isFinite(seconds) && seconds >= 0) {
+      onSettingChange({ [setting]: seconds });
+    }
+  };
+  const commitPursuitTime = (setting, setDraft, draft, savedValue) => {
+    const seconds = Number(draft);
+    if (draft === "" || !Number.isFinite(seconds) || seconds < 0) {
+      setDraft(savedValue.toFixed(1));
+      return;
+    }
+    const normalized = Math.round(seconds * 10) / 10;
+    setDraft(normalized.toFixed(1));
+    onSettingChange({ [setting]: normalized });
+  };
+
   return (
     <Drawer
       classNames={{
@@ -910,7 +940,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
         />
         <div className="settings-audio-options">
           <Select
-            classNames={{ label: "setting-label" }}
+            classNames={{ label: "setting-label audio-pattern-label" }}
             data={beepPatternOptions}
             label="Audio pattern"
             value={settings.beepPattern}
@@ -929,22 +959,80 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
             }
           />
         </div>
-        <div className="volume-setting">
-          <div className="setting-row">
-            <span className="setting-label">Volume</span>
-            <output htmlFor="timer-volume">{settings.volume}%</output>
+        <section className="pursuit-settings" aria-labelledby="pursuit-heading">
+          <div className="pursuit-settings-heading">
+            <h2 id="pursuit-heading">Pursuit Mode</h2>
+            <Switch
+              aria-label="Pursuit Mode"
+              checked={settings.pursuitMode}
+              className="setting-toggle"
+              color="red"
+              onChange={(event) =>
+                onSettingChange({ pursuitMode: event.currentTarget.checked })
+              }
+            />
           </div>
-          <Slider
-            aria-label="Volume"
-            className="volume-range"
-            color="red"
-            max={100}
-            min={0}
-            thumbLabel="Volume"
-            value={settings.volume}
-            onChange={(volume) => onSettingChange({ volume })}
-          />
-        </div>
+          <div className="pursuit-time-inputs">
+            <NumberInput
+              allowDecimal
+              allowNegative={false}
+              clampBehavior="strict"
+              decimalScale={1}
+              fixedDecimalScale
+              disabled={!settings.pursuitMode}
+              label="First lap"
+              min={0}
+              step={0.1}
+              value={firstLapDraft}
+              onChange={(value) =>
+                changePursuitTime("firstLapSeconds", setFirstLapDraft, value)
+              }
+              onBlur={() =>
+                commitPursuitTime(
+                  "firstLapSeconds",
+                  setFirstLapDraft,
+                  firstLapDraft,
+                  settings.firstLapSeconds,
+                )
+              }
+              classNames={{
+                root: "countdown-setting pursuit-time-setting",
+                label: "setting-label",
+                input: "countdown-input pursuit-time-input",
+              }}
+              hideControls
+            />
+            <NumberInput
+              allowDecimal
+              allowNegative={false}
+              clampBehavior="strict"
+              decimalScale={1}
+              fixedDecimalScale
+              disabled={!settings.pursuitMode}
+              label="Other laps"
+              min={0}
+              step={0.1}
+              value={otherLapsDraft}
+              onChange={(value) =>
+                changePursuitTime("otherLapsSeconds", setOtherLapsDraft, value)
+              }
+              onBlur={() =>
+                commitPursuitTime(
+                  "otherLapsSeconds",
+                  setOtherLapsDraft,
+                  otherLapsDraft,
+                  settings.otherLapsSeconds,
+                )
+              }
+              classNames={{
+                root: "countdown-setting pursuit-time-setting",
+                label: "setting-label",
+                input: "countdown-input pursuit-time-input",
+              }}
+              hideControls
+            />
+          </div>
+        </section>
       </div>
       <footer className="settings-credit">
         <p>
@@ -1071,8 +1159,10 @@ function TimerApp() {
   const [saveError, setSaveError] = useState("");
   const [historyError, setHistoryError] = useState("");
   const [notice, setNotice] = useState("");
+  const [pursuitLapOverlay, setPursuitLapOverlay] = useState(null);
   const [starting, setStarting] = useState(false);
   const startPending = useRef(false);
+  const lapOverlaySequence = useRef(0);
   const frameMetrics = useRef({});
   const lapScrollRef = useRef(null);
   const isRunning = timer.phase === "countdown" || timer.phase === "stopwatch";
@@ -1084,6 +1174,27 @@ function TimerApp() {
     !historyOpen;
   const isApplyingUpdate = useServiceWorkerUpdate(canAutoApplyUpdate);
   useScreenWakeLock(isRunning);
+  const lapOverlayId = pursuitLapOverlay?.id ?? null;
+
+  useEffect(() => {
+    if (lapOverlayId === null) return undefined;
+
+    const fadeTimeout = window.setTimeout(() => {
+      setPursuitLapOverlay((current) =>
+        current?.id === lapOverlayId ? { ...current, fading: true } : current,
+      );
+    }, 2000);
+    const removeTimeout = window.setTimeout(() => {
+      setPursuitLapOverlay((current) =>
+        current?.id === lapOverlayId ? null : current,
+      );
+    }, 2400);
+
+    return () => {
+      window.clearTimeout(fadeTimeout);
+      window.clearTimeout(removeTimeout);
+    };
+  }, [lapOverlayId]);
 
   useEffect(() => {
     let active = true;
@@ -1192,15 +1303,19 @@ function TimerApp() {
 
   const display = getDisplay(timer, now);
   const changeSettings = (patch) => {
+    if (patch.pursuitMode !== undefined) {
+      requestOrientationLock(patch.pursuitMode ? "landscape" : "portrait");
+    }
     setTimer((current) =>
       updateSettings(current, { ...current.settings, ...patch }),
     );
-    if (patch.volume !== undefined) setAudioVolume(patch.volume);
   };
 
   const start = async () => {
     if (startPending.current) return;
-    requestPortraitOrientationLock();
+    requestOrientationLock(
+      timer.settings.pursuitMode ? "landscape" : "portrait",
+    );
     startPending.current = true;
     setStarting(true);
     setNotice("");
@@ -1303,7 +1418,34 @@ function TimerApp() {
   const lap = () => {
     const sampledAt = getTimerTime();
     setNow(sampledAt);
-    setTimer((current) => recordLap(current, sampledAt));
+    const updatedTimer = recordLap(timer, sampledAt);
+    setTimer(updatedTimer);
+
+    if (
+      timer.settings.pursuitMode &&
+      updatedTimer.laps.length > timer.laps.length
+    ) {
+      const splitMs = updatedTimer.laps.at(-1).splitMs;
+      const lap = updatedTimer.laps.at(-1);
+      const roundedSplitMs = Math.round(splitMs);
+      const totalTenths = Math.floor(roundedSplitMs / 100);
+      const totalSeconds = Math.floor(totalTenths / 10);
+      setPursuitLapOverlay({
+        id: ++lapOverlaySequence.current,
+        splitMs,
+        pace: getPursuitPace(lap, timer.settings),
+        fading: false,
+        display: {
+          phase: "stopwatch",
+          minutes:
+            totalSeconds >= 60
+              ? String(Math.floor(totalSeconds / 60)).padStart(2, "0")
+              : null,
+          seconds: String(totalSeconds % 60).padStart(2, "0"),
+          tenths: String(totalTenths % 10),
+        },
+      });
+    }
   };
 
   const stop = () => {
@@ -1448,6 +1590,29 @@ function TimerApp() {
           </div>
         )}
       </footer>
+
+      {pursuitLapOverlay && (
+        <div
+          className={`pursuit-lap-overlay pace-${pursuitLapOverlay.pace} ${pursuitLapOverlay.fading ? "is-fading" : ""}`}
+          role="status"
+          aria-live="polite"
+        >
+          <div className="pursuit-lap-clock" aria-hidden="true">
+            <ClockDigits
+              display={pursuitLapOverlay.display}
+              fontReady={displayFontReady}
+            />
+          </div>
+          <span className="visually-hidden">
+            {pursuitLapOverlay.pace === "ahead"
+              ? "Ahead of schedule. "
+              : pursuitLapOverlay.pace === "behind"
+                ? "Behind schedule. "
+                : ""}
+            Lap split {formatLapTime(pursuitLapOverlay.splitMs)} seconds
+          </span>
+        </div>
+      )}
 
       <Modal
         centered

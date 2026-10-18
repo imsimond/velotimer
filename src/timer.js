@@ -2,7 +2,9 @@ export const DEFAULT_SETTINGS = Object.freeze({
   countdownSeconds: 12,
   beepPattern: "standard",
   withEcho: true,
-  volume: 60,
+  pursuitMode: false,
+  firstLapSeconds: 0,
+  otherLapsSeconds: 0,
 });
 
 export const MIN_COUNTDOWN_SECONDS = 1;
@@ -11,7 +13,8 @@ export const MAX_STOPWATCH_MS = 5_999_999;
 
 export function normalizeSettings(settings = {}) {
   const countdownSeconds = Number(settings.countdownSeconds);
-  const volume = Number(settings.volume);
+  const firstLapSeconds = Number(settings.firstLapSeconds);
+  const otherLapsSeconds = Number(settings.otherLapsSeconds);
 
   return {
     countdownSeconds:
@@ -28,9 +31,18 @@ export function normalizeSettings(settings = {}) {
       typeof settings.withEcho === "boolean"
         ? settings.withEcho
         : DEFAULT_SETTINGS.withEcho,
-    volume: Number.isFinite(volume)
-      ? Math.min(100, Math.max(0, Math.round(volume)))
-      : DEFAULT_SETTINGS.volume,
+    pursuitMode:
+      typeof settings.pursuitMode === "boolean"
+        ? settings.pursuitMode
+        : DEFAULT_SETTINGS.pursuitMode,
+    firstLapSeconds:
+      Number.isFinite(firstLapSeconds) && firstLapSeconds >= 0
+        ? Math.round(firstLapSeconds * 10) / 10
+        : DEFAULT_SETTINGS.firstLapSeconds,
+    otherLapsSeconds:
+      Number.isFinite(otherLapsSeconds) && otherLapsSeconds >= 0
+        ? Math.round(otherLapsSeconds * 10) / 10
+        : DEFAULT_SETTINGS.otherLapsSeconds,
   };
 }
 
@@ -132,6 +144,29 @@ export function recordLap(timer, now) {
       },
     ],
   };
+}
+
+export function getPursuitPace(lap, settings) {
+  const lapNumber = Number(lap.lapNumber);
+  const firstLapSeconds = Number(settings.firstLapSeconds);
+  const otherLapsSeconds = Number(settings.otherLapsSeconds);
+  if (
+    !Number.isInteger(lapNumber) ||
+    lapNumber < 1 ||
+    !Number.isFinite(firstLapSeconds) ||
+    !Number.isFinite(otherLapsSeconds)
+  ) {
+    return "neutral";
+  }
+
+  const targetElapsedMs =
+    (firstLapSeconds + (lapNumber - 1) * otherLapsSeconds) * 1000;
+  if (targetElapsedMs <= 0 || !Number.isFinite(lap.elapsedMs)) {
+    return "neutral";
+  }
+  if (lap.elapsedMs < targetElapsedMs) return "ahead";
+  if (lap.elapsedMs > targetElapsedMs) return "behind";
+  return "on-pace";
 }
 
 export function stopTimer(timer, now) {

@@ -8,6 +8,7 @@ import {
   formatDiff,
   formatLapTime,
   getDisplay,
+  getPursuitPace,
   recordLap,
   resetTimer,
   startCountdown,
@@ -66,7 +67,9 @@ test("countdown reset returns to ready and retains settings", () => {
     countdownSeconds: 37,
     beepPattern: "Test velodrome",
     withEcho: false,
-    volume: 42,
+    pursuitMode: true,
+    firstLapSeconds: 22.3,
+    otherLapsSeconds: 19.8,
   });
   const reset = resetTimer(startCountdown(configured, 0));
 
@@ -75,9 +78,71 @@ test("countdown reset returns to ready and retains settings", () => {
     countdownSeconds: 37,
     beepPattern: "Test velodrome",
     withEcho: false,
-    volume: 42,
+    pursuitMode: true,
+    firstLapSeconds: 22.3,
+    otherLapsSeconds: 19.8,
   });
   assert.deepEqual(getDisplay(reset, 0), { phase: "ready", seconds: "37" });
+});
+
+test("pursuit settings default off and lap times normalize to tenths", () => {
+  assert.deepEqual(createTimer().settings, {
+    countdownSeconds: 12,
+    beepPattern: "standard",
+    withEcho: true,
+    pursuitMode: false,
+    firstLapSeconds: 0,
+    otherLapsSeconds: 0,
+  });
+
+  const configured = updateSettings(createTimer(), {
+    pursuitMode: true,
+    firstLapSeconds: 22.26,
+    otherLapsSeconds: -1,
+  });
+  assert.equal(configured.settings.pursuitMode, true);
+  assert.equal(configured.settings.firstLapSeconds, 22.3);
+  assert.equal(configured.settings.otherLapsSeconds, 0);
+});
+
+test("pursuit pace compares cumulative elapsed time with each lap target", () => {
+  const settings = { firstLapSeconds: 21, otherLapsSeconds: 16 };
+
+  assert.equal(
+    getPursuitPace({ lapNumber: 1, elapsedMs: 20_999 }, settings),
+    "ahead",
+  );
+  assert.equal(
+    getPursuitPace({ lapNumber: 1, elapsedMs: 21_000 }, settings),
+    "on-pace",
+  );
+  assert.equal(
+    getPursuitPace({ lapNumber: 1, elapsedMs: 21_001 }, settings),
+    "behind",
+  );
+  assert.equal(
+    getPursuitPace({ lapNumber: 2, elapsedMs: 36_999 }, settings),
+    "ahead",
+  );
+  assert.equal(
+    getPursuitPace({ lapNumber: 2, elapsedMs: 37_001 }, settings),
+    "behind",
+  );
+  assert.equal(
+    getPursuitPace({ lapNumber: 3, elapsedMs: 53_001 }, settings),
+    "behind",
+  );
+  assert.equal(
+    getPursuitPace({ lapNumber: 4, elapsedMs: 68_999 }, settings),
+    "ahead",
+  );
+  assert.equal(
+    getPursuitPace(
+      { lapNumber: 1, elapsedMs: 500 },
+      { firstLapSeconds: 0, otherLapsSeconds: 0 },
+    ),
+    "neutral",
+  );
 });
 
 test("audio pattern defaults to Standard for old or invalid settings", () => {

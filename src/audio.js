@@ -82,11 +82,7 @@ async function ensureAudio(settings) {
     echoGain.connect(masterGain);
   }
 
-  masterGain.gain.setTargetAtTime(
-    settings.volume / 100,
-    audioContext.currentTime,
-    0.015,
-  );
+  masterGain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015);
   if (audioContext.state !== "running") {
     let timeout;
     try {
@@ -311,15 +307,6 @@ export function getTimingDiagnostics() {
         : null,
     startupError,
   };
-}
-
-export function setAudioVolume(volume) {
-  if (!masterGain || !audioContext) return;
-  masterGain.gain.setTargetAtTime(
-    volume / 100,
-    audioContext.currentTime,
-    0.015,
-  );
 }
 
 export function stopScheduledAudio() {
