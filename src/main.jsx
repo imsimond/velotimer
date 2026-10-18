@@ -101,17 +101,6 @@ function loadSettings() {
   }
 }
 
-function requestOrientationLock(type) {
-  const orientation = window.screen?.orientation;
-  if (typeof orientation?.lock !== "function") return;
-
-  try {
-    orientation.lock(type).catch(() => {});
-  } catch {
-    // The API is optional and may be unavailable in browser tabs.
-  }
-}
-
 function useScreenWakeLock(active) {
   const wakeLock = useRef(null);
 
@@ -1303,9 +1292,6 @@ function TimerApp() {
 
   const display = getDisplay(timer, now);
   const changeSettings = (patch) => {
-    if (patch.pursuitMode !== undefined) {
-      requestOrientationLock(patch.pursuitMode ? "landscape" : "portrait");
-    }
     setTimer((current) =>
       updateSettings(current, { ...current.settings, ...patch }),
     );
@@ -1313,9 +1299,6 @@ function TimerApp() {
 
   const start = async () => {
     if (startPending.current) return;
-    requestOrientationLock(
-      timer.settings.pursuitMode ? "landscape" : "portrait",
-    );
     startPending.current = true;
     setStarting(true);
     setNotice("");

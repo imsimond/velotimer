@@ -761,15 +761,6 @@ function loadSettings() {
         return {};
     }
 }
-function requestOrientationLock(type) {
-    const orientation = window.screen?.orientation;
-    if (typeof orientation?.lock !== "function") return;
-    try {
-        orientation.lock(type).catch(()=>{});
-    } catch  {
-    // The API is optional and may be unavailable in browser tabs.
-    }
-}
 function useScreenWakeLock(active) {
     _s();
     const wakeLock = (0, _react.useRef)(null);
@@ -856,7 +847,7 @@ function ClockDigits({ display, fontReady }) {
                                     children: "88"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 253,
+                                    lineNumber: 242,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -864,13 +855,13 @@ function ClockDigits({ display, fontReady }) {
                                     children: display.minutes
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 254,
+                                    lineNumber: 243,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 252,
+                            lineNumber: 241,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -878,14 +869,14 @@ function ClockDigits({ display, fontReady }) {
                             children: ":"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 256,
+                            lineNumber: 245,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 249,
+                lineNumber: 238,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -897,7 +888,7 @@ function ClockDigits({ display, fontReady }) {
                         children: "88"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 261,
+                        lineNumber: 250,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -905,13 +896,13 @@ function ClockDigits({ display, fontReady }) {
                         children: display.seconds
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 262,
+                        lineNumber: 251,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 260,
+                lineNumber: 249,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -924,7 +915,7 @@ function ClockDigits({ display, fontReady }) {
                             children: hasMilliseconds ? ".888" : ".8"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 270,
+                            lineNumber: 259,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -935,20 +926,20 @@ function ClockDigits({ display, fontReady }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 273,
+                            lineNumber: 262,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 264,
+                lineNumber: 253,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 246,
+        lineNumber: 235,
         columnNumber: 5
     }, this);
 }
@@ -980,7 +971,7 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Lap"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 301,
+                                        lineNumber: 290,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -988,7 +979,7 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Split"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 302,
+                                        lineNumber: 291,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -996,7 +987,7 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Diff"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 303,
+                                        lineNumber: 292,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1004,18 +995,18 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                         children: "Elapsed"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 304,
+                                        lineNumber: 293,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 300,
+                                lineNumber: 289,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 299,
+                            lineNumber: 288,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Tbody, {
@@ -1029,14 +1020,14 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                             children: lap.lapNumber
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 323,
+                                            lineNumber: 312,
                                             columnNumber: 23
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
                                             children: showSplit ? (0, _timerJs.formatLapTime)(lap.splitMs) : ""
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 324,
+                                            lineNumber: 313,
                                             columnNumber: 23
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1044,47 +1035,47 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                                             children: lap.diffMs === null ? "" : (0, _timerJs.formatDiff)(lap.diffMs)
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 327,
+                                            lineNumber: 316,
                                             columnNumber: 23
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
                                             children: (0, _timerJs.formatLapTime)(lap.elapsedMs)
                                         }, void 0, false, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 330,
+                                            lineNumber: 319,
                                             columnNumber: 23
                                         }, this)
                                     ]
                                 }, `${lap.lapNumber}-${lap.elapsedMs}-${index}`, true, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 319,
+                                    lineNumber: 308,
                                     columnNumber: 21
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 307,
+                            lineNumber: 296,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 289,
+                    lineNumber: 278,
                     columnNumber: 13
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 288,
+                lineNumber: 277,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "src/main.jsx",
-            lineNumber: 287,
+            lineNumber: 276,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "src/main.jsx",
-        lineNumber: 285,
+        lineNumber: 274,
         columnNumber: 5
     }, this);
 }
@@ -1145,28 +1136,28 @@ function RideComparisonTable({ rides, mode }) {
                             className: "history-compare-lap-column"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 408,
+                            lineNumber: 397,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("col", {}, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 409,
+                            lineNumber: 398,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("col", {}, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 410,
+                            lineNumber: 399,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("col", {}, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 411,
+                            lineNumber: 400,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 407,
+                    lineNumber: 396,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Thead, {
@@ -1177,7 +1168,7 @@ function RideComparisonTable({ rides, mode }) {
                                 children: "Lap"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 415,
+                                lineNumber: 404,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1188,7 +1179,7 @@ function RideComparisonTable({ rides, mode }) {
                                         children: leftRide.riderName
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 417,
+                                        lineNumber: 406,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1196,20 +1187,20 @@ function RideComparisonTable({ rides, mode }) {
                                         children: formatRideDateCompact(leftRide.completedAt)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 420,
+                                        lineNumber: 409,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                         children: (0, _timerJs.formatLapTime)(leftRide.elapsedMs)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 423,
+                                        lineNumber: 412,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 416,
+                                lineNumber: 405,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1218,7 +1209,7 @@ function RideComparisonTable({ rides, mode }) {
                                 children: "Gap"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 425,
+                                lineNumber: 414,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Th, {
@@ -1229,7 +1220,7 @@ function RideComparisonTable({ rides, mode }) {
                                         children: rightRide.riderName
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 429,
+                                        lineNumber: 418,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1237,31 +1228,31 @@ function RideComparisonTable({ rides, mode }) {
                                         children: formatRideDateCompact(rightRide.completedAt)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 432,
+                                        lineNumber: 421,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                         children: (0, _timerJs.formatLapTime)(rightRide.elapsedMs)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 435,
+                                        lineNumber: 424,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 428,
+                                lineNumber: 417,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 414,
+                        lineNumber: 403,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 413,
+                    lineNumber: 402,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Tbody, {
@@ -1295,7 +1286,7 @@ function RideComparisonTable({ rides, mode }) {
                                                                 fill: "#363530"
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 466,
+                                                                lineNumber: 455,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
@@ -1305,18 +1296,18 @@ function RideComparisonTable({ rides, mode }) {
                                                                 strokeWidth: "2"
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 467,
+                                                                lineNumber: 456,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/main.jsx",
-                                                        lineNumber: 459,
+                                                        lineNumber: 448,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 458,
+                                                    lineNumber: 447,
                                                     columnNumber: 23
                                                 }, this),
                                                 barWidth > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("rect", {
@@ -1327,20 +1318,20 @@ function RideComparisonTable({ rides, mode }) {
                                                     y: "0"
                                                 }, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 476,
+                                                    lineNumber: 465,
                                                     columnNumber: 25
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/main.jsx",
-                                            lineNumber: 453,
+                                            lineNumber: 442,
                                             columnNumber: 21
                                         }, this),
                                         lapNumber
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 452,
+                                    lineNumber: 441,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1348,7 +1339,7 @@ function RideComparisonTable({ rides, mode }) {
                                     children: leftValue === null ? "\u2014" : (0, _timerJs.formatLapTime)(leftValue)
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 487,
+                                    lineNumber: 476,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1359,7 +1350,7 @@ function RideComparisonTable({ rides, mode }) {
                                         children: "0.000"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 503,
+                                        lineNumber: 492,
                                         columnNumber: 23
                                     }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         className: "history-compare-lead",
@@ -1369,19 +1360,19 @@ function RideComparisonTable({ rides, mode }) {
                                                 "aria-hidden": "true",
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.ArrowLeft), {}, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 510,
+                                                    lineNumber: 499,
                                                     columnNumber: 27
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 506,
+                                                lineNumber: 495,
                                                 columnNumber: 25
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                                 children: (Math.abs(difference) / 1000).toFixed(3)
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 512,
+                                                lineNumber: 501,
                                                 columnNumber: 25
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1389,23 +1380,23 @@ function RideComparisonTable({ rides, mode }) {
                                                 "aria-hidden": "true",
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.ArrowRight), {}, void 0, false, {
                                                     fileName: "src/main.jsx",
-                                                    lineNumber: 519,
+                                                    lineNumber: 508,
                                                     columnNumber: 27
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 515,
+                                                lineNumber: 504,
                                                 columnNumber: 25
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 505,
+                                        lineNumber: 494,
                                         columnNumber: 23
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 490,
+                                    lineNumber: 479,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Table).Td, {
@@ -1413,30 +1404,30 @@ function RideComparisonTable({ rides, mode }) {
                                     children: rightValue === null ? "\u2014" : (0, _timerJs.formatLapTime)(rightValue)
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 524,
+                                    lineNumber: 513,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, lapNumber, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 451,
+                            lineNumber: 440,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 439,
+                    lineNumber: 428,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/main.jsx",
-            lineNumber: 398,
+            lineNumber: 387,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/main.jsx",
-        lineNumber: 397,
+        lineNumber: 386,
         columnNumber: 5
     }, this);
 }
@@ -1459,7 +1450,7 @@ function RideComparisonTabs({ rides }) {
                         children: "Overall"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 549,
+                        lineNumber: 538,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Tabs).Tab, {
@@ -1467,13 +1458,13 @@ function RideComparisonTabs({ rides }) {
                         children: "Splits"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 550,
+                        lineNumber: 539,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 548,
+                lineNumber: 537,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Tabs).Panel, {
@@ -1484,12 +1475,12 @@ function RideComparisonTabs({ rides }) {
                     rides: rides
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 553,
+                    lineNumber: 542,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 552,
+                lineNumber: 541,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Tabs).Panel, {
@@ -1500,18 +1491,18 @@ function RideComparisonTabs({ rides }) {
                     rides: rides
                 }, void 0, false, {
                     fileName: "src/main.jsx",
-                    lineNumber: 556,
+                    lineNumber: 545,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 555,
+                lineNumber: 544,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 539,
+        lineNumber: 528,
         columnNumber: 5
     }, this);
 }
@@ -1595,7 +1586,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 649,
+                        lineNumber: 638,
                         columnNumber: 17
                     }, void 0)
                 },
@@ -1619,7 +1610,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 size: 16
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 668,
+                                lineNumber: 657,
                                 columnNumber: 30
                             }, void 0),
                             onClick: exportRideHistory,
@@ -1628,7 +1619,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                             children: "Export CSV"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 664,
+                            lineNumber: 653,
                             columnNumber: 15
                         }, void 0)
                     ]
@@ -1640,7 +1631,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                         children: error
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 680,
+                        lineNumber: 669,
                         columnNumber: 11
                     }, this),
                     selectedRide ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1652,7 +1643,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 688,
+                                    lineNumber: 677,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: ()=>{
@@ -1662,7 +1653,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "All rides"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 686,
+                                lineNumber: 675,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1672,7 +1663,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         children: formatRideDate(selectedRide.completedAt)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 697,
+                                        lineNumber: 686,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1682,20 +1673,20 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 698,
+                                        lineNumber: 687,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                         children: (0, _timerJs.formatLapTime)(selectedRide.elapsedMs)
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 701,
+                                        lineNumber: 690,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 696,
+                                lineNumber: 685,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1706,7 +1697,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         children: "Ride notes"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 704,
+                                        lineNumber: 693,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -1717,13 +1708,13 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         onChange: (event)=>setNotesDraft((0, _ridesJs.stripHtmlTags)(event.currentTarget.value))
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 705,
+                                        lineNumber: 694,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 703,
+                                lineNumber: 692,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(LapTable, {
@@ -1732,7 +1723,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 visible: true
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 715,
+                                lineNumber: 704,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -1741,7 +1732,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 722,
+                                    lineNumber: 711,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: ()=>setDeleteOpen(true),
@@ -1749,13 +1740,13 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "Delete ride"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 720,
+                                lineNumber: 709,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 685,
+                        lineNumber: 674,
                         columnNumber: 11
                     }, this) : comparisonOpen ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "history-detail history-comparison-detail",
@@ -1766,7 +1757,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 733,
+                                    lineNumber: 722,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: ()=>setComparisonOpen(false),
@@ -1774,20 +1765,20 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "All rides"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 731,
+                                lineNumber: 720,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RideComparisonTabs, {
                                 rides: comparisonRides
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 739,
+                                lineNumber: 728,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 730,
+                        lineNumber: 719,
                         columnNumber: 11
                     }, this) : rides.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "history-browser",
@@ -1808,7 +1799,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         onChange: setRiderFilter
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 744,
+                                        lineNumber: 733,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Select), {
@@ -1824,13 +1815,13 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         onChange: setDistanceFilter
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 756,
+                                        lineNumber: 745,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 743,
+                                lineNumber: 732,
                                 columnNumber: 13
                             }, this),
                             visibleRides.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1842,41 +1833,41 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {}, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 772,
+                                                lineNumber: 761,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Rider"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 773,
+                                                lineNumber: 762,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Date"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 774,
+                                                lineNumber: 763,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Dist"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 775,
+                                                lineNumber: 764,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "Total"
                                             }, void 0, false, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 776,
+                                                lineNumber: 765,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 771,
+                                        lineNumber: 760,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -1893,7 +1884,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                         onChange: ()=>toggleRideSelection(ride.id)
                                                     }, void 0, false, {
                                                         fileName: "src/main.jsx",
-                                                        lineNumber: 781,
+                                                        lineNumber: 770,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -1907,7 +1898,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: ride.riderName
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 797,
+                                                                lineNumber: 786,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("time", {
@@ -1916,7 +1907,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: formatRideDateCompact(ride.completedAt)
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 800,
+                                                                lineNumber: 789,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -1924,7 +1915,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: formatDistance(ride.distanceMeters)
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 806,
+                                                                lineNumber: 795,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
@@ -1932,37 +1923,37 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                                                 children: (0, _timerJs.formatLapTime)(ride.elapsedMs)
                                                             }, void 0, false, {
                                                                 fileName: "src/main.jsx",
-                                                                lineNumber: 809,
+                                                                lineNumber: 798,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/main.jsx",
-                                                        lineNumber: 791,
+                                                        lineNumber: 780,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, ride.id, true, {
                                                 fileName: "src/main.jsx",
-                                                lineNumber: 780,
+                                                lineNumber: 769,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 778,
+                                        lineNumber: 767,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 770,
+                                lineNumber: 759,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "history-empty",
                                 children: "No rides match these filters."
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 818,
+                                lineNumber: 807,
                                 columnNumber: 15
                             }, this),
                             selectedRideIds.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -1975,31 +1966,31 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     children: "Compare"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 822,
+                                    lineNumber: 811,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 821,
+                                lineNumber: 810,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 742,
+                        lineNumber: 731,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "history-empty",
                         children: "No saved rides yet."
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 834,
+                        lineNumber: 823,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 640,
+                lineNumber: 629,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Modal), {
@@ -2028,7 +2019,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 851,
+                        lineNumber: 840,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2040,7 +2031,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "Cancel"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 856,
+                                lineNumber: 845,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2049,7 +2040,7 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 861,
+                                    lineNumber: 850,
                                     columnNumber: 26
                                 }, void 0),
                                 onClick: ()=>{
@@ -2058,19 +2049,19 @@ function SavedRidesDrawer({ rides, selectedRide, onSelect, onBack, onDelete, onS
                                 children: "Delete"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 859,
+                                lineNumber: 848,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 855,
+                        lineNumber: 844,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 838,
+                lineNumber: 827,
                 columnNumber: 7
             }, this)
         ]
@@ -2115,7 +2106,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                 "aria-hidden": "true"
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 911,
+                lineNumber: 900,
                 columnNumber: 15
             }, void 0)
         },
@@ -2153,7 +2144,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                         }
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 921,
+                        lineNumber: 910,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2174,7 +2165,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                 }
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 942,
+                                lineNumber: 931,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Switch), {
@@ -2187,13 +2178,13 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                     })
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 952,
+                                lineNumber: 941,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 941,
+                        lineNumber: 930,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -2208,7 +2199,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                         children: "Pursuit Mode"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 964,
+                                        lineNumber: 953,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Switch), {
@@ -2221,13 +2212,13 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                             })
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 965,
+                                        lineNumber: 954,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 963,
+                                lineNumber: 952,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2254,7 +2245,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                         hideControls: true
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 976,
+                                        lineNumber: 965,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.NumberInput), {
@@ -2278,25 +2269,25 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                         hideControls: true
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1005,
+                                        lineNumber: 994,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 975,
+                                lineNumber: 964,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 962,
+                        lineNumber: 951,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 920,
+                lineNumber: 909,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
@@ -2312,7 +2303,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                 children: "Tintou Ltd"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1040,
+                                lineNumber: 1029,
                                 columnNumber: 11
                             }, this),
                             " \u2022",
@@ -2322,7 +2313,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                                 children: "Email"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1041,
+                                lineNumber: 1030,
                                 columnNumber: 11
                             }, this),
                             " \u2022",
@@ -2331,33 +2322,33 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1038,
+                        lineNumber: 1027,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "Fonts used under SIL Open Font License 1.1 \u2022 DSEG \xa9 2017 keshikan \u2022 Atkinson Hyperlegible Mono \xa9 2020-2024 The Atkinson Hyperlegible Mono Project Authors"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1044,
+                        lineNumber: 1033,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "Always remember: the halfway point of a kilo is 900m."
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1049,
+                        lineNumber: 1038,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1037,
+                lineNumber: 1026,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 902,
+        lineNumber: 891,
         columnNumber: 5
     }, this);
 }
@@ -2470,18 +2461,18 @@ function TimingDiagnostics({ frameMetrics, fontReady, settings }) {
                             "aria-hidden": "true"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1126,
+                            lineNumber: 1115,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1120,
+                        lineNumber: 1109,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1118,
+                lineNumber: 1107,
                 columnNumber: 7
             }, this),
             open && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2494,32 +2485,32 @@ function TimingDiagnostics({ frameMetrics, fontReady, settings }) {
                                         children: label
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1134,
+                                        lineNumber: 1123,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
                                         children: value
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1135,
+                                        lineNumber: 1124,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, label, true, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1133,
+                                lineNumber: 1122,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1131,
+                        lineNumber: 1120,
                         columnNumber: 11
                     }, this),
                     snapshot?.startupError && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: snapshot.startupError
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1139,
+                        lineNumber: 1128,
                         columnNumber: 38
                     }, this),
                     copyStatus && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2527,19 +2518,19 @@ function TimingDiagnostics({ frameMetrics, fontReady, settings }) {
                         children: copyStatus
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1140,
+                        lineNumber: 1129,
                         columnNumber: 26
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1130,
+                lineNumber: 1119,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 1114,
+        lineNumber: 1103,
         columnNumber: 5
     }, this);
 }
@@ -2678,7 +2669,6 @@ function TimerApp() {
     ]);
     const display = (0, _timerJs.getDisplay)(timer, now);
     const changeSettings = (patch)=>{
-        if (patch.pursuitMode !== undefined) requestOrientationLock(patch.pursuitMode ? "landscape" : "portrait");
         setTimer((current)=>(0, _timerJs.updateSettings)(current, {
                 ...current.settings,
                 ...patch
@@ -2686,7 +2676,6 @@ function TimerApp() {
     };
     const start = async ()=>{
         if (startPending.current) return;
-        requestOrientationLock(timer.settings.pursuitMode ? "landscape" : "portrait");
         startPending.current = true;
         setStarting(true);
         setNotice("");
@@ -2814,12 +2803,12 @@ function TimerApp() {
                             children: "VeloTimer"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1462,
+                            lineNumber: 1445,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1461,
+                        lineNumber: 1444,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2838,12 +2827,12 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1475,
+                                    lineNumber: 1458,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1465,
+                                lineNumber: 1448,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.ActionIcon), {
@@ -2860,24 +2849,24 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1488,
+                                    lineNumber: 1471,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1477,
+                                lineNumber: 1460,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1464,
+                        lineNumber: 1447,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1460,
+                lineNumber: 1443,
                 columnNumber: 7
             }, this),
             isApplyingUpdate && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2889,14 +2878,14 @@ function TimerApp() {
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1495,
+                        lineNumber: 1478,
                         columnNumber: 11
                     }, this),
                     "App update in progress"
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1494,
+                lineNumber: 1477,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -2910,7 +2899,7 @@ function TimerApp() {
                             fontReady: displayFontReady
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1502,
+                            lineNumber: 1485,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("output", {
@@ -2919,18 +2908,18 @@ function TimerApp() {
                             children: formatAnnouncement(display)
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1503,
+                            lineNumber: 1486,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 1501,
+                    lineNumber: 1484,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1500,
+                lineNumber: 1483,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -2939,7 +2928,7 @@ function TimerApp() {
                 children: notice
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1509,
+                lineNumber: 1492,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(LapTable, {
@@ -2948,7 +2937,7 @@ function TimerApp() {
                 visible: timer.phase === "ended" || timer.laps.length > 0
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1513,
+                lineNumber: 1496,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
@@ -2960,7 +2949,7 @@ function TimerApp() {
                         settings: timer.settings
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1521,
+                        lineNumber: 1504,
                         columnNumber: 11
                     }, this),
                     timer.phase === "ready" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2973,7 +2962,7 @@ function TimerApp() {
                         children: "Start"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1528,
+                        lineNumber: 1511,
                         columnNumber: 11
                     }, this),
                     timer.phase === "countdown" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -2984,14 +2973,14 @@ function TimerApp() {
                             "aria-hidden": "true"
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1544,
+                            lineNumber: 1527,
                             columnNumber: 26
                         }, void 0),
                         onClick: reset,
                         children: "Reset"
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1540,
+                        lineNumber: 1523,
                         columnNumber: 11
                     }, this),
                     timer.phase === "stopwatch" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3005,7 +2994,7 @@ function TimerApp() {
                                 children: "Lap"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1552,
+                                lineNumber: 1535,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -3017,20 +3006,20 @@ function TimerApp() {
                                     fill: "currentColor"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1564,
+                                    lineNumber: 1547,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: stop,
                                 children: "Stop"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1560,
+                                lineNumber: 1543,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1551,
+                        lineNumber: 1534,
                         columnNumber: 11
                     }, this),
                     timer.phase === "ended" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3044,14 +3033,14 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1577,
+                                    lineNumber: 1560,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: openSaveDialog,
                                 children: rideSaved ? "Saved" : "Save"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1573,
+                                lineNumber: 1556,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -3061,26 +3050,26 @@ function TimerApp() {
                                     "aria-hidden": "true"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1585,
+                                    lineNumber: 1568,
                                     columnNumber: 28
                                 }, void 0),
                                 onClick: reset,
                                 children: "Reset"
                             }, void 0, false, {
                                 fileName: "src/main.jsx",
-                                lineNumber: 1582,
+                                lineNumber: 1565,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1572,
+                        lineNumber: 1555,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1519,
+                lineNumber: 1502,
                 columnNumber: 7
             }, this),
             pursuitLapOverlay && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3096,12 +3085,12 @@ function TimerApp() {
                             fontReady: displayFontReady
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1601,
+                            lineNumber: 1584,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1600,
+                        lineNumber: 1583,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -3114,13 +3103,13 @@ function TimerApp() {
                         ]
                     }, void 0, true, {
                         fileName: "src/main.jsx",
-                        lineNumber: 1606,
+                        lineNumber: 1589,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/main.jsx",
-                lineNumber: 1595,
+                lineNumber: 1578,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Modal), {
@@ -3156,7 +3145,7 @@ function TimerApp() {
                             onChange: setRiderName
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1631,
+                            lineNumber: 1614,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.NumberInput), {
@@ -3176,7 +3165,7 @@ function TimerApp() {
                             onChange: setDistanceMeters
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1641,
+                            lineNumber: 1624,
                             columnNumber: 11
                         }, this),
                         saveError && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -3185,7 +3174,7 @@ function TimerApp() {
                             children: saveError
                         }, void 0, false, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1655,
+                            lineNumber: 1638,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3197,7 +3186,7 @@ function TimerApp() {
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1660,
+                                    lineNumber: 1643,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _core.Button), {
@@ -3205,31 +3194,31 @@ function TimerApp() {
                                         "aria-hidden": "true"
                                     }, void 0, false, {
                                         fileName: "src/main.jsx",
-                                        lineNumber: 1664,
+                                        lineNumber: 1647,
                                         columnNumber: 28
                                     }, void 0),
                                     type: "submit",
                                     children: "Save"
                                 }, void 0, false, {
                                     fileName: "src/main.jsx",
-                                    lineNumber: 1663,
+                                    lineNumber: 1646,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/main.jsx",
-                            lineNumber: 1659,
+                            lineNumber: 1642,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/main.jsx",
-                    lineNumber: 1630,
+                    lineNumber: 1613,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1617,
+                lineNumber: 1600,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(SettingsDialog, {
@@ -3239,7 +3228,7 @@ function TimerApp() {
                 onClose: ()=>setSettingsOpen(false)
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1673,
+                lineNumber: 1656,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(SavedRidesDrawer, {
@@ -3257,13 +3246,13 @@ function TimerApp() {
                 }
             }, void 0, false, {
                 fileName: "src/main.jsx",
-                lineNumber: 1679,
+                lineNumber: 1662,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/main.jsx",
-        lineNumber: 1459,
+        lineNumber: 1442,
         columnNumber: 5
     }, this);
 }
@@ -3283,12 +3272,12 @@ const theme = (0, _core.createTheme)({
     theme: theme,
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(TimerApp, {}, void 0, false, {
         fileName: "src/main.jsx",
-        lineNumber: 1704,
+        lineNumber: 1687,
         columnNumber: 5
     }, undefined)
 }, void 0, false, {
     fileName: "src/main.jsx",
-    lineNumber: 1703,
+    lineNumber: 1686,
     columnNumber: 3
 }, undefined));
 var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7;
