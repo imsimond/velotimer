@@ -40,6 +40,21 @@ test("countdown display never exceeds its configured start value", () => {
   });
 });
 
+test("zero countdown starts the stopwatch immediately", () => {
+  const timer = createTimer({ countdownSeconds: 0 });
+  const started = startCountdown(timer, 500);
+
+  assert.equal(timer.settings.countdownSeconds, 0);
+  assert.equal(started.phase, "stopwatch");
+  assert.equal(started.stopwatchStartedAt, 500);
+  assert.deepEqual(getDisplay(started, 500), {
+    phase: "stopwatch",
+    minutes: null,
+    seconds: "00",
+    tenths: "0",
+  });
+});
+
 test("each cue boundary changes the digit exactly at the scheduled time", () => {
   for (const countdownSeconds of [1, 5, 12, 30, 99]) {
     const startsAt = 750.25;

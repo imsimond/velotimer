@@ -124,6 +124,10 @@ input:focus-visible {
   font-weight: 750;
 }
 
+.info-trigger {
+  margin-left: 8px;
+}
+
 .settings-trigger {
   display: grid;
   width: 42px !important;
@@ -1285,6 +1289,97 @@ input:focus-visible {
   min-height: 0;
   padding: 16px 20px calc(24px + env(safe-area-inset-bottom));
   overflow-y: auto;
+}
+
+.info-drawer-content {
+  width: min(100%, 420px);
+  max-width: 420px;
+  margin: 0;
+  border: 1px solid #55524d;
+  border-left: 0;
+  border-radius: 0 16px 16px 0;
+  background: #232321;
+  color: var(--text);
+
+  &.mantine-Paper-root {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.info-drawer-header {
+  padding: 22px 20px 0;
+  border: 0;
+  background: #232321;
+}
+
+.info-drawer-title {
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.info-drawer-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: 16px 20px calc(24px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  color: #e3e0d8;
+  font-size: 0.95rem;
+  line-height: 1.55;
+
+  h2 {
+    margin: 1.25rem 0 0.4rem;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 0 0 0.75rem;
+  }
+
+  ul {
+    margin: 0 0 0.85rem;
+    padding-left: 1.25rem;
+  }
+
+  li + li {
+    margin-top: 0.35rem;
+  }
+
+  .info-inline-code {
+    padding: 0.08em 0.32em;
+    border: 1px solid #5a5750;
+    border-radius: 3px;
+    background: #171716;
+    color: #ffd15a;
+    font-family: "Atkinson Hyperlegible Mono", monospace;
+    font-size: 0.9em;
+  }
+}
+
+.info-drawer-markdown {
+  flex: 1 0 auto;
+}
+
+.info-drawer-credits {
+  flex: 0 0 auto;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #55524d;
+  color: #aaa69c;
+  font-size: 0.72rem;
+  line-height: 1.45;
+
+  p {
+    margin: 0;
+  }
 }
 
 .settings-trigger:hover {

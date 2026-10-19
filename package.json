@@ -21,6 +21,7 @@
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.16.4",
     "@parcel/resolver-glob": "^2.16.4",
+    "@parcel/transformer-inline-string": "^2.16.4",
     "@parcel/transformer-sass": "^2.15.4",
     "@parcel/transformer-webmanifest": "^2.16.4",
     "parcel": "^2.15.4",

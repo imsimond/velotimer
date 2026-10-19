@@ -8,6 +8,7 @@ import {
   ClipboardPen,
   Copy,
   Download,
+  Info,
   RefreshCw,
   RotateCcw,
   Settings2,
@@ -15,6 +16,7 @@ import {
   Trash2,
   X,
 } from "lucide-react";
+import infoMarkdown from "bundle-text:./INFO.md";
 import {
   ActionIcon,
   Autocomplete,
@@ -83,6 +85,71 @@ const beepPatternOptions = Object.entries(beepPatterns)
     if (right.value === "standard") return 1;
     return left.label.localeCompare(right.label);
   });
+
+function renderInfoInline(text, keyPrefix) {
+  return text
+    .split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|_[^_]+_)/g)
+    .map((part, index) => {
+      const key = `${keyPrefix}-${index}`;
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <strong key={key}>{part.slice(2, -2)}</strong>;
+      }
+      if (
+        (part.startsWith("*") && part.endsWith("*")) ||
+        (part.startsWith("_") && part.endsWith("_"))
+      ) {
+        return <em key={key}>{part.slice(1, -1)}</em>;
+      }
+      if (part.startsWith("`") && part.endsWith("`")) {
+        return (
+          <code className="info-inline-code" key={key}>
+            {part.slice(1, -1)}
+          </code>
+        );
+      }
+      return part;
+    });
+}
+
+function InfoContent() {
+  const blocks = infoMarkdown
+    .trim()
+    .split(/\n\s*\n/)
+    .filter(Boolean);
+
+  return blocks.map((block, blockIndex) => {
+    const heading = /^(#{1,6})\s+(.+)$/.exec(block);
+    if (heading) {
+      return (
+        <h2 key={blockIndex}>
+          {renderInfoInline(heading[2], `heading-${blockIndex}`)}
+        </h2>
+      );
+    }
+
+    const lines = block.split(/\r?\n/);
+    if (lines.every((line) => /^\s*[-*]\s+/.test(line))) {
+      return (
+        <ul key={blockIndex}>
+          {lines.map((line, lineIndex) => (
+            <li key={lineIndex}>
+              {renderInfoInline(
+                line.replace(/^\s*[-*]\s+/, ""),
+                `list-${blockIndex}-${lineIndex}`,
+              )}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    return (
+      <p key={blockIndex}>
+        {renderInfoInline(lines.join(" "), `paragraph-${blockIndex}`)}
+      </p>
+    );
+  });
+}
 
 function loadSettings() {
   try {
@@ -947,7 +1014,7 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
           }}
           label="Countdown seconds"
           max={99}
-          min={1}
+          min={0}
           value={settings.countdownSeconds}
           hideControls
           clampBehavior="strict"
@@ -1060,11 +1127,6 @@ function SettingsDialog({ settings, onSettingChange, open, onClose }) {
           <a href="mailto:tintou@simondickson.co.uk">Email</a> &bull;{" "}
           {BUILD_EPOCH_SECONDS}
         </p>
-        <p>
-          Fonts used under SIL Open Font License 1.1 &bull; DSEG © 2017 keshikan
-          &bull; Atkinson Hyperlegible Mono © 2020-2024 The Atkinson
-          Hyperlegible Mono Project Authors
-        </p>
         <p>Always remember: the halfway point of a kilo is 900m.</p>
       </footer>
     </Drawer>
@@ -1167,6 +1229,7 @@ function TimerApp() {
   const [timer, setTimer] = useState(() => createTimer(loadSettings()));
   const [now, setNow] = useState(() => performance.now());
   const [displayFontReady, setDisplayFontReady] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [saveOpen, setSaveOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
@@ -1334,6 +1397,14 @@ function TimerApp() {
     setNotice("");
     frameMetrics.current = {};
     try {
+      if (timer.settings.countdownSeconds === 0) {
+        stopScheduledAudio();
+        const startsAt = performance.now();
+        setNow(startsAt);
+        setTimer((current) => startCountdown(current, startsAt));
+        return;
+      }
+
       const startsAt = await scheduleCountdown(
         timer.settings,
         beepPatterns[timer.settings.beepPattern],
@@ -1473,6 +1544,18 @@ function TimerApp() {
       <header className="app-header">
         <div className="brand-lockup">
           <h1>VeloTimer</h1>
+          <ActionIcon
+            type="button"
+            aria-label="Open VeloTimer information"
+            title="Information"
+            className="settings-trigger info-trigger"
+            color="white"
+            onClick={() => setInfoOpen(true)}
+            size={42}
+            variant="subtle"
+          >
+            <Info aria-hidden="true" />
+          </ActionIcon>
         </div>
         <div className="header-actions">
           <ActionIcon
@@ -1690,6 +1773,35 @@ function TimerApp() {
         open={settingsOpen}
         onClose={() => setSettingsOpen(false)}
       />
+      <Drawer
+        classNames={{
+          content: "info-drawer-content",
+          header: "info-drawer-header",
+          title: "info-drawer-title",
+          body: "info-drawer-body",
+        }}
+        closeButtonProps={{
+          "aria-label": "Close VeloTimer information",
+          icon: <X aria-hidden="true" />,
+        }}
+        onClose={() => setInfoOpen(false)}
+        opened={infoOpen}
+        overlayProps={{ backgroundOpacity: 0.6, blur: 2 }}
+        position="left"
+        size="min(90vw, 420px)"
+        title="About VeloTimer"
+      >
+        <div className="info-drawer-markdown">
+          <InfoContent />
+        </div>
+        <footer className="info-drawer-credits">
+          <p>
+            Fonts used under SIL Open Font License 1.1 &bull; DSEG © 2017
+            keshikan &bull; Atkinson Hyperlegible Mono © 2020-2024 The Atkinson
+            Hyperlegible Mono Project Authors
+          </p>
+        </footer>
+      </Drawer>
       <SavedRidesDrawer
         rides={rides}
         selectedRide={selectedRide}

@@ -7,7 +7,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   otherLapsSeconds: 0,
 });
 
-export const MIN_COUNTDOWN_SECONDS = 1;
+export const MIN_COUNTDOWN_SECONDS = 0;
 export const MAX_COUNTDOWN_SECONDS = 99;
 export const MAX_STOPWATCH_MS = 5_999_999;
 
@@ -65,6 +65,13 @@ export function updateSettings(timer, settings) {
 
 export function startCountdown(timer, now) {
   if (timer.phase !== "ready") return timer;
+  if (timer.settings.countdownSeconds === 0) {
+    return {
+      ...timer,
+      phase: "stopwatch",
+      stopwatchStartedAt: now,
+    };
+  }
   return {
     ...timer,
     phase: "countdown",
