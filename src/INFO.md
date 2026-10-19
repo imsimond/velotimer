@@ -14,6 +14,8 @@ VeloTimer replicates the _beep beep beeeeep!_ of a velodrome's countdown clock. 
 
 Enter the planned times for your first and other laps. Each time you press `Lap`, the device will briefly show the difference against your planned race schedule, on a red or green background.
 
+In pursuit mode, the table of lap splits will show the difference between each lap and the one before (`vs Lap`); and the difference versus the planned schedule (`vs Plan`).
+
 # Save and Compare
 
 When a ride ends, you see an option to `Save` the ride to a database within your app or browser. You can find times based on rider and/or distance, and choose two rides to `Compare` their splits side-by-side. You can also `Export` your database in CSV format, suitable for spreadsheets and other data analysis software.
