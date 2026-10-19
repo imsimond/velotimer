@@ -8,6 +8,7 @@ import {
   formatDiff,
   formatLapTime,
   getDisplay,
+  getPursuitDelta,
   getPursuitPace,
   recordLap,
   resetTimer,
@@ -108,6 +109,18 @@ test("pursuit settings default off and lap times normalize to tenths", () => {
 test("pursuit pace compares cumulative elapsed time with each lap target", () => {
   const settings = { firstLapSeconds: 21, otherLapsSeconds: 16 };
 
+  assert.equal(
+    getPursuitDelta({ lapNumber: 1, elapsedMs: 20_999 }, settings),
+    -1,
+  );
+  assert.equal(
+    getPursuitDelta({ lapNumber: 2, elapsedMs: 37_001 }, settings),
+    1,
+  );
+  assert.equal(
+    getPursuitDelta({ lapNumber: "END", elapsedMs: 53_001 }, settings, 3),
+    1,
+  );
   assert.equal(
     getPursuitPace({ lapNumber: 1, elapsedMs: 20_999 }, settings),
     "ahead",

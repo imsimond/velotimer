@@ -44,6 +44,7 @@ import {
   formatDiff,
   formatLapTime,
   getDisplay,
+  getPursuitDelta,
   getPursuitPace,
   recordLap,
   resetTimer,
@@ -269,9 +270,19 @@ function ClockDigits({ display, fontReady }) {
   );
 }
 
-function LapTable({ laps, scrollRef, visible, className = "" }) {
+function LapTable({
+  laps,
+  scrollRef,
+  visible,
+  className = "",
+  pursuitSettings,
+}) {
+  const isPursuit = Boolean(pursuitSettings);
+
   return (
-    <div className={`lap-reserved ${className}`}>
+    <div
+      className={`lap-reserved ${className} ${isPursuit ? "pursuit-table" : ""}`}
+    >
       {visible && (
         <section className="lap-section" aria-label="Lap times">
           <div className="lap-scroll" ref={scrollRef}>
@@ -289,7 +300,10 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                 <Table.Tr>
                   <Table.Th scope="col">Lap</Table.Th>
                   <Table.Th scope="col">Split</Table.Th>
-                  <Table.Th scope="col">Diff</Table.Th>
+                  <Table.Th scope="col">
+                    {isPursuit ? "vs Lap" : "Diff"}
+                  </Table.Th>
+                  {isPursuit && <Table.Th scope="col">vs Plan</Table.Th>}
                   <Table.Th scope="col">Elapsed</Table.Th>
                 </Table.Tr>
               </Table.Thead>
@@ -304,6 +318,17 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                           ? "slower"
                           : "even";
                   const showSplit = laps.length > 1 && index > 0;
+                  const planDelta = isPursuit
+                    ? getPursuitDelta(lap, pursuitSettings, index + 1)
+                    : null;
+                  const planDeltaClass =
+                    planDelta === null
+                      ? ""
+                      : planDelta < 0
+                        ? "faster"
+                        : planDelta > 0
+                          ? "slower"
+                          : "even";
                   return (
                     <Table.Tr
                       key={`${lap.lapNumber}-${lap.elapsedMs}-${index}`}
@@ -316,6 +341,11 @@ function LapTable({ laps, scrollRef, visible, className = "" }) {
                       <Table.Td className={differenceClass}>
                         {lap.diffMs === null ? "" : formatDiff(lap.diffMs)}
                       </Table.Td>
+                      {isPursuit && (
+                        <Table.Td className={planDeltaClass}>
+                          {planDelta === null ? "" : formatDiff(planDelta)}
+                        </Table.Td>
+                      )}
                       <Table.Td>{formatLapTime(lap.elapsedMs)}</Table.Td>
                     </Table.Tr>
                   );
@@ -1495,6 +1525,7 @@ function TimerApp() {
 
       <LapTable
         laps={timer.laps}
+        pursuitSettings={timer.settings.pursuitMode ? timer.settings : null}
         scrollRef={lapScrollRef}
         visible={timer.phase === "ended" || timer.laps.length > 0}
       />

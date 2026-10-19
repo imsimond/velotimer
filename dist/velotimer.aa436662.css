@@ -10132,6 +10132,14 @@ button:focus-visible, input:focus-visible {
   background-color: #d5d0c4;
 }
 
+.pursuit-table .lap-table th:first-child, .pursuit-table .lap-table td:first-child {
+  width: 12%;
+}
+
+.pursuit-table .lap-table th:nth-child(n+2), .pursuit-table .lap-table td:nth-child(n+2) {
+  width: 22%;
+}
+
 .status-notice {
   color: #ffbcb4;
   text-align: center;

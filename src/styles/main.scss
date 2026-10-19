@@ -585,6 +585,16 @@ input:focus-visible {
   color: #171716;
 }
 
+.pursuit-table .lap-table th:nth-child(1),
+.pursuit-table .lap-table td:nth-child(1) {
+  width: 12%;
+}
+
+.pursuit-table .lap-table th:nth-child(n + 2),
+.pursuit-table .lap-table td:nth-child(n + 2) {
+  width: 22%;
+}
+
 .status-notice {
   flex: 0 0 1.2rem;
   min-height: 1.2rem;

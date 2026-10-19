@@ -146,8 +146,8 @@ export function recordLap(timer, now) {
   };
 }
 
-export function getPursuitPace(lap, settings) {
-  const lapNumber = Number(lap.lapNumber);
+export function getPursuitDelta(lap, settings, lapNumber = lap.lapNumber) {
+  lapNumber = Number(lapNumber);
   const firstLapSeconds = Number(settings.firstLapSeconds);
   const otherLapsSeconds = Number(settings.otherLapsSeconds);
   if (
@@ -156,16 +156,23 @@ export function getPursuitPace(lap, settings) {
     !Number.isFinite(firstLapSeconds) ||
     !Number.isFinite(otherLapsSeconds)
   ) {
-    return "neutral";
+    return null;
   }
 
   const targetElapsedMs =
     (firstLapSeconds + (lapNumber - 1) * otherLapsSeconds) * 1000;
   if (targetElapsedMs <= 0 || !Number.isFinite(lap.elapsedMs)) {
-    return "neutral";
+    return null;
   }
-  if (lap.elapsedMs < targetElapsedMs) return "ahead";
-  if (lap.elapsedMs > targetElapsedMs) return "behind";
+
+  return lap.elapsedMs - targetElapsedMs;
+}
+
+export function getPursuitPace(lap, settings) {
+  const deltaMs = getPursuitDelta(lap, settings);
+  if (deltaMs === null) return "neutral";
+  if (deltaMs < 0) return "ahead";
+  if (deltaMs > 0) return "behind";
   return "on-pace";
 }
 
